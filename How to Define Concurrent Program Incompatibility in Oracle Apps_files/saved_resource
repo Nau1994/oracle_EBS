@@ -1,0 +1,38 @@
+
+var ftGUID_4214974="460983034F5529";
+var ftConfID_4214974="0";
+var ftParams_4214974="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_ifb=1&ft_domain=www.oracleknowhow.com&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.oracleknowhow.com%2F&cachebuster=384278.46032176685";
+var ftKeyword_4214974="";
+var ftCustom_4214974="";
+var ftSection_4214974="";
+var ftSegment_4214974="um2,w2b,afr5";
+var ftSegmentList_4214974=[{s:'um2'},{s:'w2b'},{s:'afr5'}];
+var ftRuleMatch_4214974="0";
+var ftTimestamp_4214974="1631737515";
+var ftGeoC2_4214974="in";
+var ftGeoState_4214974="mh";
+var ftGeoCity_4214974="pune";
+var ftISP_4214974="netcom enterprises pvt ltd";
+var ftSpeed_4214974="broadband";
+var ftDMA_4214974="356005";
+var ftLong_4214974="73.78";
+var ftLat_4214974="18.63";
+var ftPostal_4214974="411033";
+var ftTimeZone_4214974="530";
+var ftMobileCarrier_4214974="";
+var ftImp4214974 = {};
+ftImp4214974.privacy = "x";
+ftImp4214974.guidAge = "397";
+ftImp4214974.impID = "76E2DF50-A1EB-99F8-8E59-C719FC6BA7EC";
+ftImp4214974.duid = "FT:460983034F5529";
+
+ftImp4214974.ft_tpplid = "";
+ftImp4214974.ft_c = {};
+ftImp4214974.gdpr = "";
+ftImp4214974.gdpr_consent = "";
+ftImp4214974.gdpr_pd = "";
+ftImp4214974.oob_consent = "";
+ftImp4214974.gdprStoredConsent = "";
+ftImp4214974.us_privacy = "";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/421/4214974/3280925/js/j-4214974-3280925.js" id="ftscript_m4214974" name="ftscript_m4214974"></scr'+'ipt>');

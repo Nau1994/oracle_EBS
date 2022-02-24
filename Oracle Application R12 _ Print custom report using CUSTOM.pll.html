@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/ -->
+<html lang="en-US" class="jetpack-lazy-images-js-enabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://simpleoracle.com/xmlrpc.php">
+
+<title>Oracle Application R12 | Print custom report using CUSTOM.pll – Duh! Microsoft did it again</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<link rel="dns-prefetch" href="https://c0.wp.com/">
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com/">
+<link rel="alternate" type="application/rss+xml" title="Duh! Microsoft did it again » Feed" href="https://simpleoracle.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Duh! Microsoft did it again » Comments Feed" href="https://simpleoracle.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Duh! Microsoft did it again » Oracle Application R12 | Print custom report using CUSTOM.pll Comments Feed" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/feed/">
+		<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(10).txt"></script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/osd.js.download"></script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(11).txt"></script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(12).txt" id="google_shimpl"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/simpleoracle.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.1"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/wp-emoji-release.min.js(1).download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="all-css-acf4bf86ea819e576aac0a47d548d5ce" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(4)" type="text/css" media="all">
+<style id="wp-block-library-inline-css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--huge: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}
+</style>
+<link crossorigin="anonymous" rel="stylesheet" id="lovecraft-fonts-css" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/css(1)" media="all">
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script id="jetpack_related-posts-js-extra">
+var related_posts_js_options = {"post_heading":"h4"};
+</script>
+<script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/related-posts.min.js.download"></script>
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/jquery-migrate.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://simpleoracle.com/wp-json/"><link rel="alternate" type="application/json" href="https://simpleoracle.com/wp-json/wp/v2/posts/4339"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://simpleoracle.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://simpleoracle.com/wp-includes/wlwmanifest.xml"> 
+
+<link rel="canonical" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/">
+<link rel="shortlink" href="https://wp.me/pOMGl-17Z">
+<link rel="alternate" type="application/json+oembed" href="https://simpleoracle.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsimpleoracle.com%2F2020%2F01%2F02%2Foracle-application-r12-print-custom-report-using-custom-pll%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://simpleoracle.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsimpleoracle.com%2F2020%2F01%2F02%2Foracle-application-r12-print-custom-report-using-custom-pll%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.42.0"><script data-ad-client="ca-pub-5314925844663817" async="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(13).txt" data-checked-head="true"></script><style type="text/css">img#wpstats{display:none}</style>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<style type="text/css">
+.widget_twitter li {
+	word-wrap: break-word;
+}
+</style>
+<link rel="amphtml" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/amp/">			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+<!-- Google AdSense snippet added by Site Kit -->
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(14).txt" crossorigin="anonymous" type="text/javascript" data-checked-head="true"></script><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A2YAd4xOntTGygIDjApOTtXOgVI3IWsd5OnOGq3RbRkIQwyqYWNl1JGRAcvtm6VOHDj4n07T/J19VqLuJn3MmQ8AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A2c5Ux+hivdkLh/KbZUGr6f7SCR0mZrBVfPJ+/OuDVHNwiYv+Lo83b9z5qL8sod78bQl0pSLtbvRWURo+xRl7AIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AzNJ4sd3tVurolpdvWYZ4cmP9Po7RJhEHSqmC3pgxW9fFVZvchhtcMUgHAs97npxMD1jhXHO8s6q6Wy1MMLxKgEAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9">
+<script type="text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({"google_ad_client":"ca-pub-5314925844663817","enable_page_level_ads":true,"tag_partner":"site_kit"});
+</script>
+
+<!-- End Google AdSense snippet added by Site Kit -->
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle Application R12 | Print custom report using CUSTOM.pll">
+<meta property="og:url" content="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/">
+<meta property="og:description" content="Hello guys, Happy New Year! Today we will see how we can use CUSTOM.pll for enabling special menus and printing a custom report by invoking the special menu that we activate using the library. We a…">
+<meta property="article:published_time" content="2020-01-02T11:56:06+00:00">
+<meta property="article:modified_time" content="2020-01-03T11:14:51+00:00">
+<meta property="og:site_name" content="Duh! Microsoft did it again">
+<meta property="og:image" content="https://simpleoracle.com/wp-content/uploads/2020/01/image.png">
+<meta property="og:image:width" content="307">
+<meta property="og:image:height" content="680">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="Oracle Application R12 | Print custom report using CUSTOM.pll">
+<meta name="twitter:image" content="https://simpleoracle.com/wp-content/uploads/2020/01/image.png?w=640">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- End Jetpack Open Graph Tags -->
+		<script type="text/javascript">
+			var __ATA_PP = { pt: 1, ht: 1, tn: 'lovecraft', amp: false, siteid: 12103537, consent: 0, ad: { label: { text: 'Advertisements' }, reportAd: { text: 'Report this ad' } } };
+			var __ATA = __ATA || {};
+			__ATA.cmd = __ATA.cmd || [];
+			__ATA.criteo = __ATA.criteo || {};
+			__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+				<script type="text/javascript">
+		(function(){var g=Date.now||function(){return+new Date};function h(a,b){a:{for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"==typeof a?a.charAt(b):a[b]};function k(a,b,c){c=null!=c?"="+encodeURIComponent(String(c)):"";if(b+=c){c=a.indexOf("#");0>c&&(c=a.length);var d=a.indexOf("?");if(0>d||d>c){d=c;var e=""}else e=a.substring(d+1,c);a=[a.substr(0,d),e,a.substr(c)];c=a[1];a[1]=b?c?c+"&"+b:b:c;a=a[0]+(a[1]?"?"+a[1]:"")+a[2]}return a};var l=0;function m(a,b){var c=document.createElement("script");c.src=a;c.onload=function(){b&&b(void 0)};c.onerror=function(){b&&b("error")};a=document.getElementsByTagName("head");var d;a&&0!==a.length?d=a[0]:d=document.documentElement;d.appendChild(c)}function n(a){var b=void 0===b?document.cookie:b;return(b=h(b.split("; "),function(c){return-1!=c.indexOf(a+"=")}))?b.split("=")[1]:""}function p(a){return"string"==typeof a&&0<a.length}
+		function r(a,b,c){b=void 0===b?"":b;c=void 0===c?".":c;var d=[];Object.keys(a).forEach(function(e){var f=a[e],q=typeof f;"object"==q&&null!=f||"function"==q?d.push(r(f,b+e+c)):null!==f&&void 0!==f&&(e=encodeURIComponent(b+e),d.push(e+"="+encodeURIComponent(f)))});return d.filter(p).join("&")}function t(a,b){a||((window.__ATA||{}).config=b.c,m(b.url))}var u=Math.floor(1E13*Math.random()),v=window.__ATA||{};window.__ATA=v;window.__ATA.cmd=v.cmd||[];v.rid=u;v.createdAt=g();var w=window.__ATA||{},x="s.pubmine.com";
+		w&&w.serverDomain&&(x=w.serverDomain);var y="//"+x+"/conf",z=window.top===window,A=window.__ATA_PP&&window.__ATA_PP.gdpr_applies,B="boolean"===typeof A?Number(A):null,C=window.__ATA_PP||null,D=z?document.referrer?document.referrer:null:null,E=z?window.location.href:document.referrer?document.referrer:null,F,G=n("__ATA_tuuid");F=G?G:null;var H=window.innerWidth+"x"+window.innerHeight,I=n("usprivacy"),J=r({gdpr:B,pp:C,rid:u,src:D,ref:E,tuuid:F,vp:H,us_privacy:I?I:null},"",".");
+		(function(a){var b=void 0===b?"cb":b;l++;var c="callback__"+g().toString(36)+"_"+l.toString(36);a=k(a,b,c);window[c]=function(d){t(void 0,d)};m(a,function(d){d&&t(d)})})(y+"?"+J);}).call(this);
+		</script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/conf"></script>
+		<link rel="icon" href="https://s0.wp.com/i/webclip.png" sizes="32x32">
+<link rel="icon" href="https://s0.wp.com/i/webclip.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://s0.wp.com/i/webclip.png">
+<meta name="msapplication-TileImage" content="https://s0.wp.com/i/webclip.png">
+		<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/hovercard.min(1).css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/services.min(1).css"><link rel="preload" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(15).txt" as="script"><script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(15).txt"></script><link rel="preload" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(16).txt" as="script"><script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/f(16).txt"></script><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A2YAd4xOntTGygIDjApOTtXOgVI3IWsd5OnOGq3RbRkIQwyqYWNl1JGRAcvtm6VOHDj4n07T/J19VqLuJn3MmQ8AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A2c5Ux+hivdkLh/KbZUGr6f7SCR0mZrBVfPJ+/OuDVHNwiYv+Lo83b9z5qL8sod78bQl0pSLtbvRWURo+xRl7AIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AzNJ4sd3tVurolpdvWYZ4cmP9Po7RJhEHSqmC3pgxW9fFVZvchhtcMUgHAs97npxMD1jhXHO8s6q6Wy1MMLxKgEAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/ata.js.download"></script><script charset="utf-8" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/3.js.download"></script><script charset="utf-8" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/button.5d16ecc02fbaf599a24dfb57ab239320.js.download"></script></head><iframe id="google_esf" name="google_esf" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/zrt_lookup.html" style="display: none;"></iframe><body class="post-template-default single single-post postid-4339 single-format-standard" aria-hidden="false" style="padding: 0px;"><div id="atatags-121035372-6153254783ea4" data-adtags-width="1349"></div>
+		
+		<script>
+			__ATA.cmd.push(function() {
+				__ATA.initDynamicSlot({
+					id: 'atatags-121035372-6153254783ea4',
+					location: 110,
+					formFactor: '002',
+					label: {
+						text: 'Advertisements',
+					},
+					creative: {
+						reportAd: {
+							text: 'Report this ad',
+						},
+						privacySettings: {
+							text: 'Privacy settings',
+						}
+					}
+				});
+			});
+		</script><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><ins id="aswift_0_expand" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-load-complete="true"></iframe></ins></ins></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"></ins>
+
+
+<div id="page" class="hfeed site" style="height: auto !important;">
+	<a class="skip-link screen-reader-text" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+							<a href="https://simpleoracle.com/" class="site-logo-link" rel="home" itemprop="url"></a>						<h1 class="site-title"><a href="https://simpleoracle.com/" rel="home">Duh! Microsoft did it again</a></h1>
+			<p class="site-description">(They always discourage &amp; We always do)</p>
+		</div><!-- .site-branding -->
+
+		<div class="toggles clear">
+			<button class="menu-toggle toggle" aria-controls="primary-menu" aria-expanded="false">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<span class="screen-reader-text">Menu</span>
+			</button><!-- .menu-toggle -->
+			<button class="search-toggle toggle">
+				<div class="genericon genericon-search" aria-expanded="false">
+					<span class="screen-reader-text">Search</span>
+				</div><!-- .genericon-search -->
+			</button><!-- .search-toggle -->
+		</div><!-- .toggles -->
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<div id="primary-menu" class="menu"><ul aria-expanded="false" class=" nav-menu">
+<li class="page_item page-item-2"><a href="https://simpleoracle.com/about/">About</a></li>
+<li class="page_item page-item-3083"><a href="https://simpleoracle.com/contact-me/">Contact me</a></li>
+<li class="page_item page-item-1271"><a href="https://simpleoracle.com/donate-please/">Donate, Please</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+
+		<div class="mobile-search" style="display: none;">
+			<form role="search" method="get" class="search-form" action="https://simpleoracle.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit">
+		<span class="genericon genericon-search">
+			<span class="screen-reader-text">Search</span>
+		</span>
+	</button>
+</form>		</div>
+	</header><!-- #masthead -->
+
+			<a class="header-image-wrapper" href="https://simpleoracle.com/" rel="home">
+			<div class="header-image bg-image" style="background-image: url(https://simpleoracle.com/wp-content/themes/lovecraft/images/header.jpg)">
+				<img src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/header.jpg" width="1280" height="444" alt="">
+			</div>
+		</a>
+	
+	<div id="content" class="site-content" style="height: auto !important;">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-4339" class="post-4339 post type-post status-publish format-standard hentry category-oracle-applications-r12-0-4 category-oracle-applicationsr12 tag-custom-pll tag-editor_pkg-report tag-fnd_request-submit_request tag-oracle-application">
+	<div class="entry-wrapper">
+		<header class="entry-header">
+			<h1 class="entry-title">Oracle Application R12 | Print custom report using CUSTOM.pll</h1>
+							<div class="entry-meta">
+					<span class="posted-on">On <a href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/" rel="bookmark"><time class="entry-date published" datetime="2020-01-02T14:56:06+03:00">January 2, 2020</time><time class="updated" datetime="2020-01-03T14:14:51+03:00">January 3, 2020</time></a></span><span class="byline"> By <span class="author vcard"><a class="url fn n" href="https://simpleoracle.com/author/windows7bugs/">windows7bugs</a></span></span><span class="cat-links">In <a href="https://simpleoracle.com/category/oracle-applications-r12-0-4/" rel="category tag">Oracle Applications (R12.0.4)</a>, <a href="https://simpleoracle.com/category/windows-7/oracle-related/oracle-applicationsr12/" rel="category tag">Oracle Applications(R12)</a></span>				</div><!-- .entry-meta -->
+					</header><!-- .entry-header -->
+
+		<div class="entry-content">
+			
+<p data-adtags-visited="true">Hello guys,</p>
+
+
+
+<p data-adtags-visited="true">Happy New Year!</p>
+
+
+
+<p data-adtags-visited="true">Today we will see how we can use CUSTOM.pll for enabling special menus and printing a custom report by invoking the special menu that we activate using the library.</p>
+
+
+
+<p data-adtags-visited="true">We are going to use Oracle’s seeded form “POXPOEPO” AKA Purchase Orders.</p>
+
+
+
+<p data-adtags-visited="true">Please make sure that you make a backup for the CUSTOM.pll prior making below said modifications. CUSTOM.pll is “always” found uner $AU_TOP/resources folder</p>
+
+
+
+<p data-adtags-visited="true">We’ll enable the SPECIAL15 menu item for the exercise. </p>
+
+
+
+<p data-adtags-visited="true">Load up CUSTOM.pll using Oracle Forms Designer &amp; make sure you are connected to database before loading the library file.</p>
+
+
+
+<p data-adtags-visited="true">Attach APPCORE, APPCORE2 libraries with your copy of CUSTOM.pll</p>
+
+
+
+<p data-adtags-visited="true">Attach FNDCONC.pll library for calling printing related activities</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?ssl=1"><img data-attachment-id="4340" data-permalink="https://simpleoracle.com/image-4/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=307%2C680&amp;ssl=1" data-orig-size="307,680" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=135%2C300&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=307%2C680&amp;ssl=1" loading="eager" width="307" height="680" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/image.png" alt="" class="wp-image-4340 jetpack-lazy-image jetpack-lazy-image--handled" data-recalc-dims="1" data-lazy-loaded="1"><noscript><img data-attachment-id="4340" data-permalink="https://simpleoracle.com/image-4/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=307%2C680&amp;ssl=1" data-orig-size="307,680" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=135%2C300&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?fit=307%2C680&amp;ssl=1" loading="lazy" width="307" height="680" src="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image.png?resize=307%2C680&#038;ssl=1" alt="" class="wp-image-4340" data-recalc-dims="1" /></noscript></a></figure>
+
+
+
+<p data-adtags-visited="true">Your CUSTOM.pll should look like the above after attaching said libraries.</p>
+
+
+
+<p class="inline-ad-slot" id="inline-ad-0" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:629px;" data-adtags-width="629" data-adtags-visited="true"></p><p data-adtags-visited="true">Add the block as seen with the image by the bottom of your CUSTOM.pll package body.</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?ssl=1"><img data-attachment-id="4342" data-permalink="https://simpleoracle.com/image-1-3/" data-orig-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=697%2C773&amp;ssl=1" data-orig-size="697,773" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-1" data-image-description="" data-image-caption="" data-medium-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=271%2C300&amp;ssl=1" data-large-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=640%2C710&amp;ssl=1" loading="eager" width="640" height="710" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/image-1.png" alt="" class="wp-image-4342 jetpack-lazy-image jetpack-lazy-image--handled" data-recalc-dims="1" data-lazy-loaded="1"><noscript><img data-attachment-id="4342" data-permalink="https://simpleoracle.com/image-1-3/" data-orig-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=697%2C773&amp;ssl=1" data-orig-size="697,773" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-1" data-image-description="" data-image-caption="" data-medium-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=271%2C300&amp;ssl=1" data-large-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?fit=640%2C710&amp;ssl=1" loading="lazy" width="640" height="710" src="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-1.png?resize=640%2C710&#038;ssl=1" alt="" class="wp-image-4342" data-recalc-dims="1" /></noscript></a></figure>
+
+
+
+<pre class="wp-block-syntaxhighlighter-code">BEGIN
+  IF (event_name = 'WHEN-NEW-FORM-INSTANCE') THEN
+     IF (l_form_name = 'POXPOEPO' AND l_block_name = 'PO_HEADERS') THEN	 
+    -- 	fnd_message.debug(l_form_name);
+     	app_special2.instantiate('SPECIAL15', '&amp;Print', 'prord',TRUE,'LINE');
+     END IF;
+  END IF;
+  
+END;</pre>
+
+
+
+<p>Now you can proceed with writing code for what happens when “SPECIAL15” event happens</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?ssl=1"><img data-attachment-id="4344" data-permalink="https://simpleoracle.com/image-2-2/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=643%2C333&amp;ssl=1" data-orig-size="643,333" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-2" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=300%2C155&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=640%2C331&amp;ssl=1" loading="eager" width="640" height="331" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/image-2.png" alt="" class="wp-image-4344 jetpack-lazy-image jetpack-lazy-image--handled" data-recalc-dims="1" data-lazy-loaded="1"><noscript><img data-attachment-id="4344" data-permalink="https://simpleoracle.com/image-2-2/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=643%2C333&amp;ssl=1" data-orig-size="643,333" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-2" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=300%2C155&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?fit=640%2C331&amp;ssl=1" loading="lazy" width="640" height="331" src="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-2.png?resize=640%2C331&#038;ssl=1" alt="" class="wp-image-4344" data-recalc-dims="1" /></noscript></a></figure>
+
+
+
+<pre class="wp-block-syntaxhighlighter-code">BEGIN
+  IF (event_name = 'SPECIAL15') THEN
+     IF (l_form_name = 'POXPOEPO' AND l_block_name = 'PO_HEADERS') THEN	 
+     	print_po(name_in('PO_HEADERS.ORG_ID'),name_in('PO_HEADERS.SEGMENT1'));
+     	--fnd_message.debug('Will Print This Order');
+    --app_special2.instantiate('SPECIAL15', '&amp;Print', 'prord',TRUE,'LINE');
+     END IF;
+  END IF;
+  
+END;</pre>
+
+
+
+<p>Here, I am calling a procedure that I defined with CUSTOM.pll for handling print requests.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-attachment-id="4345" data-permalink="https://simpleoracle.com/image-3-2/" data-orig-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=627%2C455&amp;ssl=1" data-orig-size="627,455" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-3" data-image-description="" data-image-caption="" data-medium-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=300%2C218&amp;ssl=1" data-large-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=627%2C455&amp;ssl=1" loading="lazy" width="627" height="455" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/image-3.png" alt="" class="wp-image-4345 jetpack-lazy-image" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?resize=627%2C455&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-attachment-id="4345" data-permalink="https://simpleoracle.com/image-3-2/" data-orig-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=627%2C455&amp;ssl=1" data-orig-size="627,455" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-3" data-image-description="" data-image-caption="" data-medium-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=300%2C218&amp;ssl=1" data-large-file="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?fit=627%2C455&amp;ssl=1" loading="lazy" width="627" height="455" src="https://i2.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-3.png?resize=627%2C455&#038;ssl=1" alt="" class="wp-image-4345" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p>and the package body is as following (not another image, I am going to save some efforts for you)</p>
+
+
+
+<pre class="wp-block-syntaxhighlighter-code">procedure print_po(p_org_id IN NUMBER, p_order_number IN VARCHAR2) is
+		l_ord_num               NUMBER := 0;
+		l_ord_type_name         VARCHAR2 (240);
+		l_req_id_Rep            NUMBER;
+		l_request_completed     BOOLEAN := FALSE;
+		l_req_phase             VARCHAR2 (20);
+		l_req_status            VARCHAR2 (1000);
+		l_req_dev_phase         VARCHAR2 (1000);
+		l_req_dev_status        VARCHAR2 (1000);
+		l_req_message           VARCHAR2 (1000);
+		l_conc_mgr_status       NUMBER;
+		p_call_stat             NUMBER;
+		p_activep_stat          NUMBER;
+		
+		l_order_category_code   NUMBER;
+		l_report_name       VARCHAR2 (40);
+		l_ret_report_name       VARCHAR2 (40);
+		l_req_id 								NUMBER;
+		l_order_type_name				VARCHAR2(30);
+		
+		--
+		
+		l_signing_person VARCHAR2(240);
+		l_person_designation VARCHAR2(240);
+		
+		
+BEGIN
+--fnd_message.debug('Will Print This Order');
+
+/*This is a custom procedure that checks whether the concurrent manager is online or not, you can safely comment this line
+   --Check the status of Concurrent Manager
+   apps.xx_conc_mgr_status_p (p_call_stat, p_activep_stat);
+
+
+   IF p_call_stat &lt;&gt; 0
+   THEN
+      fnd_message.set_string ('Concurrent Manager Status Unknown');
+      fnd_message.show;
+   ELSE
+      IF p_activep_stat &gt; 0
+      THEN
+         NULL;                       --Message('ICM is running' || l_activep);
+      ELSE
+         fnd_message.set_string (
+            'Concurrent Manager is down, Please try printing the invoice later');
+         fnd_message.show;
+         RAISE form_trigger_failure;
+      END IF;
+   END IF;
+
+   --Checking concurrent manager status end----
+ --  MESSAGE ('Concurrent manager status: up &amp; running');
+*/
+
+ BEGIN
+/* I am picking up the reports names (concurrent_program_name from FND_CONCURRENT_PROGRAMS_VL view as we have different layouts for companies
+you can set up a value for l_report_name while variable is defined
+---
+--
+   SELECT execution_file_name,STRING1, STRING2
+     INTO l_report_name, l_signing_person, l_person_designation
+     FROM omspoprintreg
+    WHERE 1 = 1 AND organization_id = p_org_id
+          AND TRUNC (SYSDATE) BETWEEN start_date_active
+                                  AND NVL (end_date_active, SYSDATE);
+EXCEPTION
+   WHEN NO_DATA_FOUND
+   THEN
+      fnd_message.set_string (
+         'No reports defined for this type of transaction, Please contact OM Super User');
+      fnd_message.show;
+      RAISE form_trigger_failure;
+END;
+
+--   FND_MESSAGE.DEBUG('Printing Order '||p_org_id||' order number '||p_order_number);
+*/
+--
+--   
+   l_req_id :=
+      fnd_request.submit_request ('PO',
+                                  l_report_name,
+                                  NULL,
+                                  SYSDATE,
+                                  FALSE,
+                                  P_ORG_ID,
+                                  P_ORDER_NUMBER, 
+                                  l_signing_person,
+                                  l_person_designation,
+                                  chr(0));
+--You cannot setup :SYSTEM.MESSAGE_LEVEL within CUSTOM.pll, hence use COPY 
+--to suppress messages like 'Two records saved'
+
+   COPY('25','SYSTEM.MESSAGE_LEVEL');
+   COMMIT;
+  
+  -- FND_MESSAGE.DEBUG('Your request id is '||l_req_id);
+
+
+   l_request_completed :=
+      fnd_concurrent.wait_for_request (request_id   =&gt; l_req_id,
+                                       INTERVAL     =&gt; 1,
+                                       phase        =&gt; l_req_phase,
+                                       status       =&gt; l_req_status,
+                                       dev_phase    =&gt; l_req_dev_phase,
+                                       dev_status   =&gt; l_req_dev_status,
+                                       MESSAGE      =&gt; l_req_message);
+  --:SYSTEM.Message_Level := '25';
+  COMMIT;
+  editor_pkg.report (l_req_id, 'Y');
+
+end print_po;</pre>
+
+
+
+<p>That’s it!</p>
+
+
+
+<p>Now copy the CUSTOM.pll to $AU_TOP/resources &amp; compile it</p>
+
+
+
+<pre class="wp-block-syntaxhighlighter-code">frmcmp_batch module=CUSTOM.pll userid=apps/apps output_file=CUSTOM.plx module_type=LIBRARY batch=yes compile_all=special</pre>
+
+
+
+<p>If you don’t have syntax errors or other, you must have the fresh CUSTOM.pll</p>
+
+
+
+<p>Please make sure that no users are currently online while you are compiling the CUSTOM.pll (This is only applicable to cases where the CUSTOM.pll is already deployed for different forms)</p>
+
+
+
+<p>Log on to the instance, access Purchase Orders form &amp; you should see a new menu item under “Tools” menu enabled</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?ssl=1"><img data-attachment-id="4349" data-permalink="https://simpleoracle.com/image-4-2/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=999%2C680&amp;ssl=1" data-orig-size="999,680" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-4" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=300%2C204&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=640%2C436&amp;ssl=1" loading="lazy" width="640" height="436" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/image-4.png" alt="" class="wp-image-4349 jetpack-lazy-image" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?resize=640%2C436&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-attachment-id="4349" data-permalink="https://simpleoracle.com/image-4-2/" data-orig-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=999%2C680&amp;ssl=1" data-orig-size="999,680" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-4" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=300%2C204&amp;ssl=1" data-large-file="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?fit=640%2C436&amp;ssl=1" loading="lazy" width="640" height="436" src="https://i0.wp.com/simpleoracle.com/wp-content/uploads/2020/01/image-4.png?resize=640%2C436&#038;ssl=1" alt="" class="wp-image-4349" data-recalc-dims="1" /></noscript></a></figure>
+
+
+
+<p>While CUSTOM.pll implements “editor_pkg.report” by attaching FNDCONC.pll, FORMS personalization will fail to provide the same functionality as most of the seeded forms do not have FNDCONC library attached to them by default. If you don’t want to use editor_pkg.report to open the completed report, you may create a database level procedure to submit the request(s) and call the same against SPECIAL(n) menu item through FORMS personalization.</p>
+
+
+
+<p>Enjoy!</p>
+
+
+
+<p>rajesh</p>
+
+
+
+<p></p>
+		<div id="atatags-121035371-6153254789d7c" data-adtags-width="629"></div>
+		
+		<script>
+			__ATA.cmd.push(function() {
+				__ATA.initDynamicSlot({
+					id: 'atatags-121035371-6153254789d7c',
+					location: 120,
+					formFactor: '001',
+					label: {
+						text: 'Advertisements',
+					},
+					creative: {
+						reportAd: {
+							text: 'Report this ad',
+						},
+						privacySettings: {
+							text: 'Privacy settings',
+						}
+					}
+				});
+			});
+		</script><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul data-sharing-events-added="true"><li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-4339" class="share-linkedin sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-4339" class="share-twitter sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-tumblr"><a rel="nofollow noopener noreferrer" data-shared="" class="share-tumblr sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/?share=tumblr&amp;nb=1" target="_blank" title="Click to share on Tumblr"><span>Tumblr</span></a></li><li><a href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;width:150px;" data-sharing-more-button-id="0"><ul style="background-image:none;" data-sharing-events-added="true"><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-4339" class="share-facebook sd-button share-icon" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-post-wrapper-12103537-4339-615325478a2df" data-src="https://widgets.wp.com/likes/#blog_id=12103537&amp;post_id=4339&amp;origin=simpleoracle.com&amp;obj_id=12103537-4339-615325478a2df" data-name="like-post-frame-12103537-4339-615325478a2df" data-title="Like or Reblog"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="869" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://simpleoracle.com/2013/09/10/oracle-migrating-from-developer-6i-to-11g-weblogic-application-server-10-3-6/?relatedposts_hit=1&amp;relatedposts_origin=4339&amp;relatedposts_position=0" title="Oracle, Migrating from Developer 6i to 11g &amp;amp; Weblogic Application Server 10.3.6" data-origin="4339" data-position="0">Oracle, Migrating from Developer 6i to 11g &amp; Weblogic Application Server 10.3.6</a></span><time class="jp-relatedposts-post-date" datetime="September 10, 2013" style="display: block;">September 10, 2013</time><span class="jp-relatedposts-post-context">In "Oracle related"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="3496" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://simpleoracle.com/2018/05/03/weblogic-12c-upgrading-existing-environment/?relatedposts_hit=1&amp;relatedposts_origin=4339&amp;relatedposts_position=1" title="WebLogic 12c | Upgrading existing environment" data-origin="4339" data-position="1">WebLogic 12c | Upgrading existing environment</a></span><time class="jp-relatedposts-post-date" datetime="May 3, 2018" style="display: block;">May 3, 2018</time><span class="jp-relatedposts-post-context">In "Oracle related"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="836" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://simpleoracle.com/2013/04/16/oracle-applications-style-set_who-for-custom-applications/?relatedposts_hit=1&amp;relatedposts_origin=4339&amp;relatedposts_position=2" title="Oracle Applications style &amp;ldquo;set_who&amp;rdquo; for custom applications" data-origin="4339" data-position="2">Oracle Applications style “set_who” for custom applications</a></span><time class="jp-relatedposts-post-date" datetime="April 16, 2013" style="display: block;">April 16, 2013</time><span class="jp-relatedposts-post-context">In "Oracle related"</span></p></div></div>					</div><!-- .entry-content -->
+
+		<footer class="entry-footer">
+			<span class="tags-links"><a href="https://simpleoracle.com/tag/custom-pll/" rel="tag">custom.pll</a><a href="https://simpleoracle.com/tag/editor_pkg-report/" rel="tag">editor_pkg.report</a><a href="https://simpleoracle.com/tag/fnd_request-submit_request/" rel="tag">fnd_request.submit_request</a><a href="https://simpleoracle.com/tag/oracle-application/" rel="tag">Oracle Application</a></span>					</footer><!-- .entry-footer -->
+	</div>
+</article><!-- #post-## -->
+
+
+			
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://simpleoracle.com/2019/11/18/windows-10-surround-sound-vlc-player/" rel="prev"><span class="meta-nav">Previous</span> <h4>Windows 10 | Surround Sound &amp; VLC Player</h4></a></div><div class="nav-next"><a href="https://simpleoracle.com/2020/01/29/mitel-e1-trunk-noise-issues-after-mivoice-business-upgrade/" rel="next"><span class="meta-nav">Next</span> <h4>Mitel | E1 Trunk noise issues after MiVoice Business Upgrade</h4></a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+	<div class="comments-wrapper">
+		
+		
+		
+		
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(15).html" name="jetpack_remote_comment" style="width: 100%; height: 58px; border: 0px;" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups" scrolling="no">
+									</iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							<input id="ak_js" name="ak_js" type="hidden" value="1632860306216"></form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>	</div>
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<div id="secondary" class="widget-area" role="complementary" style="height: auto !important;">
+	<aside id="search-3" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://simpleoracle.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit">
+		<span class="genericon genericon-search">
+			<span class="screen-reader-text">Search</span>
+		</span>
+	</button>
+</form></aside><aside id="twitter-2" class="widget widget_twitter"><h1 class="widget-title"><a href="http://twitter.com/w7bugs">We are on twitter</a></h1><ul class="tweets">
+			<li>
+				Throughout my 10+ years blogging, only one visitor ever told me my "Donate please" is different. It looks like not… <a href="https://twitter.com/i/web/status/1438410854219845633"> twitter.com/i/web/status/1…</a> 				<a href="http://twitter.com/w7bugs/statuses/1438410854219845633" class="timesince">1&nbsp;week&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				After 6 months of absence from developing <a href="http://twitter.com/search?q=%23Oracle">#Oracle</a> forms, I'm having tough times getting a loop set block column values :/ <a href="http://twitter.com/search?q=%23developerlife">#developerlife</a> 				<a href="http://twitter.com/w7bugs/statuses/1435448900370980866" class="timesince">2&nbsp;weeks&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				Exit PL/SQL block when exception happens &amp; stop executing rest of the code.
+<a href="https://simpleoracle.com/2021/06/01/oracle-pl-sql-exiting-without-executing-rest-of-the-code-block/"> simpleoracle.com/2021/06/01/ora…</a> 				<a href="http://twitter.com/w7bugs/statuses/1399667710611574789" class="timesince">3&nbsp;months&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				It took me 3 days (few hours everyday) to realize that I was not enclosing the hidden input within the form tag. Th… <a href="https://twitter.com/i/web/status/1393218842437033989"> twitter.com/i/web/status/1…</a> 				<a href="http://twitter.com/w7bugs/statuses/1393218842437033989" class="timesince">4&nbsp;months&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				We had a salesman who always managed to crash carefully crafted, tested in-house developed applications.
+So we came… <a href="https://twitter.com/i/web/status/1380018656298549248"> twitter.com/i/web/status/1…</a> 				<a href="http://twitter.com/w7bugs/statuses/1380018656298549248" class="timesince">5&nbsp;months&nbsp;ago</a>
+			</li>
+
+			</ul><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 115px; height: 20px;" title="Twitter Follow Button" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/follow_button.f88235f49a156f8b4cab34c7bc1a0acc.en.html" data-screen-name="w7bugs"></iframe></aside><aside id="calendar-2" class="widget widget_calendar"><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar" class="wp-calendar-table">
+	<caption>January 2020</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Sunday">S</th>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td colspan="3" class="pad">&nbsp;</td><td>1</td><td><a href="https://simpleoracle.com/2020/01/02/" aria-label="Posts published on January 2, 2020">2</a></td><td>3</td><td>4</td>
+	</tr>
+	<tr>
+		<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+	</tr>
+	<tr>
+		<td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+	</tr>
+	<tr>
+		<td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+	</tr>
+	<tr>
+		<td>26</td><td>27</td><td>28</td><td><a href="https://simpleoracle.com/2020/01/29/" aria-label="Posts published on January 29, 2020">29</a></td><td>30</td><td>31</td>
+		<td class="pad" colspan="1">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table><nav aria-label="Previous and next months" class="wp-calendar-nav">
+		<span class="wp-calendar-nav-prev"><a href="https://simpleoracle.com/2019/11/">« Nov</a></span>
+		<span class="pad">&nbsp;</span>
+		<span class="wp-calendar-nav-next"><a href="https://simpleoracle.com/2020/02/">Feb »</a></span>
+	</nav></div></aside><aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Top Posts</h1><ul>				<li>
+					<a href="https://simpleoracle.com/2019/11/08/install-oracle-forms-reports-12-2-1-4-with-weblogic-12c-12-2-1-4/" class="bump-view" data-bump-view="tp">Install Oracle forms &amp; reports 12.2.1.4 with Weblogic 12c 12.2.1.4</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2018/03/03/rman-restore-linux-backup-to-windows/" class="bump-view" data-bump-view="tp">RMAN | Restore Linux Backup to Windows</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2017/02/13/ora-12546-tns-permission-denied/" class="bump-view" data-bump-view="tp">ORA-12546: TNS: permission denied</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2021/01/20/oracle-forms-reports-12c-publishing-a-sample-application/" class="bump-view" data-bump-view="tp">Oracle Forms &amp; Reports 12c | Publishing a sample application</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2017/04/26/windows-10-map-smsmms-other-devices/" class="bump-view" data-bump-view="tp">Windows 10 | MAP SMS/MMS Other devices</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2018/05/03/weblogic-12c-upgrading-existing-environment/" class="bump-view" data-bump-view="tp">WebLogic 12c | Upgrading existing environment</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2021/01/21/virtualbox-windows-10-guests-too-slow/" class="bump-view" data-bump-view="tp">VirtualBox | Windows 10 Guests too slow</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2010/03/01/installing-oracle-developer-forms-reports-6i-on-windows-7-64bit/" class="bump-view" data-bump-view="tp">Installing Oracle Developer (forms &amp; reports 6i) on Windows 7 64bit</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2021/01/23/install-oracle-database-19c-on-windows-10/" class="bump-view" data-bump-view="tp">Install Oracle Database 19c on Windows 10</a>					</li>
+								<li>
+					<a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/" class="bump-view" data-bump-view="tp">Windows | Upgrade Oracle Database 12c to 19c</a>					</li>
+				</ul></aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5314925844663817" data-adsbygoogle-status="done" style="display: block; margin: 40px auto 25.5px; background-color: transparent; height: 600px;" data-ad-status="filled"><ins id="aswift_1_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!2" data-google-query-id="CMX2gNW-ovMCFY-haAod0R0J-Q" data-load-complete="true"></iframe></ins></ins></ins></div>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<h1 class="widget-title">Recent Posts</h1>
+		<ul>
+											<li>
+					<a href="https://simpleoracle.com/2021/09/20/oracle-application-apps-user-account-is-locked/">Oracle Application | “apps” user account is locked!</a>
+									</li>
+											<li>
+					<a href="https://simpleoracle.com/2021/09/20/windows-search-wifi-cannot-type/">Windows | Search &amp; WIFI cannot type</a>
+									</li>
+											<li>
+					<a href="https://simpleoracle.com/2021/09/07/windows-10-windows-cannot-connect-to-the-printer/">Windows 10 | Windows cannot connect to the printer</a>
+									</li>
+											<li>
+					<a href="https://simpleoracle.com/2021/08/20/rman-on-windows-backup-restore-11g-r2-database/">RMAN on Windows | Backup &amp; Restore 11g R2 database</a>
+									</li>
+											<li>
+					<a href="https://simpleoracle.com/2021/08/13/oracle-application-r12-using-microsoft-edge-chrome-for-versions-12-0-xx/">Oracle Application R12 | Using Microsoft Edge Chrome for versions 11 &amp; 12.0.xx</a>
+									</li>
+					</ul>
+
+		</aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5314925844663817" data-adsbygoogle-status="done" style="display: block; margin: 40px auto 25.5px; background-color: transparent; height: 600px;" data-ad-status="filled"><ins id="aswift_2_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_2_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!3" data-google-query-id="CNriktW-ovMCFU3waAodTD8MdA" data-load-complete="true"></iframe></ins></ins></ins></div><aside id="meta-2" class="widget widget_meta"><h1 class="widget-title">Word Press</h1>
+		<ul>
+						<li><a href="https://simpleoracle.com/wp-login.php">Log in</a></li>
+			<li><a href="https://simpleoracle.com/feed/">Entries feed</a></li>
+			<li><a href="https://simpleoracle.com/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</aside><aside id="blog-stats-2" class="widget blog-stats"><h1 class="widget-title">Blog Stats</h1><ul><li>1,112,680 hits</li></ul></aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5314925844663817" data-adsbygoogle-status="done" style="display: block; margin: 40px auto 25.5px; background-color: transparent; height: 600px;" data-ad-status="filled"><ins id="aswift_3_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_3_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/ads(3).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!4" data-google-query-id="COfGpdy-ovMCFYGFrAIdhFkO7A" data-load-complete="true"></iframe></ins></ins></ins></div><aside id="recent-comments-2" class="widget widget_recent_comments"><h1 class="widget-title">Recent Comments</h1>				<table class="recentcommentsavatar" cellspacing="0" cellpadding="0" border="0">
+					<tbody><tr><td title="windows7bugs" class="recentcommentsavatartop" style="height:48px; width:48px;"><a href="http://windows7bugs.wordpress.com/" rel="nofollow"><img alt="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/5751c01e1ca2aa9cd400b0014cc74158.jpeg" class="avatar avatar-48 photo jetpack-lazy-image grav-hashed" height="48" width="48" loading="lazy" data-lazy-srcset="https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=96&amp;d=identicon&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=48&amp;is-pending-load=1#038;d=identicon&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-5751c01e1ca2aa9cd400b0014cc74158-0"><noscript><img alt='' src='https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=48&#038;d=identicon&#038;r=g' srcset='https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=96&#038;d=identicon&#038;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy'/></noscript></a></td><td class="recentcommentstexttop" style=""><a href="http://windows7bugs.wordpress.com/" rel="nofollow">windows7bugs</a> on <a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/#comment-18188">Windows | Upgrade Oracle Datab…</a></td></tr><tr><td title="Charles" class="recentcommentsavatarend" style="height:48px; width:48px;"><img alt="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/383d27aeb3060073f15bf78674c281ad" class="avatar avatar-48 photo jetpack-lazy-image grav-hashed grav-hijack" height="48" width="48" loading="lazy" data-lazy-srcset="https://secure.gravatar.com/avatar/383d27aeb3060073f15bf78674c281ad?s=96&amp;d=identicon&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/383d27aeb3060073f15bf78674c281ad?s=48&amp;is-pending-load=1#038;d=identicon&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-383d27aeb3060073f15bf78674c281ad-0"><noscript><img alt='' src='https://secure.gravatar.com/avatar/383d27aeb3060073f15bf78674c281ad?s=48&#038;d=identicon&#038;r=g' srcset='https://secure.gravatar.com/avatar/383d27aeb3060073f15bf78674c281ad?s=96&#038;d=identicon&#038;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy'/></noscript></td><td class="recentcommentstextend" style="">Charles on <a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/#comment-18187">Windows | Upgrade Oracle Datab…</a></td></tr><tr><td title="windows7bugs" class="recentcommentsavatarend" style="height:48px; width:48px;"><a href="http://windows7bugs.wordpress.com/" rel="nofollow"><img alt="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/5751c01e1ca2aa9cd400b0014cc74158.jpeg" class="avatar avatar-48 photo jetpack-lazy-image grav-hashed" height="48" width="48" loading="lazy" data-lazy-srcset="https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=96&amp;d=identicon&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=48&amp;is-pending-load=1#038;d=identicon&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-5751c01e1ca2aa9cd400b0014cc74158-1"><noscript><img alt='' src='https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=48&#038;d=identicon&#038;r=g' srcset='https://secure.gravatar.com/avatar/5751c01e1ca2aa9cd400b0014cc74158?s=96&#038;d=identicon&#038;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy'/></noscript></a></td><td class="recentcommentstextend" style=""><a href="http://windows7bugs.wordpress.com/" rel="nofollow">windows7bugs</a> on <a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/#comment-18186">Windows | Upgrade Oracle Datab…</a></td></tr><tr><td title="naveen" class="recentcommentsavatarend" style="height:48px; width:48px;"><img alt="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/770ce9f9ec4ce4e816126bc83dcf53aa" class="avatar avatar-48 photo jetpack-lazy-image grav-hashed grav-hijack" height="48" width="48" loading="lazy" data-lazy-srcset="https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=96&amp;d=identicon&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=48&amp;is-pending-load=1#038;d=identicon&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-770ce9f9ec4ce4e816126bc83dcf53aa-0"><noscript><img alt='' src='https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=48&#038;d=identicon&#038;r=g' srcset='https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=96&#038;d=identicon&#038;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy'/></noscript></td><td class="recentcommentstextend" style="">naveen on <a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/#comment-18185">Windows | Upgrade Oracle Datab…</a></td></tr><tr><td title="naveen" class="recentcommentsavatarend" style="height:48px; width:48px;"><img alt="" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/770ce9f9ec4ce4e816126bc83dcf53aa" class="avatar avatar-48 photo jetpack-lazy-image grav-hashed grav-hijack" height="48" width="48" loading="lazy" data-lazy-srcset="https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=96&amp;d=identicon&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=48&amp;is-pending-load=1#038;d=identicon&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-770ce9f9ec4ce4e816126bc83dcf53aa-1"><noscript><img alt='' src='https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=48&#038;d=identicon&#038;r=g' srcset='https://secure.gravatar.com/avatar/770ce9f9ec4ce4e816126bc83dcf53aa?s=96&#038;d=identicon&#038;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy'/></noscript></td><td class="recentcommentstextend" style="">naveen on <a href="https://simpleoracle.com/2021/01/24/windows-upgrade-12c-cdb-to-19c/#comment-18184">Windows | Upgrade Oracle Datab…</a></td></tr>				</tbody></table>
+				</aside><aside id="blog_subscription-3" class="widget widget_blog_subscription jetpack_subscription_widget"><h1 class="widget-title">Email Subscription</h1>
+            <form action="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-3">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div>					<div class="jetpack-subscribe-count">
+						<p>
+						Join 103 other subscribers						</p>
+					</div>
+					                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-3">
+							Email Address                        </label>
+                        <input type="email" name="email" required="required" value="" id="subscribe-field-blog_subscription-3" placeholder="Email Address">
+                    </p>
+
+					<p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-3">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        Sign me up!                        </button>
+                    </p>
+				            </form>
+		
+</aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5314925844663817" data-adsbygoogle-status="done" style="display: block; margin: 40px auto 25.5px; background-color: transparent; height: 600px;"><ins id="aswift_4_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_4_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins></div><aside id="categories-2" class="widget widget_categories"><h1 class="widget-title">Categories</h1>
+			<ul>
+					<li class="cat-item cat-item-166101"><a href="https://simpleoracle.com/category/net-programming/">.net programming</a>
+</li>
+	<li class="cat-item cat-item-35699"><a href="https://simpleoracle.com/category/active-directory/">Active Directory</a>
+</li>
+	<li class="cat-item cat-item-641922"><a href="https://simpleoracle.com/category/android/">Android</a>
+</li>
+	<li class="cat-item cat-item-694049014"><a href="https://simpleoracle.com/category/net-programming/asp-net-core/">ASP.NET Core</a>
+</li>
+	<li class="cat-item cat-item-4762"><a href="https://simpleoracle.com/category/educational/">Educational</a>
+</li>
+	<li class="cat-item cat-item-694048978"><a href="https://simpleoracle.com/category/hardware/gadgets/">Gadgets</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="https://simpleoracle.com/category/hardware/">Hardware</a>
+</li>
+	<li class="cat-item cat-item-610"><a href="https://simpleoracle.com/category/windows-7/oracle-related/linux/">Linux</a>
+</li>
+	<li class="cat-item cat-item-34922710"><a href="https://simpleoracle.com/category/linux-2/">Linux</a>
+</li>
+	<li class="cat-item cat-item-7426"><a href="https://simpleoracle.com/category/networking/">Networking</a>
+</li>
+	<li class="cat-item cat-item-424379675"><a href="https://simpleoracle.com/category/not-a-dba/">NOT a DBA</a>
+</li>
+	<li class="cat-item cat-item-679979966"><a href="https://simpleoracle.com/category/notes-for-personal-references/">Notes for personal references</a>
+</li>
+	<li class="cat-item cat-item-14640"><a href="https://simpleoracle.com/category/offtopic/">Offtopic</a>
+</li>
+	<li class="cat-item cat-item-72255268"><a href="https://simpleoracle.com/category/oracle-applications-r12-0-4/">Oracle Applications (R12.0.4)</a>
+</li>
+	<li class="cat-item cat-item-96319022"><a href="https://simpleoracle.com/category/windows-7/oracle-related/oracle-applicationsr12/">Oracle Applications(R12)</a>
+</li>
+	<li class="cat-item cat-item-1416379"><a href="https://simpleoracle.com/category/oracle-database-11g/">Oracle database 11g</a>
+</li>
+	<li class="cat-item cat-item-107516537"><a href="https://simpleoracle.com/category/oracle-database-12c/">Oracle database 12c</a>
+</li>
+	<li class="cat-item cat-item-694048998"><a href="https://simpleoracle.com/category/oracle-database-19c/">Oracle Database 19c</a>
+</li>
+	<li class="cat-item cat-item-531376"><a href="https://simpleoracle.com/category/oracle-enterprise-linux/">Oracle Enterprise Linux</a>
+</li>
+	<li class="cat-item cat-item-694048987"><a href="https://simpleoracle.com/category/oracle-forms/">Oracle Forms</a>
+</li>
+	<li class="cat-item cat-item-371020720"><a href="https://simpleoracle.com/category/oracle-inventory-r12/">Oracle Inventory (R12)</a>
+</li>
+	<li class="cat-item cat-item-694049019"><a href="https://simpleoracle.com/category/oracle-pl-sql/">Oracle PL/SQL</a>
+</li>
+	<li class="cat-item cat-item-5329193"><a href="https://simpleoracle.com/category/windows-7/oracle-related/">Oracle related</a>
+</li>
+	<li class="cat-item cat-item-5063570"><a href="https://simpleoracle.com/category/oracle-sql-developer/">Oracle SQL Developer</a>
+</li>
+	<li class="cat-item cat-item-30882998"><a href="https://simpleoracle.com/category/oracle-virtualbox/">Oracle VirtualBox</a>
+</li>
+	<li class="cat-item cat-item-35000037"><a href="https://simpleoracle.com/category/samsung-2/">Samsung</a>
+</li>
+	<li class="cat-item cat-item-1112235"><a href="https://simpleoracle.com/category/networking/security-networking/">Security</a>
+</li>
+	<li class="cat-item cat-item-694048920"><a href="https://simpleoracle.com/category/t-sql/">T-SQL</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://simpleoracle.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-309421115"><a href="https://simpleoracle.com/category/visual-studiovb-net/">Visual Studio(VB.Net)</a>
+</li>
+	<li class="cat-item cat-item-36275988"><a href="https://simpleoracle.com/category/weblogic-2/">Weblogic</a>
+</li>
+	<li class="cat-item cat-item-13752713"><a href="https://simpleoracle.com/category/windows-2/">Windows</a>
+</li>
+	<li class="cat-item cat-item-1986749"><a href="https://simpleoracle.com/category/windows-10/">Windows 10</a>
+</li>
+	<li class="cat-item cat-item-120391216"><a href="https://simpleoracle.com/category/windows-2016/">Windows 2016</a>
+</li>
+	<li class="cat-item cat-item-729864"><a href="https://simpleoracle.com/category/windows-7/">Windows 7</a>
+</li>
+	<li class="cat-item cat-item-4502980"><a href="https://simpleoracle.com/category/windows-8/">Windows 8</a>
+</li>
+	<li class="cat-item cat-item-171609829"><a href="https://simpleoracle.com/category/windows-8-1-2/">Windows 8.1</a>
+</li>
+	<li class="cat-item cat-item-16872499"><a href="https://simpleoracle.com/category/windows-phone/">Windows Phone</a>
+</li>
+	<li class="cat-item cat-item-323608972"><a href="https://simpleoracle.com/category/windows-server-2016/">Windows Server 2016</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://simpleoracle.com/category/wordpress/">wordpress</a>
+</li>
+			</ul>
+
+			</aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-5314925844663817" data-adsbygoogle-status="done" style="display: block; margin: 10px auto 25.5px; background-color: transparent; height: 600px;"><ins id="aswift_5_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_5_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins></div></div><!-- #secondary -->
+
+	</div><!-- #content -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="https://wordpress.com/?ref=footer_custom_powered">Powered by WordPress.com</a>.
+			
+					</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--  -->
+<script defer="" id="bilmur" data-provider="wordpress.com" data-service="atomic" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/bilmur.min.js.download"></script>
+	<div style="display:none">
+	<div class="grofile-hash-map-5751c01e1ca2aa9cd400b0014cc74158">
+	</div>
+	<div class="grofile-hash-map-383d27aeb3060073f15bf78674c281ad">
+	</div>
+	<div class="grofile-hash-map-770ce9f9ec4ce4e816126bc83dcf53aa">
+	</div>
+	</div>
+		<div id="jp-carousel-loading-overlay">
+			<div id="jp-carousel-loading-wrapper">
+				<span id="jp-carousel-library-loading">&nbsp;</span>
+			</div>
+		</div>
+		<div class="jp-carousel-overlay" style="display: none;">
+
+		<div class="jp-carousel-container">
+			<!-- The Carousel Swiper -->
+			<div class="jp-carousel-wrap swiper-container jp-carousel-swiper-container jp-carousel-transitions" itemscope="" itemtype="https://schema.org/ImageGallery">
+				<div class="jp-carousel swiper-wrapper"></div>
+				<div class="jp-swiper-button-prev swiper-button-prev">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskPrev" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="9" height="12">
+							<path d="M16.2072 16.59L11.6496 12L16.2072 7.41L14.8041 6L8.8335 12L14.8041 18L16.2072 16.59Z" fill="white"></path>
+						</mask>
+						<g mask="url(#maskPrev)">
+							<rect x="0.579102" width="23.8823" height="24" fill="#FFFFFF"></rect>
+						</g>
+					</svg>
+				</div>
+				<div class="jp-swiper-button-next swiper-button-next">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskNext" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8" height="12">
+							<path d="M8.59814 16.59L13.1557 12L8.59814 7.41L10.0012 6L15.9718 12L10.0012 18L8.59814 16.59Z" fill="white"></path>
+						</mask>
+						<g mask="url(#maskNext)">
+							<rect x="0.34375" width="23.8822" height="24" fill="#FFFFFF"></rect>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!-- The main close buton -->
+			<div class="jp-carousel-close-hint">
+				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="maskClose" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="15" height="14">
+						<path d="M19.3166 6.41L17.9135 5L12.3509 10.59L6.78834 5L5.38525 6.41L10.9478 12L5.38525 17.59L6.78834 19L12.3509 13.41L17.9135 19L19.3166 17.59L13.754 12L19.3166 6.41Z" fill="white"></path>
+					</mask>
+					<g mask="url(#maskClose)">
+						<rect x="0.409668" width="23.8823" height="24" fill="#FFFFFF"></rect>
+					</g>
+				</svg>
+			</div>
+			<!-- Image info, comments and meta -->
+			<div class="jp-carousel-info">
+				<div class="jp-carousel-info-footer">
+					<div class="jp-carousel-pagination-container">
+						<div class="jp-swiper-pagination swiper-pagination"></div>
+						<div class="jp-carousel-pagination"></div>
+					</div>
+					<div class="jp-carousel-photo-title-container">
+						<h2 class="jp-carousel-photo-caption"></h2>
+					</div>
+					<div class="jp-carousel-photo-icons-container">
+						<a href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#" class="jp-carousel-icon-btn jp-carousel-icon-info" aria-label="Toggle photo metadata visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskInfo" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.7537 2C7.26076 2 2.80273 6.48 2.80273 12C2.80273 17.52 7.26076 22 12.7537 22C18.2466 22 22.7046 17.52 22.7046 12C22.7046 6.48 18.2466 2 12.7537 2ZM11.7586 7V9H13.7488V7H11.7586ZM11.7586 11V17H13.7488V11H11.7586ZM4.79292 12C4.79292 16.41 8.36531 20 12.7537 20C17.142 20 20.7144 16.41 20.7144 12C20.7144 7.59 17.142 4 12.7537 4C8.36531 4 4.79292 7.59 4.79292 12Z" fill="white"></path>
+									</mask>
+									<g mask="url(#maskInfo)">
+										<rect x="0.8125" width="23.8823" height="24" fill="#FFFFFF"></rect>
+									</g>
+								</svg>
+							</span>
+						</a>
+												<a href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#" class="jp-carousel-icon-btn jp-carousel-icon-comments" aria-label="Toggle photo comments visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskComments" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.3271 2H20.2486C21.3432 2 22.2388 2.9 22.2388 4V16C22.2388 17.1 21.3432 18 20.2486 18H6.31729L2.33691 22V4C2.33691 2.9 3.2325 2 4.3271 2ZM6.31729 16H20.2486V4H4.3271V18L6.31729 16Z" fill="white"></path>
+									</mask>
+									<g mask="url(#maskComments)">
+										<rect x="0.34668" width="23.8823" height="24" fill="#FFFFFF"></rect>
+									</g>
+								</svg>
+
+								<span class="jp-carousel-has-comments-indicator" aria-label="This image has comments."></span>
+							</span>
+						</a>
+											</div>
+				</div>
+				<div class="jp-carousel-info-extra">
+					<div class="jp-carousel-info-content-wrapper">
+						<div class="jp-carousel-photo-title-container">
+							<h2 class="jp-carousel-photo-title"></h2>
+						</div>
+						<div class="jp-carousel-comments-wrapper">
+															<div id="jp-carousel-comments-loading">
+									<span>Loading Comments...</span>
+								</div>
+								<div class="jp-carousel-comments"></div>
+								<div id="jp-carousel-comment-form-container">
+									<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+									<div id="jp-carousel-comment-post-results"></div>
+																														<form id="jp-carousel-comment-form">
+												<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Write a Comment...</label>
+												<textarea name="comment" class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea" id="jp-carousel-comment-form-comment-field" placeholder="Write a Comment..."></textarea>
+												<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+													<div id="jp-carousel-comment-form-commenting-as">
+																													<fieldset>
+																<label for="jp-carousel-comment-form-email-field">Email (Required)</label>
+																<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field">
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-author-field">Name (Required)</label>
+																<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field">
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-url-field">Website</label>
+																<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field">
+															</fieldset>
+																											</div>
+													<input type="submit" name="submit" class="jp-carousel-comment-form-button" id="jp-carousel-comment-form-button-submit" value="Post Comment">
+												</div>
+											</form>
+																											</div>
+													</div>
+						<div class="jp-carousel-image-meta">
+							<div class="jp-carousel-title-and-caption">
+								<div class="jp-carousel-photo-info">
+									<h3 class="jp-carousel-caption" itemprop="caption description"></h3>
+								</div>
+
+								<div class="jp-carousel-photo-description"></div>
+							</div>
+							<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+							<a class="jp-carousel-image-download" target="_blank" style="display: none;">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="19" height="18">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.84615 5V19H19.7775V12H21.7677V19C21.7677 20.1 20.8721 21 19.7775 21H5.84615C4.74159 21 3.85596 20.1 3.85596 19V5C3.85596 3.9 4.74159 3 5.84615 3H12.8118V5H5.84615ZM14.802 5V3H21.7677V10H19.7775V6.41L9.99569 16.24L8.59261 14.83L18.3744 5H14.802Z" fill="white"></path>
+									</mask>
+									<g mask="url(#mask0)">
+										<rect x="0.870605" width="23.8823" height="24" fill="#FFFFFF"></rect>
+									</g>
+								</svg>
+								<span class="jp-carousel-download-text"></span>
+							</a>
+							<div class="jp-carousel-image-map" style="display: none;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/simpleoracle.com\/2020\/01\/02\/oracle-application-r12-print-custom-report-using-custom-pll\/":4339};
+	</script>
+					
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/widgets.js.download" id="twitter-widgets-js"></script>
+<link rel="stylesheet" id="all-css-a2ba1dbb6b5df3e3e739415a10e8a7b9" href="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(5)" type="text/css" media="all">
+<script id="coblocks-lightbox-js-extra">
+var coblocksLigthboxData = {"closeLabel":"Close Gallery","leftLabel":"Previous","rightLabel":"Next"};
+</script>
+<script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(6)"></script>
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/gprofiles.js(1).download" id="grofiles-cards-js"></script>
+<script id="wpgroho-js-extra">
+var WPGroHo = {"my_hash":""};
+</script>
+<script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(7)"></script>
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/intersection-observer.js.download" id="jetpack-lazy-images-polyfill-intersectionobserver-js"></script>
+<script id="jetpack-lazy-images-js-extra">
+var jetpackLazyImagesL10n = {"loading_warning":"Images are still loading. Please cancel your print and try again."};
+</script>
+<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/lazy-images.js.download" id="jetpack-lazy-images-js"></script>
+<script id="jetpack-carousel-js-extra">
+var jetpackSwiperLibraryPath = {"url":"https:\/\/simpleoracle.com\/wp-content\/plugins\/jetpack\/_inc\/build\/carousel\/swiper-bundle.min.js"};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/simpleoracle.com\/wp-admin\/admin-ajax.php","nonce":"e8550cf57a","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/simpleoracle.com\/wp-login.php?redirect_to=https%3A%2F%2Fsimpleoracle.com%2F2020%2F01%2F02%2Foracle-application-r12-print-custom-report-using-custom-pll%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"]};
+</script>
+<script type="text/javascript" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(8)"></script>
+<script id="sharing-js-js-extra">
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script async="true" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(9)"></script><script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/sharing.min.js.download" id="sharing-js-js"></script>
+<script id="sharing-js-js-after">
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-linkedin' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-linkedin' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-twitter' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-twitter' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-tumblr' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-tumblr' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-facebook' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-facebook' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+						return false;
+					}
+				} );
+			} )();
+</script>
+	<iframe src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+	<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=12103537&postid=4339&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=identicon&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=10.1&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=861972e993f476edd60cc5c8f64a708cf9739411#parent=https%3A%2F%2Fsimpleoracle.com%2F2020%2F01%2F02%2Foracle-application-r12-print-custom-report-using-custom-pll%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=12103537&postid=4339&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=identicon&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=10.1&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=861972e993f476edd60cc5c8f64a708cf9739411#parent=https%3A%2F%2Fsimpleoracle.com%2F2020%2F01%2F02%2Foracle-application-r12-print-custom-report-using-custom-pll%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								frame.style.height = event.data + 'px';
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								frame.style.height = event.data + 'px';
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/e-202139.js.download" defer=""></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:10.1',blog:'12103537',post:'4339',tz:'3',srv:'simpleoracle.com'} ]);
+	_stq.push([ 'clickTrackerInit', '12103537', '4339' ]);
+</script>
+
+
+
+<img src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/g.gif" alt=":)" width="6" height="5" id="wpstats"><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/widget_iframe.f88235f49a156f8b4cab34c7bc1a0acc.html" title="Twitter settings iframe" style="display: none;"></iframe><div id="sharing_email" style="display: none;">
+		<form action="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="">
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="This field is for validation and should not be changed">
+			
+			<img style="float: right; display: none" class="loading" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a rel="nofollow" href="https://simpleoracle.com/2020/01/02/oracle-application-r12-print-custom-report-using-custom-pll/#cancel" class="sharing_cancel" role="button">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><iframe id="google_osd_static_frame_7071124331061" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(16).html"></iframe><iframe style="display: none" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/um.html"></iframe><style>.ata-controls__complain-btn:hover,
+.ata-controls__privacy-btn:hover {
+    color: #666666 !important;
+}
+.ata-controls__complain-btn:active,
+.ata-controls__privacy-btn:active {
+    color: #5ac8fa !important;
+}
+.ata-controls__complain-btn_clicked,
+.ata-controls__complain-btn_clicked:hover,
+.ata-controls__complain-btn_clicked:active {
+    color: #000 !important;
+    cursor: default !important;
+}
+.ata-frame-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+</style><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" style="display: none; width: 100% !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-ad-status="filled" data-anchor-shown="true"><ins class="ee" style="inset: auto !important; clear: none !important; display: block !important; float: none !important; height: 5px !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: relative !important; vertical-align: baseline !important; visibility: visible !important; width: auto !important; z-index: 1 !important; background-color: rgb(250, 250, 250) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;"><span style="display: block !important; width: 80px !important; height: 45px !important; bottom: 0px !important; left: 0% !important; pointer-events: none !important;"><svg style="margin: 0px !important; position: absolute !important; bottom: 0px !important; left: 0% !important; display: block !important; width: 80px !important; height: 30px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="dropShadowTop" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M0,26 L0,6 A6,6 0 0,1 6,1 L50,1 A6,6 0 0,1 56,6 L56,20 A6,6 0 0,0 62,26 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#dropShadowTop&quot;);"></path><rect x="0" y="25" width="80" height="5" style="fill: rgb(250, 250, 250);"></rect><g class="down" stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="22" y1="12" x2="28" y2="18"></line><line x1="28" y1="18" x2="34" y2="12"></line></g></svg></span></ins><ins id="aswift_7_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_7_anchor" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_7" name="" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/zrt_lookup(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" style="display: block; margin: 0px auto;" data-google-container-id="a!8" data-google-query-id="CM-svNS-ovMCFcWCrAIduTUAeA" data-load-complete="true"></iframe></ins></ins></ins><iframe src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/aframe.html" width="0" height="0" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/saved_resource(17).html"></iframe></body><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><ins id="aswift_6_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_6_anchor" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_6" name="" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" src="./Oracle Application R12 _ Print custom report using CUSTOM.pll_files/zrt_lookup(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" data-google-container-id="a!7" data-google-query-id="CM6svNS-ovMCFcWCrAIduTUAeA" data-load-complete="true"></iframe></ins></ins></ins></html>

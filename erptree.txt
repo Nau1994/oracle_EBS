@@ -1,0 +1,65 @@
+
+fnd_user_resp_groups_direct(resposibility_id,user_id)
+fnd_resposibility_vl(resposibility_id,name,key,application_id,menu_id,request_group_id)
+fnd_menus(menu_id,menu_name)
+fnd_request_groups(request_group_id,request_group_name)
+
+hrfv_business_groups(business_group_id,location_id)
+hr_legal_entities(organization_id,business_group_id)
+hr_operating_units(organization_id,default_legal_conetext_id,business_group_id,set_of_books_id)
+gl_set_of_books(set_of_books_id,chart_of_account_id)
+gl_code_combinations(chart_of_account_id,cod_combination_id)
+org_organization_definition(organization_id,operating_unit,legal_entity,business_id)
+
+fnd_flex_value_sets(flex_value_set_id,name)
+fnd_flex_values_vl(flex_value_set_id,description,meaning)
+fnd_lookup_values
+fnd_profiles
+
+mtl_system_item_interface(inventory_item_id,oranisation_id,segment1,set_prosses_id,prosses_flag(1,7,3))
+
+po_requisition_headers_all(preparer_id:PER_ALL_PEOPLE_F,segment1:requision_no,org_id:hr_operating_units)
+po_requsion_lines_all(po_req_line_id,po_req_header_id,category_id:MTL_CATEGORIES,item_id:MTL_SYSTEM_ITEM_B)
+po_req_distribution_all(req_id,line_id,header_id,set_of_books:GL_SET_OF_BOOKS,code_combination_id:GL_CODE_COMBINATION)
+
+po_heders_all(header_id,agent_id:PER_ALL_PEOPLE_F,vendor_id:AP_SUPPLIER_ALL,vendor_site_id:AP_SUPPLIER_SITE_ALL,ship_to_location:HR_LOCATION_ALL)
+po_lines_all(header_id,line_id,item_id:MTL_SYSTEM_ITEMS_B)
+po_distribution_all(req_distribution_id,set_of_books,code_combination_id)
+
+ap_invoice_all(invoice_id,header_id,set_of_books)
+ap_invoice_lines_all(po_line_id,po_header_id,org_id)
+ap_check_all(check_id,check_number,amount)
+ap_invoice_payment_all(check_id,invoice_id)
+
+ra_customer_trx_all
+ra_customer_trx_lines_all
+ra_cust_trx_line_gl_dist_all
+ar_cash_reciepts_all
+ar_payment_shedules_all
+
+hz_parties
+hz_party_sites
+hz_cust_accounts
+hz_cust_acct_sites_all
+hz_cust_site_uses_all
+hz_locations
+
+SRW.USER_EXIT('FND SRWINIT')
+$FND_TOP/reports/US
+fnd_menus_tl ---------- user_menu_name='xxmenu'
+fnd_menu_entries_tl------menu_id=102687
+help---dignastic--examine--system---last query / help--record history
+fnd_application--------product_code='PER'
+fnd_application_tl-----application_id=800
+e_integrity_constraint EXCEPTION;-----PRAGMA EXCEPTION_INIT (e_integrity_constraint, -02292 );
+RAISE_application_error(-20001,'Error message')------when others then
+TYPE type_emp_details IS TABLE OF NUMBER (6);----col_emp_details   type_emp_details;--SELECT employee_id  BULK COLLECT INTO col_emp_details
+Scalar anchoring - Use the %TYPE 
+Record anchoring - Use the %ROWTYPE
+@echo $FND_TOP (.env should be execute)
+form: FMX:--$GL_TOP  /oraAS/oracle/vis/apps/apps_st/appl/gl/12.0.0/form/US/GLXJEENT.fmx
+      EMB:--$AU_TOP  /oraAS/oracle/vis/apps/apps_st/appl/au/12.0.0/form/US/GLXJEENT.fmb
+OAF(page/region:MDS , compiled:$JAVA_TOP)
+Profile: used to assign diff value to diff Role to access (resposobility/application)
+kff:for uniq id generation (segment)
+dff:to capture extra info(attribute)

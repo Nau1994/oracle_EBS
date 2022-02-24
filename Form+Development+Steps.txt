@@ -1,0 +1,107 @@
+1) first step is form path in registry settings
+ run- regedit- hkey local machine
+ -- FORMS_PATH
+ -- c:/malhotra/forms
+2) copy pll and plx files au top/resouce folder to this directy.(c:/malhotra/forms)
+3)  copy 3 seeded files from 
+autop/forms/us folder to (c:/malhotra/forms)
+template.fmb
+appstand.fmb
+apstand.fmb
+4) tnsnames.ora
+  update file into network/admin into forms home
+============
+1) open the form builder
+ delete existing module1 
+open-- template.fmb
+save as with new name
+  f4 -- change form module name .
+datablocks.=== remove detail block
+             -- remove block name
+canvas-- remove block name
+windows -- delte block name
+
+
+* windows--  create new window
+f4-- xxinv_win
+sub class information.
+property class - window
+* canvas -- create canvas
+f4- xxinv_can
+sub class information-- canvas
+* datablock using wizard
+
+mention table name 
+choose columns
+block name 
+create the  layout
+choose canvas
+tabular 
+next frame title - invoice header
+records displayed - 5
+finish
+
+ form hirarchy
+==========
+form name
+--multiple windows
+-- canvas
+-- multiple datablock
+ -- table/synonym
+press f4- change width-- 
+set properties
+canvas-- attach window if not attached
+
+pre-FORM
+f11
+app_window.set_window_position('xxINV_win','FIRST_WINDOW')
+APP_CUSTOM
+f11
+mention the first window name 
+
+shift+control+k
+
+move this fmb file to autop/forms/us folder
+reason-- attached libraries called dynamially at run time 
+
+generate fmx 
+applmgr
+pwd
+frmcmp
+
+putty 
+user name -- applmgr
+pw---applmgr
+
+
+
+
+cd /oraAS/oracle/VIS/fs1/EBSapps/appl/au/12.0.0/forms/US
+
+frmcmp_batch userid=apps/apps module=XXINVFORM.fmb output_file=$AP_TOP/forms/US/XXINVFORM.fmx module_type=form batch=no compile_all=special
+
+registration steps in oracle apps
+
+
+copy fmx file to appropriate folder
+cp xxinv_form.fmx $FND_TOP/forms/us
+copy fmx file name
+
+application developer
+-- application-- form
+form -- xx_INv_FORM 
+application-- Application object Library
+user form name -- XX_INv_FORM
+application-- function
+function name --
+user function name 
+form -- attach form name
+
+* assing function to the menu 
+seq
+prompt
+ function -- attach function 
+
+*go to responsibility and open form 
+
+

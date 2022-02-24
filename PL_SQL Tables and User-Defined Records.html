@@ -1,0 +1,1272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0065)https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch4.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <title>PL/SQL Tables and User-Defined Records</title>
+   
+   <meta name="GENERATOR" content="Mozilla/3.0Gold (Win95; I) [Netscape]">
+<script>bazadebezolkohpepadr="1984919997"</script><script type="text/javascript" src="./PL_SQL Tables and User-Defined Records_files/764f7884" defer=""></script></head>
+<body bgcolor="#FFFFFF" link="#000000">
+
+<center><table cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td align="LEFT" valign="TOP" width="100%"><a name="toc037"></a><b><font color="#00008B"><font size="+2">PL/SQL User's Guide and Reference</font></font></b></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/products.htm#Product%20Documentation%20Library"><img src="./PL_SQL Tables and User-Defined Records_files/prodicon.gif" alt="Go to Product Documentation Library" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/products.htm#Product%20Documentation%20Library">Library</a></font></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/Gserver.htm"><img src="./PL_SQL Tables and User-Defined Records_files/bookicon.gif" alt="Go to books for this product" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/Gserver.htm">Product</a></font></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/toc.htm"><img src="./PL_SQL Tables and User-Defined Records_files/conticon.gif" alt="Go to Contents for this book" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/toc.htm">Contents</a></font></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/index.htm"><img src="./PL_SQL Tables and User-Defined Records_files/indxicon.gif" alt="Go to Index" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/index.htm">Index</a></font></td>
+<td width="4"></td>
+</tr>
+</tbody></table></center>
+
+<p>
+</p><hr width="98%"><p></p>
+
+<p><b><font color="#000000"><font size="+2"></font></font></b><br>
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch3.htm"><img src="./PL_SQL Tables and User-Defined Records_files/larrow.gif" alt="Go to previous file in sequence" border="0" height="30" width="30"></a>
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch5.htm"><img src="./PL_SQL Tables and User-Defined Records_files/rarrow.gif" alt="Go to next file in sequence" border="0" height="30" width="30"></a></p>
+<h1><b><font color="#00008B">PL/SQL Tables and User-Defined Records</font></b></h1>
+
+
+<!-- BEGIN ACTUAL BULLETS -->
+<!-- BEGIN H1 MENU -->
+<ul>
+
+<li> <a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch4.htm#plsql%20tabs">PL/SQL Tables</a>
+
+
+</li><li> <a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch4.htm#user-def%20recs">User-Defined Records</a>
+
+
+</li></ul>
+<!-- END H1 MENU -->
+<!-- BEGIN ACTUAL BULLETS -->
+<!-- END ACTUAL BULLETS -->
+<!-- END NEW CHAPTER BULLET REGION -->
+
+
+
+
+<!-- End Top Chapter Bullet Region -->
+
+<!-- End of the Table at the top of the page -->
+
+<!-- ##################End TableTop####################### -->
+
+
+
+<p>
+</p><hr size="1" noshade="" width="98%"><p></p>
+<cite><i>Knowledge is that area of ignorance that we arrange and classify.</i></cite><p>
+Ambrose Bierce</p><p>
+
+<b>I</b>n Chapter <a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch2.htm">2</a>, you learned about the PL/SQL scalar datatypes, which can store only one item of data. In this chapter, you learn about the composite datatypes TABLE and RECORD, which can store collections of data. You also learn how to reference and manipulate these collections as whole objects. </p><p>
+</p><hr>
+<!-- Appending: PLS23.dir/ch400.html to PLS23.dir/ch4.html -->
+<!-- SavedNext: ch401.html -->
+<a name="toc038"></a>
+<h2><b><a name="plsql tabs"></a>PL/SQL Tables</b></h2>
+
+Objects of type TABLE are called <i>PL/SQL tables</i>, which are modeled as (but not the same as) database tables. For example, a PL/SQL table of employee names is modeled as a database table with two columns, which store a primary key and character data, respectively. Although you cannot use SQL statements to manipulate a PL/SQL table, its primary key gives you array-like access to rows. Think of the key and rows as the index and elements of a one-dimensional array. <a name="index0375"></a><a name="index0376"></a><a name="index0377"></a><a name="index0378"></a><a name="index0379"></a><a name="index0380"></a><a name="index0381"></a><a name="index0382"></a><p>
+
+Like an array, a PL/SQL table is an ordered collection of elements of the same type. Each element has a unique index number that determines its position in the ordered collection. However, PL/SQL tables differ from arrays in two important ways. First, arrays have fixed lower and upper bounds, but PL/SQL tables are unbounded. So, the size of a PL/SQL table can increase dynamically. Second, arrays require consecutive index numbers, but PL/SQL tables do not. This characteristic, called <i>sparsity</i>, allows the use of meaningful index numbers. For example, you can use a series of employee numbers (such as 7369, 7499, 7521, 7566, ...) to index a PL/SQL table of employee names. <a name="index0383"></a></p><p>
+
+</p><h3><b>Why Use PL/SQL Tables?</b></h3>
+PL/SQL tables help you move bulk data. They can store columns or rows of Oracle data, and they can be passed as parameters. So, PL/SQL tables make it easy to move collections of data into and out of database tables or between client-side applications and stored subprograms. You can even use PL/SQL tables of records to simulate local database tables.<p>
+
+Also, with the Oracle Call Interface (OCI) or the Oracle Precompilers, you can bind host arrays to PL/SQL tables declared as the formal parameters of a subprogram. That allows you to pass host arrays to stored functions and procedures. </p><p>
+
+</p><h3><b>Defining TABLE Types</b></h3>
+To create PL/SQL tables, you take two steps. First, you define a TABLE type, then declare PL/SQL tables of that type. You can define TABLE types in the declarative part of any block, subprogram, or package using the syntax <a name="index0384"></a><a name="index0385"></a><p>
+
+</p><pre><tt>TYPE table_type_name IS TABLE OF datatype [NOT NULL]
+   INDEX BY BINARY_INTEGER; </tt></pre><p>
+
+where <i>table_type_name</i> is a type specifier used in subsequent declarations of PL/SQL tables.</p><p>
+
+The INDEX BY clause must specify datatype BINARY_INTEGER, which has a magnitude range of -2147483647 .. 2147483647. If the element type is a record type, every field in the record must have a scalar datatype such as CHAR, DATE, or NUMBER. <a name="index0386"></a></p><p>
+
+To specify the element type, you can use %TYPE to provide the datatype of a variable or database column. In the following example, you define a TABLE type based on the <i>ename</i> column: </p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EnameTabTyp IS TABLE OF emp.ename%TYPE
+      INDEX BY BINARY_INTEGER;</tt></pre><p>
+
+The next example shows that you can add the NOT NULL constraint to a TABLE type definition and so prevent the storing of nulls in PL/SQL tables of that type: <a name="index0387"></a></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE SalTabTyp IS TABLE OF emp.sal%TYPE NOT NULL
+      INDEX BY BINARY_INTEGER;</tt></pre><p>
+
+An initialization clause is not required (or allowed). </p><p>
+
+You can also use %ROWTYPE to specify the element type. In the following example, you define a TABLE type based on the <i>emp</i> table:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;</tt></pre><p>
+
+In the final example, you use a RECORD type to specify the 
+element type:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE TimeRecTyp IS RECORD (
+      hour   SMALLINT := 0, 
+      minute SMALLINT := 0,
+      second SMALLINT := 0);
+   TYPE TimeTabTyp IS TABLE OF TimeRecTyp
+      INDEX BY BINARY_INTEGER;</tt></pre><p>
+
+</p><h4>Function Results</h4>
+
+The example below shows that you can specify a TABLE type in the RETURN clause of a function specification. That allows the function to return a PL/SQL table of the same type. <a name="index0388"></a><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER; 
+   ...
+   FUNCTION top_n_sals (n INTEGER) RETURN EmpTabTyp IS ...</tt></pre><p>
+
+</p><h3><b>Declaring PL/SQL Tables</b></h3>
+Once you define a TABLE type, you can declare PL/SQL tables of that type, as the following examples show: <a name="index0389"></a><a name="index0390"></a><p>
+
+</p><pre><tt>DECLARE
+   TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+      INDEX BY BINARY_INTEGER;
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   sal_tab SalTabTyp;  -- declare PL/SQL table
+   emp_tab EmpTabTyp;  -- declare another PL/SQL table</tt></pre><p>
+
+The identifiers <i>sal_tab</i> and <i>emp_tab</i> represent entire PL/SQL tables. Each element of <i>sal_tab</i> will store an employee salary. Each element of <i>emp_tab</i> will store a whole employee record.</p><p>
+
+A PL/SQL table is unbounded; its index can include any BINARY_ INTEGER value. So, you cannot initialize a PL/SQL table in its declaration. For example, the following declaration is illegal:</p><p>
+
+</p><pre><tt>sal_tab SalTabTyp := (1500, 2750, 2000, 950, 1800);  -- illegal</tt></pre><p>
+
+PL/SQL tables follow the usual scoping and instantiation rules. In a package, PL/SQL tables are instantiated when you first reference the package and cease to exist when you end the database session. In a block or subprogram, local PL/SQL tables are instantiated when you enter the block or subprogram and cease to exist when you exit. <a name="index0391"></a><a name="index0392"></a><a name="index0393"></a></p><p>
+
+</p><h4>As Parameters</h4>
+
+You can declare PL/SQL tables as the formal parameters of functions and procedures. That way, you can pass PL/SQL tables to stored subprograms and from one subprogram to another. In the following example, you declare PL/SQL tables as the formal parameters of two packaged procedures:<p>
+
+</p><pre><tt>PACKAGE emp_actions IS
+   TYPE EnameTabTyp IS TABLE OF emp.ename%TYPE
+      INDEX BY BINARY_INTEGER;
+   TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+      INDEX BY BINARY_INTEGER;
+   ...
+   PROCEDURE hire_batch (ename_tab IN EnameTabTyp, 
+                         sal_tab   IN SalTabTyp, ...);
+   PROCEDURE log_names (ename_tab IN EnameTabTyp);
+END emp_actions;</tt></pre><p>
+
+To define the behavior of formal parameters, you use parameter modes. The OUT and IN OUT modes let you return values to the caller of a subprogram when you exit. If you exit successfully, PL/SQL assigns values to the actual parameters. However, if you exit with an unhandled exception, PL/SQL does <i>not</i> assign values to the actual parameters.</p><p>
+
+</p><h3><b>Referencing PL/SQL Tables</b></h3>
+To reference elements in a PL/SQL table, you specify an index number using the syntax <a name="index0394"></a><p>
+
+</p><pre><tt>plsql_table_name(index)</tt></pre><p>
+
+where <i>index</i> is an expression that yields a BINARY_INTEGER value or a value implicitly convertible to that datatype. In the following example, you reference an element in the PL/SQL table <i>hiredate_tab</i>:</p><p>
+
+</p><pre><tt>hiredate_tab(i + j - 1) ...</tt></pre><p>
+
+As the example below shows, the index number can be negative. (For an exception, see "Using Host Arrays with PL/SQL Tables" <a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch4.htm#arrays%20w%20tabs"><img src="./PL_SQL Tables and User-Defined Records_files/jump.gif" alt="[*]"></a>.)</p><p>
+
+</p><pre><tt>hiredate_tab(-5) ...</tt></pre><p>
+
+The following example shows that you can reference the elements of a PL/SQL table in subprogram calls:</p><p>
+
+</p><pre><tt>raise_salary(empno_tab(i), amount);  -- call subprogram</tt></pre><p>
+
+</p><h4>Assignments</h4>
+
+You can assign one PL/SQL table to another only if they have the same datatype. For example, the following assignment is legal:<p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   TYPE TempTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   emp_tab1 EmpTabTyp;
+   emp_tab2 EmpTabTyp;
+BEGIN
+   ...
+   emp_tab2 := emp_tab1;  -- assign one PL/SQL table to another</tt></pre><p>
+
+You can assign the value of an expression to a specific element in a PL/SQL table using the following syntax: <a name="index0395"></a><a name="index0396"></a></p><p>
+
+</p><pre><tt>plsql_table_name(index) := expression;</tt></pre><p>
+
+In the next example, you assign the sum of variables <i>salary</i> and <i>increase</i> to an element in the PL/SQL table <i>sal_tab</i>:</p><p>
+
+</p><pre><tt>sal_tab(i) := salary + increase;</tt></pre><p>
+
+<strong>Note</strong>: Until an element is assigned a value, it does not exist. If you reference a nonexistent element, PL/SQL raises the predefined exception NO_DATA_FOUND. </p><p>
+
+</p><h4>PL/SQL Tables of Records</h4>
+
+With a PL/SQL table of records, you use the following syntax to reference fields in a record:<p>
+
+</p><pre><tt>plsql_table_name(index).field_name</tt></pre><p>
+
+For example, the following IF statement references a field in the record stored by the first element of the PL/SQL table <i>emp_tab</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE 
+      INDEX BY BINARY_INTEGER;
+   emp_tab EmpTabTyp;
+BEGIN
+   ...
+   IF emp_tab(1).job = 'CLERK' THEN ...
+END;</tt></pre><p>
+
+</p><h4>Function Results</h4>
+
+When calling a function that returns a PL/SQL table, you use the following syntax to reference elements in the table:<p>
+
+</p><pre><tt>function_name(parameters)(index)</tt></pre><p>
+
+For example, the following call to the function <i>new_sals</i> references the third element in the PL/SQL table <i>sal_tab</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+      INDEX BY BINARY_INTEGER;
+   salary REAL;
+   FUNCTION new_sals (max_sal REAL) RETURN SalTabTyp IS
+      sal_tab SalTabTyp;
+   BEGIN 
+      ...
+      RETURN sal_tab;  -- return PL/SQL table
+   END;
+BEGIN
+   salary := new_sals(5000)(3);  -- call function
+   ...
+END;</tt></pre><p>
+
+If the function result is a PL/SQL table of records, you use the following syntax to reference fields in a record:</p><p>
+
+</p><pre><tt>function_name(parameters)(index).field_name</tt></pre><p>
+
+For example, the following call to the function <i>new_depts</i> references 
+the field <i>loc</i> in the record stored by the third element of the PL/SQL table <i>dept_tab</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptTabTyp IS TABLE OF dept%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   FUNCTION new_depts (max_num INTEGER) RETURN DeptTabTyp IS 
+      dept_tab DeptTabTyp;
+   BEGIN
+      ...
+      RETURN dept_tab;
+   END;
+BEGIN
+   ...
+   IF new_depts(90)(3).loc = 'BOSTON' THEN ...
+END;</tt></pre><p>
+
+<b>Restriction</b>
+Currently, you cannot use the syntax above to call a parameterless function because PL/SQL does not allow empty parameter lists. That is, the following syntax is illegal: <a name="index0397"></a></p><p>
+
+</p><pre><tt>function_name()(index)  -- illegal; empty parameter list</tt></pre><p>
+
+Instead, declare a local PL/SQL table to which you can assign the function result, then reference the PL/SQL table directly, as shown in the following example:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE JobTabTyp IS TABLE OF emp.job%TYPE
+      INDEX BY BINARY_INTEGER;
+   job_tab JobTabTyp;  -- declare local PL/SQL table
+   job_title emp.job%TYPE;
+   FUNCTION new_jobs RETURN JobTabTyp IS
+      new_job_tab JobTabTyp;
+   BEGIN 
+      ...
+      RETURN new_job_tab;  -- return PL/SQL table
+   END;
+BEGIN
+   ...
+   job_tab := new_jobs;  -- assign function result
+   job_title := job_tab(1);  -- reference PL/SQL table
+   ...
+END;</tt></pre><p>
+
+</p><h3><b><a name="using tab atts"></a>Using PL/SQL Table Attributes</b></h3>
+Attributes are characteristics of an object. For example, a cursor has the attributes %FOUND, %NOTFOUND, %ISOPEN, and %ROWCOUNT. Likewise, a PL/SQL table has the attributes EXISTS, COUNT, FIRST, LAST, PRIOR, NEXT, and DELETE. They make PL/SQL tables easier to use and your applications easier to maintain. To apply the attributes to a PL/SQL table, you use dot notation, as follows: <a name="index0398"></a><a name="index0399"></a><p>
+
+</p><pre><tt>plsql_table_name.attribute_name</tt></pre><p>
+
+The attributes EXISTS, PRIOR, NEXT, and DELETE take parameters. Each parameter must be an expression that yields a BINARY_INTEGER value or a value implicitly convertible to that datatype. </p><p>
+
+DELETE acts like a procedure, which is called as a statement. However, the other PL/SQL table attributes act like a function, which is called as part of an expression. </p><p>
+
+</p><h4>Using EXISTS</h4>
+
+EXISTS(<i>n</i>) returns TRUE if the <i>n</i>th element in a PL/SQL table exists. Otherwise, EXISTS(<i>n</i>) returns FALSE. You can use EXISTS to avoid the exception NO_DATA_FOUND, which is raised when you reference a nonexistent element. In the following example, PL/SQL executes the assignment statement only if the element <i>sal_tab(i)</i> exists: <a name="index0400"></a><a name="index0401"></a><a name="index0402"></a><p>
+
+</p><pre><tt>IF sal_tab.EXISTS(i) THEN
+   sal_tab(i) := sal_tab(i) + 500;
+ELSE
+   RAISE salary_missing;
+END IF;</tt></pre><p>
+
+</p><h4>Using COUNT</h4>
+
+COUNT returns the number of elements that a PL/SQL table contains. For example, if the PL/SQL table <i>ename_tab</i> contains 50 elements, the following IF condition is true: <a name="index0403"></a><a name="index0404"></a><a name="index0405"></a><p>
+
+</p><pre><tt>IF ename_tab.COUNT = 50 THEN
+   ...
+END;</tt></pre><p>
+
+COUNT is useful because the future size of a PL/SQL table is unconstrained and therefore unknown. Suppose you fetch a column of Oracle data into a PL/SQL table. How many elements does the PL/SQL table contain? COUNT gives you the answer. </p><p>
+
+You can use COUNT wherever an integer expression is allowed. In the following example, you use COUNT to specify the upper bound of a loop range:</p><p>
+
+</p><pre><tt>FOR i IN 1 .. job_tab.COUNT LOOP
+   ...
+END LOOP;</tt></pre><p>
+
+</p><h4>Using FIRST and LAST</h4>
+
+FIRST and LAST return the first and last (smallest and largest) index numbers in a PL/SQL table. If the PL/SQL table is empty, FIRST and LAST return nulls. If the PL/SQL table contains only one element, FIRST and LAST return the same index number, as the following example shows: <a name="index0406"></a><a name="index0407"></a><a name="index0408"></a><a name="index0409"></a><a name="index0410"></a><a name="index0411"></a><p>
+
+</p><pre><tt>IF sal_tab.FIRST = sal_tab.LAST THEN  -- sal_tab has one element
+   ...
+END IF;</tt></pre><p>
+
+The next example shows that you can use FIRST and LAST to specify the lower and upper bounds of a loop range provided each element in that range exists:</p><p>
+
+</p><pre><tt>FOR i IN emp_tab.FIRST .. emp_tab.LAST LOOP
+   ...
+END LOOP;</tt></pre><p>
+
+In fact, you can use FIRST or LAST wherever an integer expression is allowed. In this example, you use FIRST to initialize a loop counter:</p><p>
+
+</p><pre><tt>i BINARY_INTEGER := sal_tab.FIRST;
+WHILE i IS NOT NULL LOOP
+   ...
+   IF sal_tab(i) &gt; 5000 THEN
+      RAISE over_limit;
+   END IF;
+END LOOP;</tt></pre><p>
+
+</p><h4>Using PRIOR and NEXT</h4>
+
+PRIOR(<i>n</i>) returns the index number that precedes index <i>n</i> in a PL/SQL table. NEXT(<i>n</i>) returns the index number that succeeds index <i>n</i>. If <i>n</i> has no predecessor, PRIOR(<i>n</i>) returns a null. Likewise, if <i>n</i> has no successor, NEXT(<i>n</i>) returns a null. <a name="index0412"></a><a name="index0413"></a><a name="index0414"></a><a name="index0415"></a><a name="index0416"></a><a name="index0417"></a><p>
+
+PRIOR and NEXT do not wrap from one end of a PL/SQL table to the other. For example, the following statement assigns a null to <i>n</i> because the first element in a PL/SQL table has no predecessor:</p><p>
+
+</p><pre><tt>n := sal_tab.PRIOR(sal_tab.FIRST);  -- assigns NULL to n</tt></pre><p>
+
+Note that PRIOR is the inverse of NEXT. For example, the following statement assigns index <i>n</i> to itself:</p><p>
+
+</p><pre><tt>n := sal_tab.PRIOR(sal_tab.NEXT(n));  -- assigns n to n</tt></pre><p>
+
+You can use PRIOR or NEXT to traverse PL/SQL tables indexed by any series of integers. (Recall that index numbers need not be consecutive.) In the following example, the PL/SQL table is indexed by a series of employee numbers, which begins with 1000:</p><p>
+
+</p><pre><tt>i BINARY_INTEGER := 1000;
+WHILE i IS NOT NULL LOOP
+   raise_salary(empno_tab(i));  -- pass element to procedure
+   i := empno_tab.NEXT(i);  -- get index of next element
+END LOOP;</tt></pre><p>
+
+Likewise, you can use PRIOR or NEXT to traverse PL/SQL tables from which some elements have been deleted, as the following generic example shows:</p><p>
+
+</p><pre><tt>DECLARE
+   ...
+   i BINARY_INTEGER;
+BEGIN
+   ..
+   i := any_tab.FIRST;  -- get index of first element
+   WHILE i IS NOT NULL LOOP
+      ...  -- process any_tab(i)
+      i := any_tab.NEXT(i);  -- get index of next element
+   END LOOP;
+END;</tt></pre><p>
+
+</p><h4>Using DELETE</h4>
+
+This attribute has three forms. DELETE removes all elements from a PL/SQL table. DELETE(<i>n</i>) removes the <i>n</i>th element. If <i>n</i> is null, DELETE(<i>n</i>) does nothing. DELETE(<i>m</i>, <i>n</i>) removes all elements in the range <i>m</i> .. <i>n</i>. If <i>m</i> is larger than <i>n</i> or if <i>m</i> or <i>n</i> is null, DELETE(<i>m</i>, <i>n</i>) 
+does nothing. <a name="index0418"></a><a name="index0419"></a><a name="index0420"></a><p>
+
+DELETE lets you free the resources held by a PL/SQL table. DELETE(<i>n</i>) and DELETE(<i>m</i>, <i>n</i>) let you prune a PL/SQL table. Consider the following examples:</p><p>
+
+</p><pre><tt>ename_tab.DELETE(3);       -- delete element 3
+ename_tab.DELETE(5, 5);    -- delete element 5
+ename_tab.DELETE(20, 30);  -- delete elements 20 through 30
+ename_tab.DELETE(-15, 0);  -- delete elements -15 through 0
+ename_tab.DELETE;          -- delete entire PL/SQL table</tt></pre><p>
+
+If an element to be deleted does not exist, DELETE simply skips it; no exception is raised. </p><p>
+
+<strong>Note</strong>: The amount of memory allocated to a PL/SQL table can increase or decrease dynamically. As you delete elements, memory is freed page by page. If you delete the entire PL/SQL table, all the memory is freed.</p><p>
+
+</p><h4>Restriction</h4>
+
+Currently, you cannot use PL/SQL table attributes in a SQL statement. If you try, you get a compilation error, as the following example shows: <p>
+
+</p><pre><tt>DECLARE
+   TYPE PartTabTyp IS TABLE OF VARCHAR2(30)
+      INDEX BY BINARY_INTEGER;
+   part_tab   PartTabTyp;
+   part_count INTEGER;
+BEGIN
+   part_tab(65) := 'OIL PAN';
+   part_tab(97) := 'TRUNK LOCK';
+   part_tab(44) := 'SHOCK ABSORBER';
+   ...
+   SELECT part_tab.COUNT    -- causes compilation error
+      INTO part_count FROM dual;
+   ...
+END;</tt></pre><p>
+
+</p><h3><b>Using PL/SQL Tables</b></h3>
+Mainly, you use PL/SQL tables to move bulk data into and out of database tables or between client-side applications and stored subprograms. <p>
+
+</p><h4>Retrieving Oracle Data</h4>
+
+You can retrieve Oracle data into a PL/SQL table in three ways: the SELECT INTO statement lets you select a single row of data; the FETCH statement or a cursor FOR loop lets you fetch multiple rows. <a name="index0421"></a><p>
+
+Using the SELECT INTO statement, you can select a column entry into a scalar element. Or, you can select an entire row into a record element. In the following example, you select a row from the database table <i>dep</i>t into a record stored by the first element of the PL/SQL table <i>dept_tab</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptTabTyp IS TABLE OF dept%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   dept_tab DeptTabTyp;
+BEGIN
+   /* Select entire row into record stored by first element. */
+   SELECT * INTO dept_tab(1) FROM dept WHERE deptno = 10;
+   IF dept_tab(1).dname = 'ACCOUNTING' THEN ...
+   ...
+END;</tt></pre><p>
+
+Using the FETCH statement, you can fetch an entire column of Oracle data into a PL/SQL table of scalars. Or, you can fetch an entire table of Oracle data into a PL/SQL table of records. In the following example, you fetch rows from a cursor into the PL/SQL table of records <i>emp_tab</i>: </p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   emp_tab EmpTabTyp;
+   i BINARY_INTEGER := 0;
+   CURSOR c1 IS SELECT * FROM emp;
+BEGIN
+   OPEN c1;
+   LOOP
+      i := i + 1;
+      /* Fetch entire row into record stored by ith element. */
+      FETCH c1 INTO emp_tab(i);
+      EXIT WHEN c1%NOTFOUND;
+      -- process data record
+   END LOOP;
+   CLOSE c1;
+END;</tt></pre><p>
+
+After loading PL/SQL tables of records this way, you can use them to simulate local database tables.</p><p>
+
+Instead of the FETCH statement, you can use a cursor FOR loop, which implicitly declares its loop index as a record, opens the cursor associated with a given query, repeatedly fetches rows of values into fields in the record, then closes the cursor. In the following example, you use a cursor FOR loop to fetch entire columns of Oracle data into the PL/SQL tables <i>ename_tab</i> and <i>sal_tab</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EnameTabTyp IS TABLE OF emp.ename%TYPE
+      INDEX BY BINARY_INTEGER;
+   TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+       INDEX BY BINARY_INTEGER;
+   ename_tab EnameTabTyp;
+   sal_tab   SalTabTyp;
+   n BINARY_INTEGER := 0;
+BEGIN
+   /* Fetch entire columns into PL/SQL tables. */
+   FOR emp_rec IN (SELECT ename, sal FROM emp) LOOP
+      n := n + 1;
+      ename_tab(n) := emp_rec.ename;
+      sal_tab(n) := emp_rec.sal;
+   END LOOP;
+   ...
+END;</tt></pre><p>
+
+Alternatively, you can place the cursor FOR loop in a standalone procedure. For example, given the declaration </p><p>
+
+</p><pre><tt>CREATE PACKAGE emp_defs AS
+   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   ...
+END emp_defs;</tt></pre><p>
+
+you might use the following standalone procedure to fetch all rows from the database table <i>emp</i> into the PL/SQL table of records <i>emp_tab:</i></p><p>
+
+</p><pre><tt>CREATE PROCEDURE load_emp_tab (
+   n IN OUT BINARY_INTEGER,
+   emp_tab OUT emp_defs.EmpTabTyp) AS  -- use packaged type
+BEGIN
+   n := 0;
+   /* Fetch entire database table into PL/SQL table of records. */
+   FOR emp_rec IN (SELECT * FROM emp) LOOP
+      n := n + 1;
+      emp_tab(n) := emp_rec;  -- assign record to nth element
+   END LOOP;
+END;</tt></pre><p>
+
+You can also use a cursor FOR loop to fetch Oracle data into packaged PL/SQL tables. For instance, given the declarations</p><p>
+
+</p><pre><tt>CREATE PACKAGE emp_defs AS
+   TYPE EmpnoTabTyp IS TABLE OF emp.empno%TYPE
+      INDEX BY BINARY_INTEGER;
+   empno_tab EmpnoTabTyp;
+   ...
+END emp_defs;</tt></pre><p>
+
+you might use the following block to fetch the database column <i>empno</i> into the public PL/SQL table <i>empno_tab:</i></p><p>
+
+</p><pre><tt>DECLARE
+   ...
+   i BINARY_INTEGER := 0;
+BEGIN
+   /* Fetch entire column into public PL/SQL table. */
+   FOR emp_rec IN (SELECT empno FROM emp ORDER BY empno) LOOP
+      i := i + 1;
+      emp_defs.empno_tab(i) := emp_rec.empno;
+   END LOOP;
+   ...
+END;</tt></pre><p>
+
+</p><h4>Inserting Oracle Data</h4>
+
+You must use a loop to insert values from a PL/SQL table into a database column. For example, given the declarations <a name="index0422"></a><p>
+
+</p><pre><tt>CREATE PACKAGE emp_defs AS
+   TYPE EmpnoTabTyp IS TABLE OF emp.empno%TYPE
+      INDEX BY BINARY_INTEGER;
+   TYPE EnameTabTyp IS TABLE OF emp.ename%TYPE
+      INDEX BY BINARY_INTEGER;
+   empno_tab EmpnoTabTyp;
+   ename_tab EnameTabTyp;
+   ...
+END emp_defs;</tt></pre><p>
+
+you might use the following standalone procedure to insert values from the PL/SQL tables <i>empno_tab</i> and <i>ename_tab</i> into the database table <i>emp</i>:</p><p>
+
+</p><pre><tt>CREATE PROCEDURE insert_emp_ids (
+   rows      IN BINARY_INTEGER,
+   empno_tab IN EmpnoTabTyp,
+   ename_tab IN EnameTabTyp) AS
+BEGIN
+   FOR i IN 1..rows LOOP
+      INSERT INTO emp (empno, ename)
+         VALUES (empno_tab(i), ename_tab(i));
+   END LOOP;
+END;</tt></pre><p>
+
+<b>Restriction</b>
+You cannot reference record variables in the VALUES clause. So, you cannot insert entire records from a PL/SQL table of records into rows in a database table. For example, the following INSERT statement is illegal:<a name="index0423"></a></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptTabTyp IS TABLE OF dept%ROWTYPE
+      INDEX BY BINARY_INTEGER;
+   dept_tab DeptTabTyp;
+   ...
+BEGIN
+   ...
+   FOR i IN dept_tab.FIRST .. dept_tab.LAST LOOP
+      INSERT INTO dept VALUES (dept_tab(i));  -- illegal
+   END LOOP;
+END;</tt></pre><p>
+
+Instead, you must specify one or more fields in the record, as the following example shows:</p><p>
+
+</p><pre><tt>FOR i IN dept_tab.FIRST .. dept_tab.LAST LOOP
+   INSERT INTO dept (deptno, dname)
+      VALUES (dept_tab(i).deptno, dept_tab(i).dname);
+END LOOP;</tt></pre><p>
+
+</p><h3><b><a name="arrays w tabs"></a>Using Host Arrays with PL/SQL Tables</b></h3>
+With the Oracle Call Interface or the Oracle Precompilers, you can bind host arrays of scalars (but not host arrays of structures) to PL/SQL tables declared as the formal parameters of a subprogram. That allows you to pass host arrays to stored functions and procedures. <a name="index0424"></a><a name="index0425"></a><p>
+
+You can use a BINARY_INTEGER variable or compatible host variable to index the host arrays. Given the array subscript range<i> m</i> .. <i>n</i>, the corresponding PL/SQL table index range is always 1 .. <i>n</i> - <i>m</i> + 1. For example, if the array subscript range is 5 .. 10, the corresponding PL/SQL table index range is 1 .. (10 - 5 + 1) or 1 .. 6. </p><p>
+
+To assign all the values in a host array to elements in a PL/SQL table, you can use a subprogram call. In the Pro*C example below, you pass the host array <i>salary</i> to a PL/SQL block. From the block, you call a local function that declares the PL/SQL table<i> sal_tab</i> as one of its formal parameters. The function call assigns all values in the actual parameter <i>salary</i> to elements in the formal parameter <i>sal_tab</i>.</p><p>
+
+</p><pre><tt>#include &lt;stdio.h&gt;
+main()
+{
+   EXEC SQL BEGIN DECLARE SECTION;
+      ...
+      /* Declare host array. */
+      float salary [100];
+   EXEC SQL END DECLARE SECTION;
+
+   /* Populate host array. */
+   ...
+   EXEC SQL EXECUTE
+   DECLARE
+      TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+         INDEX BY BINARY_INTEGER;
+      mid_salary  REAL;
+      n  BINARY_INTEGER := 100;
+      FUNCTION median (sal_tab SalTabTyp, n INTEGER)
+         RETURN REAL IS
+      BEGIN
+          -- compute median salary
+      END;
+   BEGIN
+      mid_salary := median(:salary, n);  -- pass array
+      ...
+   END;
+   END-EXEC;
+   ...
+}</tt></pre><p>
+
+Conversely, you can use a subprogram call to assign all values in a PL/SQL table to corresponding elements in a host array. In the Pro*C example below, you call a standalone procedure (not shown), which declares three PL/SQL tables as OUT formal parameters. The corresponding actual parameters are host arrays. When the procedure finishes fetching a batch of employee data into the PL/SQL tables, it assigns all values in the PL/SQL tables to elements in the host arrays. </p><p>
+
+</p><pre><tt>#include &lt;stdio.h&gt;
+...
+EXEC SQL BEGIN DECLARE SECTION;
+   ...
+   int   array_size;
+   int   number_returned;
+   int   finished;
+   /* Declare host arrays. */
+   char  emp_name[10][11];
+   char  job_title[10][10];
+   float salary[10];
+EXEC SQL END DECLARE SECTION;
+...
+main()
+{
+   ...
+   array_size = 10;     /* determines batch size */
+   number_returned = 0; /* needed for last batch */
+   finished = 0;
+
+   /* Array fetch loop. */
+   for (;;)
+   {
+      EXEC SQL EXECUTE
+      BEGIN 
+         /* Call stored procedure to fetch a batch of data. */
+         get_emps(:emp_name, :job_title, :salary,
+            :array_size, :number_returned, :finished);
+      END;
+      END-EXEC;
+
+      print_rows(number_returned);
+
+      if (finished) break;
+   }
+   ...
+}</tt></pre><p>
+
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch4.htm#legal%20converts">Table 4 - 1</a> shows the legal datatype conversions between row values in a PL/SQL table and elements in a host array. For example, a host array of type VARCHAR2 is compatible with a PL/SQL table of type LONG, LONG RAW, RAW, or VARCHAR2. </p><p>
+
+<table border=""><tbody><tr><td align="left" valign="top"><b>			                       PL/SQL Table</b>
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top"><b>Host Array</b>
+</td><td align="left" valign="top">CHAR
+</td><td align="left" valign="top">DATE
+</td><td align="left" valign="top">LONG
+</td><td align="left" valign="top">LONG RAW
+</td><td align="left" valign="top">NUMBER
+</td><td align="left" valign="top">RAW
+</td><td align="left" valign="top">ROWID
+</td><td align="left" valign="top">VARCHAR2
+</td></tr><tr>
+<td align="left" valign="top">CHARF
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">CHARZ
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">DATE
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">DECIMAL
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">DISPLAY
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">FLOAT
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">INTEGER
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">LONG
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">LONG VARCHAR
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td></tr><tr>
+<td align="left" valign="top">LONG VARRAW
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">NUMBER
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">RAW
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">ROWID
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">STRING
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td></tr><tr>
+<td align="left" valign="top">UNSIGNED
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">VARCHAR
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td></tr><tr>
+<td align="left" valign="top">VARCHAR2
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td></tr><tr>
+<td align="left" valign="top">VARNUM
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+<td align="left" valign="top">VARRAW
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">_/
+</td><td align="left" valign="top">
+</td><td align="left" valign="top">
+</td></tr><tr>
+
+</tr></tbody></table>
+
+<b><a name="legal converts">Table 4 - 1.</a>  Legal Datatype Conversions</b></p><p>
+
+</p><h4>ARRAYLEN Statement</h4>
+
+Suppose you pass a host array to a PL/SQL block for processing. By default, when binding the host array, the Oracle Precompilers use its declared dimension. However, you might not want to process the entire array, in which case you can use the ARRAYLEN statement to specify a smaller dimension. ARRAYLEN associates the host array with a host variable, which stores the smaller dimension. <a name="index0426"></a><a name="index0427"></a><p>
+
+Let us repeat the first example above using ARRAYLEN to override the default dimension of the host array <i>salary</i>: <a name="index0428"></a></p><p>
+
+</p><pre><tt>#include &lt;stdio.h&gt;
+main()
+{
+   EXEC SQL BEGIN DECLARE SECTION;
+      ...
+      /* Declare host array. */
+      float salary [100];
+      int   my_dim;
+      EXEC SQL ARRAYLEN salary (my_dim);
+   EXEC SQL END DECLARE SECTION;
+   /* Populate host array. */
+   ...
+   /* Set smaller host array dimension. */
+   my_dim = 25;
+   EXEC SQL EXECUTE
+   DECLARE
+      TYPE SalTabTyp IS TABLE OF emp.sal%TYPE
+         INDEX BY BINARY_INTEGER;
+      mid_salary  REAL;
+      FUNCTION median (sal_tab SalTabTyp, n INTEGER)
+         RETURN REAL IS
+      BEGIN
+         ... -- compute median salary
+      END;
+   BEGIN
+      mid_salary := median(:salary, :my_dim);  -- pass array
+      ...
+   END;
+   END-EXEC;
+   ...
+}</tt></pre><p>
+
+Only 25 array elements are passed to the PL/SQL block because ARRAYLEN downsizes the host array from 100 to 25 elements. As a result, when the PL/SQL block is sent to Oracle for execution, a much smaller host array is sent along. This saves time and reduces 
+network traffic.</p><p>
+</p><hr>
+<!-- Appending: PLS23.dir/ch401.html to PLS23.dir/ch4.html -->
+<!-- SavedNext: ch5.html -->
+<a name="toc039"></a>
+<h2><b><a name="user-def recs"></a>User-Defined Records</b></h2>
+
+You can use the %ROWTYPE attribute to declare a record that represents a row in a table or a row fetched from a cursor. But, you cannot specify the datatypes of fields in the record or declare fields of your own. The composite datatype RECORD lifts those restrictions. <a name="index0429"></a><a name="index0430"></a><a name="index0431"></a><a name="index0432"></a><p>
+
+As you might expect, objects of type RECORD are called <i>records</i>. Records contain uniquely named fields, which can have different datatypes. Suppose you have various data about an employee such as name, salary, and hire date. These items are dissimilar in type but logically related. A record containing a field for each item lets you treat the data as a 
+logical unit. <a name="index0433"></a></p><p>
+
+</p><h3><b>Defining RECORD Types</b></h3>
+Records must be declared in two steps. First, you define a RECORD type, then declare user-defined records of that type. You can define RECORD types in the declarative part of any block, subprogram, or package using the syntax <a name="index0434"></a><a name="index0435"></a><p>
+
+</p><pre><tt>TYPE record_type_name IS RECORD (field[, field]...);</tt></pre><p>
+
+where <i>record_type_name</i> is a type specifier used in subsequent declarations of records and <i>field</i> stands for the following syntax:</p><p>
+
+</p><pre><tt>field_name datatype [[NOT NULL] {:= | DEFAULT} expr]</tt></pre><p>
+
+You can use the attributes %TYPE and %ROWTYPE to specify field types. In the following example, you define a RECORD type 
+named <i>DeptRecTyp</i>: <a name="index0436"></a></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptRecTyp IS RECORD (
+      deptno NUMBER(2),
+      dname  dept.dname%TYPE,
+      loc    dept.loc%TYPE);</tt></pre><p>
+
+Notice that the field declarations are like variable declarations. Each field has a unique name and specific datatype. </p><p>
+
+The next example shows that you can initialize a RECORD type. When you declare a record of type <i>TimeTyp</i>, its three fields assume an initial value of zero. <a name="index0437"></a><a name="index0438"></a></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE TimeTyp IS RECORD (
+      seconds SMALLINT := 0,
+      minutes SMALLINT := 0,
+      hours   SMALLINT := 0);</tt></pre><p>
+
+You can add the NOT NULL constraint to any field declaration and so prevent the assigning of nulls to that field. Fields declared as NOT NULL must be initialized. <a name="index0439"></a></p><p>
+
+</p><h4>Nested Records</h4>
+
+PL/SQL lets you define <i>nested</i> records. That is, a record can be the component of another record, as the following example shows: <a name="index0440"></a><a name="index0441"></a><a name="index0442"></a><p>
+
+</p><pre><tt>DECLARE
+   TYPE TimeTyp IS RECORD (
+      seconds SMALLINT,
+      minutes SMALLINT,
+      hours   SMALLINT);
+   TYPE MeetingTyp IS RECORD (
+      day     DATE,
+      time    TimeTyp,  -- nested record
+      place   VARCHAR2(20),
+      purpose VARCHAR2(50));</tt></pre><p>
+
+</p><h4>Function Results</h4>
+
+The example below shows that you can specify a RECORD type in the RETURN clause of a function specification. That allows the function to return a user-defined record of the same type.<p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpRecTyp IS RECORD (emp_id INTEGER, salary REAL);
+   ...
+   FUNCTION nth_highest_salary (n INTEGER) RETURN EmpRecTyp IS ...</tt></pre><p>
+
+</p><h3><b>Declaring Records</b></h3>
+Once you define a RECORD type, you can declare records of that type, as the following example shows: <a name="index0443"></a><a name="index0444"></a><a name="index0445"></a><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpRecTyp IS RECORD (
+      emp_id    NUMBER(4),
+      emp_name  CHAR(10),
+      job_title CHAR(9)
+      hire_date DATE));
+   emp_rec EmpRecTyp;  -- declare user-defined record</tt></pre><p>
+
+The identifier <i>emp_rec</i> represents an entire record.</p><p>
+
+Like scalar variables, user-defined records can be declared as the formal parameters of procedures and functions. An example follows: <a name="index0446"></a><a name="index0447"></a></p><p>
+
+</p><pre><tt>CREATE PACKAGE emp_actions AS
+   TYPE EmpRecTyp IS RECORD ( 
+      emp_id    NUMBER(4),
+      last_name CHAR(10),
+      job_title CHAR(14), ...);
+   ...
+   PROCEDURE hire_employee (emp_rec EmpRecTyp);
+</tt></pre><p>
+
+</p><h3><b>Referencing Records</b></h3>
+To reference individual fields in a record, you use dot notation and the following syntax: <a name="index0448"></a><a name="index0449"></a><p>
+
+</p><pre><tt>record_name.field_name</tt></pre><p>
+
+For example, you reference the field <i>hire_date</i> in the record <i>emp_rec</i> 
+as follows:</p><p>
+
+</p><pre><tt>emp_rec.hire_date ...</tt></pre><p>
+
+You can assign the value of an expression to a specific field using the following syntax: <a name="index0450"></a><a name="index0451"></a></p><p>
+
+</p><pre><tt>record_name.field_name := expression;</tt></pre><p>
+
+In the next example, you convert an employee name to upper case:</p><p>
+
+</p><pre><tt>emp_rec.ename := UPPER(emp_rec.ename);</tt></pre><p>
+
+Instead of assigning values separately to each field in a record, you can assign values to all fields at once. This can be done in two ways. First, you can assign one record to another if they have the same datatype, as the following example shows: <a name="index0452"></a><a name="index0453"></a></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptRecTyp IS RECORD(...);
+   dept_rec1 DeptRecTyp;
+   dept_rec2 DeptRecTyp;
+BEGIN
+   ...
+   dept_rec1 := dept_rec2;  -- assign one record to another</tt></pre><p>
+
+Records that have different datatypes cannot be assigned to each other even if their fields match exactly.</p><p>
+
+<strong>Note</strong>: A user-defined record and a %ROWTYPE record always have different datatypes.</p><p>
+
+Second, you can use the SELECT or FETCH statement to fetch column values into a record, as the example below shows. The column names must appear in the same order as the fields in your record.</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE DeptRecTyp IS RECORD(
+      dept_no   NUMBER(2),
+      dept_name CHAR(14),
+      location  CHAR(13));
+   dept_rec DeptRecTyp;
+BEGIN
+   SELECT deptno, dname, loc INTO dept_rec FROM dept WHERE ...</tt></pre><p>
+
+However, you cannot use the INSERT statement to insert user-defined records into a database table. So, the following statement is illegal:</p><p>
+
+</p><pre><tt>INSERT INTO dept VALUES (dept_rec);  -- illegal</tt></pre><p>
+
+Also, you cannot assign a list of values to a record using an assignment statement. Therefore, the following syntax is illegal:</p><p>
+
+</p><pre><tt>record_name := (value1, value2, value3, ...);  -- illegal</tt></pre><p>
+
+Finally, records cannot be tested for equality, inequality, or nullity. For instance, the following IF conditions are illegal:</p><p>
+
+</p><pre><tt>IF dept_rec1 = dept_rec2 THEN ...  -- illegal
+IF emp_rec IS NULL THEN ...  -- illegal</tt></pre><p>
+
+</p><h4>Nested Records</h4>
+
+The example below shows that you can assign one nested record to another if they have the same datatype. Such assignments are allowed even if the parent records have different datatypes.<p>
+
+</p><pre><tt>DECLARE
+   TYPE TimeTyp IS RECORD (minutes SMALLINT, hours SMALLINT);
+   TYPE MeetingTyp IS RECORD (
+      day     DATE,
+      time    TimeTyp,  -- nested record
+      room    INTEGER(4),
+      subject VARCHAR2(35));
+   TYPE PartyTyp IS RECORD (
+      day   DATE,
+      time  TimeTyp,  -- nested record
+      place VARCHAR2(15));
+   meeting MeetingTyp;
+   seminar MeetingTyp;
+   party   PartyTyp;
+   ...
+BEGIN
+   ...
+   seminar.time := meeting.time;  -- same parent type
+   party.time := meeting.time;  -- different parent types
+   ...
+END;</tt></pre><p>
+
+</p><h4>Function Results</h4>
+
+When calling a function that returns a user-defined record, you use the following syntax to reference fields in the record:<p>
+
+</p><pre><tt>function_name(parameters).field_name</tt></pre><p>
+
+For example, the following call to the function <i>nth_highest_sal</i> references the field <i>salary</i> in the user-defined record <i>emp_rec</i>:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpRecTyp IS RECORD ( 
+      emp_id    NUMBER(4),
+      job_title CHAR(14),
+      salary    REAL);
+   middle_sal REAL;
+   FUNCTION nth_highest_sal (n INTEGER) RETURN EmpRecTyp IS
+      emp_rec EmpRecTyp;
+   BEGIN
+      ...
+      RETURN emp_rec;  -- return user-defined record
+   END;
+BEGIN
+   ...
+   middle_sal := nth_highest_sal(10).salary;  -- call function </tt></pre><p>
+
+To reference nested fields in a record returned by a function, you use the following syntax:</p><p>
+
+</p><pre><tt>function_name(parameters).field_name.nested_field_name</tt></pre><p>
+
+For example, the following call to the function <i>calendar_item</i> references the nested field <i>hours</i> in the user-defined record <i>meeting</i><tt>:</tt></p><p>
+
+</p><pre><tt>DECLARE
+   TYPE TimeTyp IS RECORD (minutes SMALLINT, hours SMALLINT);
+   TYPE MeetingTyp IS RECORD (
+      day      DATE,
+      duration TimeTyp,  -- nested record
+      room     INTEGER(4),
+      subject  VARCHAR2(35));
+   ...
+   FUNCTION calendar_item (priority INTEGER) RETURN MeetingTyp IS
+      meeting MeetingTyp;
+   BEGIN
+      ...
+      RETURN meeting;  -- return user-defined record
+   END;
+BEGIN
+   ...
+   IF calendar_item(3).duration.hours &gt; 2 THEN ...</tt></pre><p>
+
+<b>Restriction
+</b>Currently, you cannot use the syntax above to call a parameterless function because PL/SQL does not allow empty parameter lists. That is, the following syntax is illegal: <a name="index0454"></a><a name="index0455"></a></p><p>
+
+</p><pre><tt>function_name().field_name  -- illegal; empty parameter list</tt></pre><p>
+
+You cannot just drop the empty parameter list because the following syntax is also illegal:</p><p>
+
+</p><pre><tt>function_name.field_name  -- illegal; no parameter list</tt></pre><p>
+
+Instead, declare a local user-defined record to which you can assign the function result, then reference its fields directly, as shown in the following example:</p><p>
+
+</p><pre><tt>DECLARE
+   TYPE EmpRecTyp IS RECORD (..., salary REAL);
+   emp_rec EmpRecTyp;  -- declare record
+   median  REAL;
+   FUNCTION median_sal RETURN EmpRecTyp IS ...
+BEGIN
+   ...
+   emp_rec := median_sal;  -- assign function result
+   median := emp_rec.salary;  -- reference field </tt></pre><p>
+
+</p><h3><b>Using Records</b></h3>
+The RECORD type lets you collect information about the attributes of something. The information is easy to manipulate because you can refer to the collection as a whole. In the following example, you collect accounting figures from the database tables <i>assets</i> and <i>liabilities</i>, then use ratio analysis to compare the performance of two subsidiary companies: <p>
+
+</p><pre><tt>DECLARE
+   TYPE FiguresTyp IS RECORD (cash REAL, notes REAL, ...);
+   sub1_figs FiguresTyp;
+   sub2_figs FiguresTyp;
+   ...
+   FUNCTION acid_test (figs FiguresTyp) RETURN REAL IS ...
+BEGIN
+   SELECT cash, notes, ... INTO sub1_figs FROM assets, liabilities
+      WHERE assets.sub = 1 AND liabilities.sub = 1;
+   SELECT cash, notes, ... INTO sub2_figs FROM assets, liabilities
+      WHERE assets.sub = 2 AND liabilities.sub = 2;
+   IF acid_test(sub1_figs) &gt; acid_test(sub2_figs) THEN ...
+   ...
+END;</tt></pre><p>
+
+Notice how easy it is to pass the collected figures to the function <i>acid_test</i>, which computes a financial ratio.</p><p>
+</p><hr>
+
+<br>
+
+<hr width="98%"><p></p>
+
+<center><table cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td align="CENTER" valign="TOP" nowrap="" width="10%">
+
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch3.htm"><img src="./PL_SQL Tables and User-Defined Records_files/larrow.gif" alt="Go to previous file in sequence" border="0" height="30" width="30"></a>
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch5.htm"><img src="./PL_SQL Tables and User-Defined Records_files/rarrow.gif" alt="Go to next file in sequence" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch3.htm">Prev</a> 
+<a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/ch5.htm">Next</a></font></td>
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td align="CENTER" width="100%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/dcommon/cpyr.htm"><img src="./PL_SQL Tables and User-Defined Records_files/oracle.gif" alt="Oracle" border="0" height="15" width="75"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/dcommon/cpyr.htm">Copyright © 1996 Oracle Corporation.</a>
+<br>
+All Rights Reserved.</font></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/products.htm"><img src="./PL_SQL Tables and User-Defined Records_files/prodicon.gif" alt="Go to Product Documentation Library" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/products.htm">Library</a></font></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/Gserver.htm"><img src="./PL_SQL Tables and User-Defined Records_files/bookicon.gif" alt="Go to books for this product" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/Gserver.htm">Product</a></font></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/toc.htm"><img src="./PL_SQL Tables and User-Defined Records_files/conticon.gif" alt="Go to Contents for this book" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/toc.htm">Contents</a></font></td>
+
+<td width="4"></td>
+
+<td width="4"></td>
+
+
+<td align="CENTER" valign="TOP" nowrap="" width="10%"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/index.htm"><img src="./PL_SQL Tables and User-Defined Records_files/indxicon.gif" alt="Go to Index" border="0" height="30" width="30"></a><br>
+<font size="-2"><a href="https://docs.oracle.com/cd/A57673_01/DOC/server/doc/PLS23/index.htm">Index</a></font></td>
+
+<td width="4"></td>
+</tr>
+</tbody></table></center>
+
+<noscript><img src="https://docs.oracle.com/akam/11/pixel_764f7884?a=dD00MGQyMmI2NDYwNTFiMjlmYzRlMGY2N2U2ZTYwNjA4ODk0NWRiYTQwJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript>
+
+
+</body></html>

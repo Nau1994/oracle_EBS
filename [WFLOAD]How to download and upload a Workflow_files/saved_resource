@@ -1,0 +1,80 @@
+/**** Top Welcome bar****/
+#welcome
+{
+  background:none repeat scroll 0 0 #FFC;
+  border-bottom:3px solid #C60;
+  color:#800000;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin:0 auto;
+  padding:4px;
+  height:21px;
+  text-align:center 
+}
+
+#welcome a:hover
+{
+  color:#800000;
+  text-decoration:underline
+}
+
+
+/** BEGIN OF query-output table design **/
+
+#query-output table 
+{
+background-color:#F2F2F5;
+border-width:1px 1px 0px 1px;
+border-color:#C9CBD3;
+border-style:solid;
+}
+
+#query-output td
+{
+color:#000000;
+font-family:Tahoma,Arial,Helvetica,Geneva,sans-serif;
+font-size:9pt;
+background-color:#EAEFF5;
+padding:8px;
+background-color:#F2F2F5;
+border-color:#ffffff #ffffff #cccccc #ffffff;
+border-style:solid solid solid solid;
+border-width:1px 0px 1px 0px;
+}
+
+#query-output th
+{
+font-family:Tahoma,Arial,Helvetica,Geneva,sans-serif;
+font-size:9pt;
+padding:8px;
+background-color:#CFE0F1;
+border-color:#ffffff #ffffff #cccccc #ffffff;
+border-style:solid solid solid none;
+border-width:1px 0px 1px 0px;
+white-space:nowrap;
+}
+
+/** END OF query-output table design **/
+
+/** BEGIN OF table-green table design **/
+
+#table-green table {
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+#table-green th, td {
+    text-align: left;
+    padding: 8px;
+    font-size:9pt;
+}
+ 
+#table-green tr:nth-child(even){background-color: #f2f2f2}
+ 
+#table-green th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/** END OF table-green table design **/

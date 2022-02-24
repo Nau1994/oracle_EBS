@@ -1,0 +1,3633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0067)https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Page" content="DefaultSingle">
+<meta name="Title" content=" PL/SQL Collections and Records">
+<title>PL/SQL Collections and Records</title>
+<link rel="home" href="https://docs.oracle.com/cd/A97630_01/index.htm" title="Library">
+<link rel="toc" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/toc.htm" title="Contents">
+<link rel="index" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/index.htm" title="Index">
+<link rel="copyright" href="https://docs.oracle.com/cd/A97630_01/dcommon/html/cpyr.htm" title="Copyright">
+<link rel="up" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/toc.htm" title="Up">
+<link rel="next" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/06_ora.htm" title="Next">
+<link rel="previous" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/04_struc.htm" title="Previous">
+
+<link href="./PL_SQL User Guide and Reference_files/doccd.css" rel="stylesheet" title="Default" type="text/css">
+<script type="text/javascript" async="" src="./PL_SQL User Guide and Reference_files/infinity_common.js.download"></script><script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script><script src="./PL_SQL User Guide and Reference_files/global.js.download"></script><script type="text/javascript" src="./PL_SQL User Guide and Reference_files/ora_docs.js.download"></script><script type="text/javascript" src="./PL_SQL User Guide and Reference_files/odc.js.download"></script><script type="text/javascript" src="./PL_SQL User Guide and Reference_files/analytics-production.js.download" async="true" defer="true"></script><script type="text/javascript" src="./PL_SQL User Guide and Reference_files/common.js.download" async="true" defer="true"></script><script type="text/javascript" src="./PL_SQL User Guide and Reference_files/analytics.js.download" async="true" defer="true"></script></head>
+<body bgcolor="white">
+<a name="top"></a> <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#BEGIN">Skip Headers</a><br>
+<br>
+<table summary="" cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td align="left" valign="top"><font color="#330099" face="Helvetica, Arial, sans-serif"><strong>PL/SQL User's Guide and Reference<br>
+Release 2 (9.2)</strong><br>
+Part Number A96624-01</font></td>
+<td valign="bottom" align="right" width="144">
+<table summary="" cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td align="center" valign="top" width="16%"><a href="https://docs.oracle.com/cd/A97630_01/index.htm"><img src="./PL_SQL User Guide and Reference_files/prodicon.gif" alt="Go To Documentation Library" border="0"><br>
+<font size="-2">Home</font></a></td>
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/nav/docindex.htm"><img src="./PL_SQL User Guide and Reference_files/bookicon.gif" alt="Go To Product List" border="0"><br>
+<font size="-2">Book List</font></a></td>
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/toc.htm"><img src="./PL_SQL User Guide and Reference_files/conticon.gif" alt="Go To Table Of Contents" border="0"><br>
+<font size="-2">Contents</font></a></td>
+<td align="center" valign="top" width="20%"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/index.htm"><img src="./PL_SQL User Guide and Reference_files/indxicon.gif" alt="Go To Index" border="0"><br>
+<font size="-2">Index</font></a></td>
+<!--  mix  -->
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/mix.920/a96625/toc.htm"><img src="./PL_SQL User Guide and Reference_files/mix.gif" alt="" border="0"><br>
+<font size="-2">Master Index</font></a></td>
+<!--  fdbk  -->
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/dcommon/html/feedback.htm"><img src="./PL_SQL User Guide and Reference_files/feedback.gif" alt="" border="0"><br>
+<font size="-2">Feedback</font></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<hr>
+<p><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/04_struc.htm"><img src="./PL_SQL User Guide and Reference_files/larrow.gif" alt="Go to previous page" border="0"></a> <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/06_ora.htm"><img src="./PL_SQL User Guide and Reference_files/rarrow.gif" alt="Go to next page" border="0"></a> <a name="BEGIN"></a></p>
+
+<div class="IND"><!-- End Header -->
+<a name="1059"></a> <!--TOC=Title-"1059"-->
+<h1 class="Title"><font face="Arial, Helvetica, sans-serif" color="#330099">5<br>
+ <a name="LNPLS005">PL/SQL Collections and Records</a></font></h1>
+
+<!--/TOC=Title-->
+<a name="4587"></a> 
+
+<p class="BP"><em class="Italic">Knowledge is that area of ignorance that we arrange and classify. --</em>Ambrose Bierce</p>
+
+<a name="22327"></a> <a name="7629"></a> 
+
+<p class="BP">Many programming techniques use collection types such as arrays, bags, lists, nested tables, sets, and trees. To support these techniques in database applications, PL/SQL provides the datatypes <code>TABLE</code> and <code>VARRAY</code>, which allow you to declare index-by tables, nested tables and variable-size arrays. In this chapter, you learn how those types let you reference and manipulate collections of data as whole objects. You also learn how the datatype <code>RECORD</code> lets you treat related but dissimilar data as a logical unit.</p>
+
+<a name="29726"></a> <a name="29721"></a> 
+
+<p class="BP">This chapter discusses the following topics:</p>
+
+<dl class="LS">
+<dt class="LSF"><a name="22165"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20425">"What Is a Collection?"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20425"></a></dt>
+
+<dt class="LSF"><a name="35814"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#34607">"Choosing Which PL/SQL Collection Types to Use"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#34607"></a></dt>
+
+<dt class="LSF"><a name="35450"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#19661">"Defining Collection Types"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#19661"></a></dt>
+
+<dt class="LSF"><a name="35454"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#35385">"Declaring PL/SQL Collection Variables"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#35385"></a></dt>
+
+<dt class="LSF"><a name="35461"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#19834">"Initializing and Referencing Collections"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#19834"></a></dt>
+
+<dt class="LSF"><a name="21589"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20986">"Assigning Collections"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20986"></a></dt>
+
+<dt class="LSF"><a name="35263"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20023">"Using PL/SQL Collections with SQL Statements"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#20023"></a></dt>
+
+<dt class="LSF"><a name="35313"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#14165">"Using Collection Methods"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#14165"></a></dt>
+
+<dt class="LSF"><a name="35334"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#14332">"Avoiding Collection Exceptions"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#14332"></a></dt>
+
+<dt class="LSF"><a name="35345"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#23723">"Reducing Loop Overhead for Collections with Bulk Binds"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#23723"></a></dt>
+
+<dt class="LSF"><a name="21593"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7658">"What Is a Record?"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7658"></a></dt>
+
+<dt class="LSF"><a name="21594"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7543">"Defining and Declaring Records"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7543"></a></dt>
+
+<dt class="LSF"><a name="22203"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7581">"Initializing Records"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7581"></a></dt>
+
+<dt class="LSF"><a name="21595"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7600">"Assigning Records"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#7600"></a></dt>
+
+<dt class="LSF"><a name="21596"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#28087">"Manipulating Records"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#28087"></a></dt>
+</dl>
+
+<a name="20425"></a> <!--TOC=h1-"20425"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">What Is a Collection?</font></h2>
+
+<!--/TOC=h1-->
+<a name="19388"></a> 
+
+<p class="BP">A <em class="Italic">collection</em> is an ordered group of elements, all of the same type. It is a general concept that encompasses lists, arrays, and other familiar datatypes. Each element has a unique subscript that determines its position in the collection.</p>
+
+<a name="35140"></a> 
+
+<p class="BP">PL/SQL offers these collection types:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="35139"></a><strong class="Bold">Index-by tables</strong>, also known as <strong class="Bold">associative arrays</strong>, let you look up elements using arbitrary numbers and strings for subscript values. (They are similar to <em class="Italic">hash tables</em> in other programming languages.)</li>
+
+<li class="LB1" type="disc"><a name="35141"></a> <strong class="Bold">Nested tables</strong> hold an arbitrary number of elements. They use sequential numbers as subscripts. You can define equivalent SQL types, allowing nested tables to be stored in database tables and manipulated through SQL.</li>
+
+<li class="LB1" type="disc"><a name="35144"></a><strong class="Bold">Varrays</strong> (short for variable-size arrays) hold a fixed number of elements (although you can change the number of elements at runtime). They use sequential numbers as subscripts. You can define equivalent SQL types, allowing varrays to be stored in database tables. They can be stored and retrieved through SQL, but with less flexibility than nested tables.</li>
+</ul>
+
+<a name="19395"></a> 
+
+<p class="BP">Although collections can have only one dimension, you can model multi-dimensional arrays by creating collections whose elements are also collections.</p>
+
+<a name="24198"></a> 
+
+<p class="BP">To use collections in an application, you define one or more PL/SQL types, then define variables of those types. You can define collection types in a procedure, function, or package. You can pass collection variables as parameters, to move data between client-side applications and stored subprograms.</p>
+
+<a name="35151"></a> 
+
+<p class="BP">To look up data that is more complex than single values, you can store PL/SQL records or SQL object types in collections. Nested tables and varrays can also be attributes of object types.</p>
+
+<a name="24205"></a> <!--TOC=h2-"24205"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Understanding Nested Tables</font></h3>
+
+<!--/TOC=h2-->
+<a name="19549"></a> 
+
+<p class="BP">Within the database, nested tables can be considered one-column database tables. Oracle stores the rows of a nested table in no particular order. But, when you retrieve the nested table into a PL/SQL variable, the rows are given consecutive subscripts starting at 1. That gives you array-like access to individual rows.</p>
+
+<a name="12925"></a> 
+
+<p class="BP">PL/SQL nested tables are like one-dimensional arrays. You can model multi-dimensional arrays by creating nested tables whose elements are also nested tables.</p>
+
+<a name="33219"></a> 
+
+<p class="BP">Nested tables differ from arrays in two important ways:</p>
+
+<ol class="LN1" type="1">
+<li class="LN1" type="1" value="1"><a name="33212"></a>Arrays have a fixed upper bound, but nested tables are unbounded (see <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#24240">Figure&nbsp;5-1</a>). So, the size of a nested table can increase dynamically.</li>
+</ol>
+
+<a name="24240"></a> 
+
+<h4 class="FT"><font face="Arial, Helvetica, sans-serif"><em>Figure 5-1 Array versus Nested Table</em></font></h4>
+
+<a name="24241"><img src="./PL_SQL User Guide and Reference_files/pls81016_array_versus_nested_table.gif" alt="Text description of pls81016_array_versus_nested_table.gif follows"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/img_text/pls81016_array_versus_nested_table.htm"><br>
+Text description of the illustration pls81016_array_versus_nested_table.gif</a><br>
+<br>
+ 
+
+<ul class="noindent">
+<li class="LN1" type="1" value="2"><a name="24243"></a>Arrays must be <em class="Italic">dense</em> (have consecutive subscripts). So, you cannot delete individual elements from an array. Initially, nested tables are dense, but they can become <em class="Italic">sparse</em> (have nonconsecutive subscripts). So, you can delete elements from a nested table using the built-in procedure <code>DELETE</code>. That might leave gaps in the index, but the built-in function <code>NEXT</code> lets you iterate over any series of subscripts. 
+
+<p><a name="19459"></a> <!--TOC=h2-"19459"-->
+</p>
+
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Understanding Varrays</font></h3>
+
+<!--/TOC=h2-->
+<a name="19528"></a> 
+
+<p class="BP">Items of type <code>VARRAY</code> are called <em class="Italic">varrays</em>. They allow you to associate a single identifier with an entire collection. This association lets you manipulate the collection as a whole and reference individual elements easily. To reference an element, you use standard subscripting syntax (see <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#19471">Figure&nbsp;5-2</a>). For example, <code>Grade(3)</code> references the third element in varray <code>Grades</code>.</p>
+
+<a name="19471"></a> 
+
+<h4 class="FT"><font face="Arial, Helvetica, sans-serif"><em>Figure 5-2 Varray of Size 10</em></font></h4>
+
+<a name="19517"><img src="./PL_SQL User Guide and Reference_files/pls81017_varray_of_size_10.gif" alt="Text description of pls81017_varray_of_size_10.gif follows"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/img_text/pls81017_varray_of_size_10.htm"><br>
+Text description of the illustration pls81017_varray_of_size_10.gif</a><br>
+<br>
+ <a name="19518"></a> 
+
+<p class="BP">A varray has a maximum size, which you must specify in its type definition. Its index has a fixed lower bound of 1 and an extensible upper bound. For example, the current upper bound for varray <code>Grades</code> is 7, but you can extend it to 8, 9, 10, and so on. Thus, a varray can contain a varying number of elements, from zero (when empty) to the maximum specified in its type definition.</p>
+
+<a name="34012"></a> <!--TOC=h2-"34012"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Understanding Associative Arrays (Index-By Tables)</font></h3>
+
+<!--/TOC=h2-->
+<a name="34013"></a> 
+
+<p class="BP">Associative arrays are sets of key-value pairs, where each key is unique and is used to locate a corresponding value in the array. The key can be an integer or a string.</p>
+
+<a name="34038"></a> 
+
+<p class="BP">Assigning a value using a key for the first time adds that key to the associative array. Subsequent assignments using the same key update the same entry. It is important to choose a key that is unique, either by using the primary key from a SQL table, or by concatenating strings together to form a unique value.</p>
+
+<a name="34014"></a> 
+
+<p class="BP">For example, here is the declaration of an associative array type, and two arrays of that type, using keys that are strings:</p>
+
+<pre class="CE"><a name="34015"></a>DECLARE
+<a name="34023"></a>  TYPE population_type IS TABLE OF NUMBER INDEX BY VARCHAR2(64);
+<a name="34020"></a>  country_population population_type;
+<a name="34021"></a>  continent_population population_type;
+<a name="34028"></a>  howmany NUMBER;
+<a name="35826"></a>  which VARCHAR2(64)
+<a name="34040"></a>
+<a name="34022"></a>BEGIN
+<a name="34024"></a>  country_population('Greenland') := 100000;
+<a name="34029"></a>  country_population('Iceland') := 750000;
+<a name="34030"></a>  howmany := country_population('Greenland');
+<a name="34031"></a>
+<a name="34032"></a>  continent_population('Australia') := 30000000;
+<a name="34033"></a>  continent_population('Antarctica') := 1000; -- Creates new entry
+<a name="34036"></a>  continent_population('Antarctica') := 1001; -- Replaces previous 
+value
+<a name="34027"></a>  which := continent_population.FIRST; -- Returns 'Antarctica'
+<a name="35827"></a>-- as that comes first alphabetically.
+<a name="34035"></a>  which := continent_population.LAST; -- Returns 'Australia'
+<a name="35828"></a>  howmany := continent_population(continent_population.LAST);
+<a name="35829"></a>-- Returns the value corresponding to the last key, in this
+<a name="35830"></a>-- case the population of Australia.
+<a name="34034"></a>END;
+<a name="34025"></a>/
+<a name="34037"></a>
+</pre>
+
+<a name="34039"></a> 
+
+<p class="BP">Associative arrays help you represent data sets of arbitrary size, with fast lookup for an individual element without knowing its position within the array and without having to loop through all the array elements. It is like a simple version of a SQL table where you can retrieve values based on the primary key. For simple temporary storage of lookup data, associative arrays let you avoid using the disk space and network operations required for SQL tables.</p>
+
+<a name="34064"></a> 
+
+<p class="BP">Because associative arrays are intended for temporary data rather than storing persistent data, you cannot use them with SQL statements such as <code>INSERT</code> and <code>SELECT INTO</code>. You can make them persistent for the life of a database session by declaring the type in a package and assigning the values in a package body.</p>
+
+<a name="35106"></a> <!--TOC=h2-"35106"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">How Globalization Settings Affect VARCHAR2 Keys for Associative Arrays</font></h3>
+
+<!--/TOC=h2-->
+<a name="35107"></a> 
+
+<p class="BP">If settings for national language or globalization change during a session that uses associative arrays with <code>VARCHAR2</code> key values, the program might encounter a runtime error. For example, changing the <code>NLS_COMP</code> or <code>NLS_SORT</code> initialization parameters within a session might cause methods such as <code>NEXT</code> and <code>PRIOR</code> to raise exceptions. If you need to change these settings during the session, make sure to set them back to their original values before performing further operations with these kinds of associative arrays.</p>
+
+<a name="35108"></a> 
+
+<p class="BP">When you declare an associative array using a string as the key, the declaration must use a <code>VARCHAR2</code>, <code>STRING</code>, or <code>LONG</code> type. You can use a different type, such as <code>NCHAR</code> or <code>NVARCHAR2</code>, as the key value to reference an associative array. You can even use a type such as <code>DATE</code>, as long as it can be converted to <code>VARCHAR2</code> by the <code>TO_CHAR</code> function.</p>
+
+<a name="35113"></a> 
+
+<p class="BP">However, you must be careful when using other types that the values used as keys are consistent and unique. For example, the string value of <code>SYSDATE</code> might change if the <code>NLS_DATE_FORMAT</code> initialization parameter changes, so that <code>array_element(SYSDATE)</code> does not produce the same result as before. Two different <code>NVARCHAR2</code> values might turn into the same <code>VARCHAR2</code> value (containing question marks instead of certain national characters). In that case, <code>array_element(national_string1)</code> and <code>array_element(national_string2)</code> might refer to the same element.</p>
+
+<a name="35123"></a> 
+
+<p class="BP">When you pass an associative array as a parameter to a remote database using a database link, the two databases can have different globalization settings. When the remote database performs operations such as <code>FIRST</code> and <code>NEXT</code>, it uses its own character order even if that is different from the order where the collection originated. If character set differences mean that two keys that were unique are not unique on the remote database, the program receives a <code>VALUE_ERROR</code> exception.</p>
+
+<a name="34607"></a> <!--TOC=h1-"34607"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Choosing Which PL/SQL Collection Types to Use</font></h2>
+
+<!--/TOC=h1-->
+<a name="34608"></a> 
+
+<p class="BP">If you already have code or business logic that uses some other language, you can usually translate that language's array and set types directly to PL/SQL collection types.</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="34609"></a>Arrays in other languages become VARRAYs in PL/SQL.</li>
+
+<li class="LB1" type="disc"><a name="34610"></a>Sets and bags in other languages become nested tables in PL/SQL.</li>
+
+<li class="LB1" type="disc"><a name="34611"></a>Hash tables and other kinds of unordered lookup tables in other languages become associative arrays in PL/SQL.</li>
+</ul>
+
+<a name="34615"></a> 
+
+<p class="BP">When you are writing original code or designing the business logic from the start, you should consider the strengths of each collection type to decide which is appropriate for each situation.</p>
+
+<a name="34564"></a> <!--TOC=h2-"34564"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Choosing Between Nested Tables and Associative Arrays</font></h3>
+
+<!--/TOC=h2-->
+<a name="34567"></a> 
+
+<p class="BP">Both nested tables and associative arrays (formerly known as index-by tables) use similar subscript notation, but they have different characteristics when it comes to persistence and ease of parameter passing.</p>
+
+<a name="34618"></a> 
+
+<p class="BP">Nested tables can be stored in a database column, but associative arrays cannot. Nested tables are appropriate for important data relationships that must be stored persistently.</p>
+
+<a name="34628"></a> 
+
+<p class="BP">Associative arrays are appropriate for relatively small lookup tables where the collection can be constructed in memory each time a procedure is called or a package is initialized. They are good for collecting information whose volume is unknown beforehand, because there is no fixed limit on their size. Their index values are more flexible, because associative array subscripts can be negative, can be nonsequential, and can use string values instead of numbers when appropriate.</p>
+
+<a name="36039"></a> 
+
+<p class="BP">PL/SQL automatically converts between host arrays and associative arrays that use numeric key values. The most efficient way to pass collections to and from the database server is to use anonymous PL/SQL blocks to bulk-bind input and output host arrays to associative arrays.</p>
+
+<a name="36042"></a> <!--TOC=h2-"36042"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Choosing Between Nested Tables and Varrays</font></h3>
+
+<!--/TOC=h2-->
+<a name="34592"></a> 
+
+<p class="BP">Varrays are a good choice when the number of elements is known in advance, and when the elements are usually all accessed in sequence. When stored in the database, varrays retain their ordering and subscripts.</p>
+
+<a name="34663"></a> 
+
+<p class="BP">Each varray is stored as a single object, either inside the table of which it is a column (if the varray is less than 4KB) or outside the table but still in the same tablespace (if the varray is greater than 4KB). You must update or retrieve all elements of the varray at the same time, which is most appropriate when performing some operation on all the elements at once. But you might find it impractical to store and retrieve large numbers of elements this way.</p>
+
+<a name="34651"></a> 
+
+<p class="BP">Nested tables can be sparse: you can delete arbitrary elements, rather than just removing an item from the end. Nested table data is stored out-of-line in a <strong class="Bold">store table</strong>, a system-generated database table associated with the nested table. This makes nested tables suitable for queries and updates that only affect some elements of the collection. You cannot rely on the order and subscripts of a nested table remaining stable as the table is stored and retrieved, because the order and subscripts are not preserved when a nested table is stored in the database.</p>
+
+<a name="19661"></a> <!--TOC=h1-"19661"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Defining Collection Types</font></h2>
+
+<!--/TOC=h1-->
+<a name="19666"></a> 
+
+<p class="BP">To create collections, you define a collection type, then declare variables of that type. You can define <code>TABLE</code> and <code>VARRAY</code> types in the declarative part of any PL/SQL block, subprogram, or package.</p>
+
+<a name="36159"></a> 
+
+<p class="BP">Collections follow the same scoping and instantiation rules as other types and variables. In a block or subprogram, collections are instantiated when you enter the block or subprogram and cease to exist when you exit. In a package, collections are instantiated when you first reference the package and cease to exist when you end the database session.</p>
+
+<a name="35358"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Nested Tables</font></h4>
+
+<a name="35484"></a> 
+
+<p class="BP">For nested tables, use the syntax:</p>
+
+<pre class="CE"><a name="19674"></a>TYPE <em><code>type_name</code></em> IS TABLE OF <em><code>element_type</code></em> [NOT NULL];
+<a name="22213"></a>
+</pre>
+
+<a name="35495"></a> 
+
+<p class="BP"><em><code>type_name</code></em> is a type specifier used later to declare collections. For nested tables declared within PL/SQL, <em><code>element_type</code></em> is any PL/SQL datatype except:</p>
+
+<dl class="LS">
+<dd class="LSI"><a name="36118"></a><code>REF CURSOR</code></dd>
+</dl>
+
+<a name="36119"></a> 
+
+<p class="BP">Nested tables declared globally in SQL have additional restrictions on the element type. They cannot use the following element types:</p>
+
+<dl class="LS">
+<dd class="LSI"><a name="35497"></a><code>BINARY_INTEGER</code>, <code>PLS_INTEGER</code></dd>
+
+<dd class="LSI"><a name="35498"></a><code>BOOLEAN</code></dd>
+
+<dd class="LSI"><a name="35500"></a><code>LONG</code>, <code>LONG</code> <code>RAW</code></dd>
+
+<dd class="LSI"><a name="35501"></a><code>NATURAL</code>, <code>NATURALN</code></dd>
+
+<dd class="LSI"><a name="35514"></a><code>POSITIVE</code>, <code>POSITIVEN</code></dd>
+
+<dd class="LSI"><a name="35515"></a><code>REF</code> <code>CURSOR</code></dd>
+
+<dd class="LSI"><a name="35516"></a><code>SIGNTYPE</code></dd>
+
+<dd class="LSI"><a name="35517"></a><code>STRING</code></dd>
+</dl>
+
+<a name="35492"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Varrays</font></h4>
+
+<a name="35485"></a> 
+
+<p class="BP">For varrays, use the syntax:</p>
+
+<pre class="CE"><a name="19697"></a>TYPE <em><code>type_name</code></em> IS {VARRAY | VARYING ARRAY} (<em><code>size_limit</code></em>) 
+<a name="25575"></a>   OF <em><code>element_type</code></em> [NOT NULL];
+<a name="22214"></a>
+</pre>
+
+<a name="35509"></a> 
+
+<p class="BP">The meanings of <em><code>type_name</code></em> and <em><code>element_type</code></em> are the same as for nested tables.</p>
+
+<a name="36099"></a> 
+
+<p class="BP"><em><code>size_limit</code></em> is a positive integer literal representing the maximum number of elements in the array. When defining a <code>VARRAY</code> type, you must specify its maximum size. In the following example, you define a type that stores up to 366 dates:</p>
+
+<pre class="CE"><a name="35536"></a>DECLARE
+<a name="35537"></a>   TYPE Calendar IS VARRAY(366) OF DATE;
+<a name="35538"></a>
+</pre>
+
+<a name="35359"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Associative Arrays</font></h4>
+
+<a name="35483"></a> 
+
+<p class="BP">For associative arrays (also known as index-by tables), use the syntax:</p>
+
+<pre class="CE"><a name="23094"></a>TYPE <em><code>type_name</code></em> IS TABLE OF <em><code>element_type</code></em> [NOT NULL]
+<a name="35477"></a>   INDEX BY [BINARY_INTEGER | PLS_INTEGER | VARCHAR2(<em><code>size_limit</code></em>)];
+<a name="25576"></a>   INDEX BY <em><code>key_type</code></em>;
+<a name="23091"></a>
+</pre>
+
+<a name="23129"></a> 
+
+<p class="BP">The key_type can be numeric, either <code>BINARY_INTEGER</code> or <code>PLS_INTEGER</code>. It can also be <code>VARCHAR2</code> or one of its subtypes <code>VARCHAR</code>, <code>STRING</code>, or <code>LONG</code>. You must specify the length of a <code>VARCHAR2</code>-based key, except for <code>LONG</code> which is equivalent to declaring a key type of <code>VARCHAR2(32760)</code>. The types <code>RAW</code>, <code>LONG RAW</code>, <code>ROWID</code>, <code>CHAR</code>, and <code>CHARACTER</code> are not allowed as keys for an associative array.</p>
+
+<a name="36205"></a> 
+
+<p class="BP">An initialization clause is not required (or allowed).</p>
+
+<a name="35544"></a> 
+
+<p class="BP">When you reference an element of an associative array that uses a <code>VARCHAR2</code>-based key, you can use other types, such as <code>DATE</code> or <code>TIMESTAMP</code>, as long as they can be converted to <code>VARCHAR2</code> with the <code>TO_CHAR</code> function.</p>
+
+<a name="35482"></a> 
+
+<p class="BP">Index-by tables can store data using a primary key value as the index, where the key values are not sequential. In the example below, you store a single record in the index-by table, and its subscript is 7468 rather than 1.</p>
+
+<pre class="CE"><a name="23113"></a>DECLARE
+<a name="25577"></a>   TYPE EmpTabTyp IS TABLE OF emp%ROWTYPE
+<a name="26198"></a>      INDEX BY BINARY_INTEGER;
+<a name="25579"></a>   emp_tab EmpTabTyp;
+<a name="23119"></a>BEGIN
+<a name="25580"></a>   /* Retrieve employee record. */
+<a name="25581"></a>   SELECT * INTO emp_tab(7468) FROM emp WHERE empno = 7468;
+<a name="29249"></a>END;
+<a name="36132"></a>
+</pre>
+
+<a name="35369"></a> <!--TOC=h2-"35369"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Defining SQL Types Equivalent to PL/SQL Collection Types</font></h3>
+
+<!--/TOC=h2-->
+<a name="35422"></a> 
+
+<p class="BP">To store nested tables and varrays inside database tables, you must also declare SQL types using the <code>CREATE TYPE</code> statement. The SQL types can be used as columns or as attributes of SQL object types.</p>
+
+<a name="36219"></a> 
+
+<p class="BP">You can declare equivalent types within PL/SQL, or use the SQL type name in a PL/SQL variable declaration.</p>
+
+<a name="35390"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Nested Table Example</font></h4>
+
+<a name="35391"></a> 
+
+<p class="BP">The following SQL*Plus script shows how you might declare a nested table in SQL, and use it as an attribute of an object type:</p>
+
+<pre class="CE"><a name="35392"></a>CREATE TYPE CourseList AS TABLE OF VARCHAR2(10)  -- define type
+<a name="35393"></a>/
+<a name="35394"></a>CREATE TYPE Student AS OBJECT (  -- create object
+<a name="35395"></a>   id_num  INTEGER(4),
+<a name="35396"></a>   name    VARCHAR2(25),
+<a name="35397"></a>   address VARCHAR2(35),
+<a name="35398"></a>   status  CHAR(2),
+<a name="35399"></a>   courses CourseList)  -- declare nested table as attribute
+<a name="35400"></a>/
+<a name="35401"></a>
+</pre>
+
+<a name="35402"></a> 
+
+<p class="BP">The identifier <code>courses</code> represents an entire nested table. Each element of <code>courses</code> will store the code name of a college course such as <code>'Math 1020'</code>.</p>
+
+<a name="35403"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Varray Example</font></h4>
+
+<a name="35404"></a> 
+
+<p class="BP">The script below creates a database column that stores varrays. Each varray element contains a VARCHAR2.</p>
+
+<pre class="CE"><a name="35405"></a>-- Each project has a 16-character code name.
+<a name="35406"></a>-- We will store up to 50 projects at a time in a database column.
+<a name="35407"></a>CREATE TYPE ProjectList AS VARRAY(50) OF VARCHAR2(16);
+<a name="35408"></a>/
+<a name="35409"></a>CREATE TABLE department (  -- create database table
+<a name="35410"></a>   dept_id  NUMBER(2),
+<a name="35411"></a>   name     VARCHAR2(15),
+<a name="35412"></a>   budget   NUMBER(11,2),
+<a name="35413"></a>-- Each department can have up to 50 projects.
+<a name="35414"></a>   projects ProjectList)
+<a name="35415"></a>/
+<a name="35416"></a>
+</pre>
+
+<a name="35385"></a> <!--TOC=h1-"35385"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Declaring PL/SQL Collection Variables</font></h2>
+
+<!--/TOC=h1-->
+<a name="35376"></a> 
+
+<p class="BP">Once you define a collection type, you can declare variables of that type. You use the new type name in the declaration, the same as with predefined types such as NUMBER and INTEGER.</p>
+
+<a name="35423"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Declaring Nested Tables, Varrays, and Associative Arrays</font></h4>
+
+<pre class="CE"><a name="35424"></a>DECLARE
+<a name="35425"></a>   TYPE nested_type IS TABLE OF VARCHAR2(20);
+<a name="35426"></a>   TYPE varray_type IS VARRAY(50) OF INTEGER;
+<a name="35427"></a>   TYPE associative_array_type IS TABLE OF NUMBER
+<a name="35432"></a>      INDEXED BY BINARY_INTEGER;
+<a name="35433"></a>   v1 nested_type;
+<a name="35434"></a>   v2 varray_type;
+<a name="35435"></a>   v3 associative_array_type;
+<a name="35436"></a>
+</pre>
+
+<a name="19790"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">%TYPE Example</font></h4>
+
+<a name="34729"></a> 
+
+<p class="BP">You can use <code>%TYPE</code> to specify the datatype of a previously declared collection, so that changing the definition of the collection automatically updates other variables that depend on the number of elements or the element type:</p>
+
+<pre class="CE"><a name="19791"></a>DECLARE
+<a name="25603"></a>   TYPE Platoon IS VARRAY(20) OF Soldier;
+<a name="25604"></a>   p1 Platoon; 
+<a name="25605"></a>-- If we change the number of soldiers in a platoon, p2 will
+<a name="34731"></a>-- reflect that change when this block is recompiled.
+<a name="34730"></a>   p2 p1%TYPE;
+<a name="22226"></a>
+</pre>
+
+<a name="34732"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Declaring a Procedure Parameter as a Nested Table</font></h4>
+
+<a name="34735"></a> 
+
+<p class="BP">You can declare collections as the formal parameters of functions and procedures. That way, you can pass collections to stored subprograms and from one subprogram to another. The following example declares a nested table as a parameter of a packaged procedure:</p>
+
+<pre class="CE"><a name="19938"></a>CREATE PACKAGE personnel AS
+<a name="25606"></a>   TYPE Staff IS TABLE OF Employee;
+<a name="25607"></a>   ...
+<a name="25608"></a>   PROCEDURE award_bonuses (members IN Staff);
+<a name="24284"></a>END personnel;
+<a name="22227"></a>
+</pre>
+
+<a name="19939"></a> 
+
+<p class="BP">To call <code>PERSONNEL.AWARD_BONUSES</code> from outside the package, you declare a variable of type <code>PERSONNEL.STAFF</code> and pass that variable as the parameter.</p>
+
+<a name="34736"></a> 
+
+<p class="BP">You can also specify a collection type in the <code>RETURN</code> clause of a function specification:</p>
+
+<pre class="CE"><a name="19940"></a>DECLARE
+<a name="25609"></a>   TYPE SalesForce IS VARRAY(25) OF Salesperson;
+<a name="25610"></a>   FUNCTION top_performers (n INTEGER) RETURN SalesForce IS ...
+<a name="19943"></a>
+</pre>
+
+<a name="36175"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Specifying Collection Element Types with %TYPE and %ROWTYPE</font></h4>
+
+<a name="36176"></a> 
+
+<p class="BP">To specify the element type, you can use <code>%TYPE</code>, which provides the datatype of a variable or database column. Also, you can use <code>%ROWTYPE</code>, which provides the rowtype of a cursor or database table. Two examples follow:</p>
+
+<pre class="CE"><a name="36177"></a>DECLARE
+<a name="36178"></a>   TYPE EmpList IS TABLE OF emp.ename%TYPE;  -- based on column
+<a name="36179"></a>   CURSOR c1 IS SELECT * FROM dept;
+<a name="36180"></a>   TYPE DeptFile IS VARRAY(20) OF c1%ROWTYPE;  -- based on cursor
+<a name="36181"></a>
+</pre>
+
+<a name="36182"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: VARRAY of Records</font></h4>
+
+<a name="36183"></a> 
+
+<p class="BP">In the next example, you use a <code>RECORD</code> type to specify the element type:</p>
+
+<pre class="CE"><a name="36184"></a>DECLARE
+<a name="36185"></a>   TYPE AnEntry IS RECORD (
+<a name="36186"></a>      term    VARCHAR2(20), 
+<a name="36187"></a>      meaning VARCHAR2(200)); 
+<a name="36188"></a>   TYPE Glossary IS VARRAY(250) OF AnEntry;
+<a name="36189"></a>
+</pre>
+
+<a name="36190"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: NOT NULL Constraint on Collection Elements</font></h4>
+
+<a name="36192"></a> 
+
+<p class="BP">You can also impose a <code>NOT</code> <code>NULL</code> constraint on the element type:</p>
+
+<pre class="CE"><a name="36193"></a>DECLARE
+<a name="36194"></a>   TYPE EmpList IS TABLE OF emp.empno%TYPE NOT NULL;
+<a name="36195"></a>
+</pre>
+
+<a name="19834"></a> <!--TOC=h1-"19834"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Initializing and Referencing Collections</font></h2>
+
+<!--/TOC=h1-->
+<a name="19839"></a> 
+
+<p class="BP">Until you initialize it, a nested table or varray is atomically null: the collection itself is null, not its elements. To initialize a nested table or varray, you use a <em class="Italic">constructor</em>, a system-defined function with the same name as the collection type. This function "constructs" collections from the elements passed to it.</p>
+
+<a name="34791"></a> 
+
+<p class="BP">You must explicitly call a constructor for each varray and nested table variable. (Associative arrays, the third kind of collection, do not use constructors.) Constructor calls are allowed wherever function calls are allowed.</p>
+
+<a name="34751"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Constructor for a Nested Table</font></h4>
+
+<a name="34752"></a> 
+
+<p class="BP">In the following example, you pass multiple elements to the constructor <code>CourseList()</code>, which returns a nested table containing those elements:</p>
+
+<pre class="CE"><a name="19841"></a>DECLARE
+<a name="25611"></a>   TYPE CourseList IS TABLE OF VARCHAR2(16);
+<a name="34759"></a>   my_courses CourseList;
+<a name="21645"></a>BEGIN
+<a name="25612"></a>   my_courses :=
+<a name="34764"></a>      CourseList('Econ 2010', 'Acct 3401', 'Mgmt 3100');
+<a name="24277"></a>END;
+<a name="22229"></a>
+</pre>
+
+<a name="34767"></a> 
+
+<p class="BP">Because a nested table does not have a declared maximum size, you can put as many elements in the constructor as necessary.</p>
+
+<a name="19869"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Constructor for a Varray</font></h4>
+
+<a name="34753"></a> 
+
+<p class="BP">In the next example, you pass three objects to constructor <code>ProjectList()</code>, which returns a varray containing those objects:</p>
+
+<pre class="CE"><a name="19870"></a>DECLARE
+<a name="25615"></a>   TYPE ProjectList IS VARRAY(50) OF VARCHAR2(16);
+<a name="34758"></a>   accounting_projects ProjectList;
+<a name="21649"></a>BEGIN
+<a name="25616"></a>   accounting_projects := 
+<a name="26202"></a>      ProjectList('Expense Report', 'Outsourcing', 'Auditing');
+<a name="27167"></a>END;
+<a name="22230"></a>
+</pre>
+
+<a name="19871"></a> 
+
+<p class="BP">You need not initialize the whole varray. For example, if a varray has a maximum size of 50, you can pass fewer than 50 elements to its constructor.</p>
+
+<a name="19842"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Collection Constructor Including Null Elements</font></h4>
+
+<a name="34772"></a> 
+
+<p class="BP">Unless you impose the <code>NOT</code> <code>NULL</code> constraint, you can pass null elements to a constructor. An example follows:</p>
+
+<pre class="CE"><a name="19843"></a>BEGIN
+<a name="34774"></a>   my_courses := CourseList('Math 3010', NULL, 'Stat 3202');
+<a name="22231"></a>
+</pre>
+
+<a name="19844"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Combining Collection Declaration and Constructor</font></h4>
+
+<a name="34773"></a> 
+
+<p class="BP">You can initialize a collection in its declaration, which is a good programming practice:</p>
+
+<pre class="CE"><a name="19845"></a>DECLARE
+<a name="34782"></a>   TYPE CourseList IS TABLE OF VARCHAR2(16);
+<a name="25621"></a>   my_courses CourseList := 
+<a name="26205"></a>      CourseList('Art 1111', 'Hist 3100', 'Engl 2005');
+<a name="22232"></a>
+</pre>
+
+<a name="19846"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Empty Varray Constructor</font></h4>
+
+<a name="34785"></a> 
+
+<p class="BP">If you call a constructor without arguments, you get an empty but non-null collection:</p>
+
+<pre class="CE"><a name="19857"></a>DECLARE
+<a name="25623"></a>   TYPE Clientele IS VARRAY(100) OF Customer;
+<a name="25624"></a>   vips Clientele := Clientele(); -- initialize empty varray 
+<a name="21658"></a>BEGIN
+<a name="25625"></a>   IF vips IS NOT NULL THEN  -- condition yields TRUE
+<a name="26206"></a>      ...
+<a name="25627"></a>   END IF;
+<a name="24293"></a>END;
+<a name="22233"></a>
+</pre>
+
+<a name="19848"></a> 
+
+<p class="BP">In this case, you can call the collection's <code>EXTEND</code> method to add elements later.</p>
+
+<a name="24280"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Nested Table Constructor Within a SQL Statement</font></h4>
+
+<a name="34796"></a> 
+
+<p class="BP">In this example, you insert several scalar values and a <code>CourseList</code> nested table into the <code>SOPHOMORES</code> table.</p>
+
+<pre class="CE"><a name="19849"></a>BEGIN
+<a name="25628"></a>   INSERT INTO sophomores
+<a name="26207"></a>      VALUES (5035, 'Janet Alvarez', '122 Broad St', 'FT',
+<a name="26439"></a>         CourseList('Econ 2010', 'Acct 3401', 'Mgmt 3100'));
+<a name="27168"></a>
+</pre>
+
+<a name="19873"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Varray Constructor Within a SQL Statement</font></h4>
+
+<a name="34812"></a> 
+
+<p class="BP">In this example, you insert a row into database table <code>DEPARTMENT</code>. The varray constructor <code>ProjectList()</code> provides a value for column <code>PROJECTS</code>.</p>
+
+<pre class="CE"><a name="19874"></a>BEGIN
+<a name="25631"></a>  INSERT INTO department
+<a name="26209"></a>    VALUES(60, 'Security', 750400,
+<a name="26440"></a>      ProjectList('New Badges', 'Track Computers', 'Check Exits'));
+<a name="27169"></a>
+</pre>
+
+<a name="19835"></a> <!--TOC=h2-"19835"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Referencing Collection Elements</font></h3>
+
+<!--/TOC=h2-->
+<a name="19920"></a> 
+
+<p class="BP">Every reference to an element includes a collection name and a subscript enclosed in parentheses. The subscript determines which element is processed. To reference an element, you specify its subscript using the syntax</p>
+
+<pre class="CE"><a name="19921"></a><em><code>collection_name</code></em>(<em><code>subscript</code></em>)
+<a name="22235"></a>
+</pre>
+
+<a name="19922"></a> 
+
+<p class="BP">where <em><code>subscript</code></em> is an expression that yields an integer in most cases, or a <code>VARCHAR2</code> for associative arrays declared with strings as keys.</p>
+
+<a name="34817"></a> 
+
+<p class="BP">The allowed subscript ranges are:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="34819"></a>For nested tables, 1&nbsp;..&nbsp;2**31.</li>
+
+<li class="LB1" type="disc"><a name="34820"></a>For varrays, 1&nbsp;..&nbsp; <em><code>size_limit</code></em>, where you specify the limit in the declaration.</li>
+
+<li class="LB1" type="disc"><a name="34825"></a>For associative arrays with a numeric key, -2**31&nbsp;..&nbsp;2**31.</li>
+
+<li class="LB1" type="disc"><a name="19890"></a>For associative arrays with a string key, the length of the key and number of possible values depends on the <code>VARCHAR2</code> length limit in the type declaration, and the database character set.</li>
+</ul>
+
+<a name="34823"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Referencing a Nested Table Element By Subscript</font></h4>
+
+<a name="34837"></a> 
+
+<p class="BP">This example shows how to reference an element in the nested table <code>NAMES</code>:</p>
+
+<pre class="CE"><a name="19891"></a>DECLARE
+<a name="25636"></a>   TYPE Roster IS TABLE OF VARCHAR2(15);
+<a name="25637"></a>   names Roster := Roster('J Hamil', 'D Caruso', 'R Singh');
+<a name="25638"></a>BEGIN
+<a name="25639"></a>  FOR i IN names.FIRST .. names.LAST
+<a name="34833"></a>  LOOP
+<a name="34832"></a>      IF names(i) = 'J Hamil' THEN
+<a name="26213"></a>        NULL;
+<a name="25642"></a>      END IF;
+<a name="34834"></a>  END LOOP;
+<a name="24306"></a>END;
+<a name="22236"></a>
+</pre>
+
+<a name="19930"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Passing a Nested Table Element as a Parameter</font></h4>
+
+<a name="34838"></a> 
+
+<p class="BP">This example shows that you can reference the elements of a collection in subprogram calls:</p>
+
+<pre class="CE"><a name="19931"></a>DECLARE
+<a name="25643"></a>   TYPE Roster IS TABLE OF VARCHAR2(15);
+<a name="25644"></a>   names Roster := Roster('J Hamil', 'D Piro', 'R Singh');
+<a name="25645"></a>   i BINARY_INTEGER := 2;
+<a name="21677"></a>BEGIN
+<a name="25646"></a>   verify_name(names(i));  -- call procedure
+<a name="27174"></a>END;
+<a name="22237"></a>
+</pre>
+
+<a name="20986"></a> <!--TOC=h1-"20986"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Assigning Collections</font></h2>
+
+<!--/TOC=h1-->
+<a name="20988"></a> 
+
+<p class="BP">One collection can be assigned to another by an <code>INSERT</code>, <code>UPDATE</code>, <code>FETCH</code>, or <code>SELECT</code> statement, an assignment statement, or a subprogram call.</p>
+
+<a name="34921"></a> 
+
+<p class="BP">You can assign the value of an expression to a specific element in a collection using the syntax:</p>
+
+<pre class="CE"><a name="34922"></a><em><code>collection_name</code></em>(<em><code>subscript</code></em>) := <em><code>expression</code></em>;
+<a name="34923"></a>
+</pre>
+
+<a name="34924"></a> 
+
+<p class="BP">where <em><code>expression</code></em> yields a value of the type specified for elements in the collection type definition.</p>
+
+<a name="34851"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Datatype Compatibility</font></h4>
+
+<a name="34852"></a> 
+
+<p class="BP">This example shows that collections must have the same datatype for an assignment to work. Having the same element type is not enough.</p>
+
+<pre class="CE"><a name="20000"></a>DECLARE
+<a name="25655"></a>   TYPE Clientele IS VARRAY(100) OF Customer;
+<a name="25656"></a>   TYPE Vips IS VARRAY(100) OF Customer;
+<a name="25657"></a>-- These first two variables have the same datatype.
+<a name="34853"></a>   group1 Clientele := Clientele(...);
+<a name="25658"></a>   group2 Clientele := Clientele(...);
+<a name="25659"></a>-- This third variable has a similar declaration,
+<a name="34855"></a>-- but is not the same type.
+<a name="34854"></a>   group3 Vips := Vips(...);
+<a name="21693"></a>BEGIN
+<a name="34860"></a>-- Allowed because they have the same datatype
+<a name="25661"></a>   group2 := group1;
+<a name="34867"></a>-- Not allowed because they have different datatypes
+<a name="25662"></a>   group3 := group2;
+<a name="22239"></a>END;
+<a name="34870"></a>
+</pre>
+
+<a name="20013"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Assigning a Null Value to a Nested Table</font></h4>
+
+<a name="34871"></a> 
+
+<p class="BP">You assign an atomically null nested table or varray to a second nested table or varray. In this case, the second collection must be reinitialized:</p>
+
+<pre class="CE"><a name="20014"></a>DECLARE
+<a name="25663"></a>   TYPE Clientele IS TABLE OF VARCHAR2(64);
+<a name="34876"></a>  -- This nested table has some values.
+<a name="25664"></a>   group1 Clientele := Clientele('Customer 1','Customer 2');
+<a name="34883"></a>-- This nested table is not initialized ("atomically null").
+<a name="25665"></a>   group2 Clientele;
+<a name="21700"></a>BEGIN
+<a name="34890"></a>-- At first, the test IF group1 IS NULL yields FALSE.
+<a name="34906"></a>-- Then we assign a null nested table to group1.
+<a name="25667"></a>   group1 := group2;
+<a name="34897"></a>-- Now the test IF group1 IS NULL yields TRUE.
+<a name="34915"></a>-- We must use another constructor to give it some values.
+<a name="27183"></a>END;
+<a name="22240"></a>
+</pre>
+
+<a name="20994"></a> 
+
+<p class="BP">In the same way, assigning the value <code>NULL</code> to a collection makes it atomically null.</p>
+
+<a name="20002"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Possible Exceptions for Collection Assignments</font></h4>
+
+<a name="34916"></a> 
+
+<p class="BP">Assigning a value to a collection element can cause various exceptions:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="34931"></a>If the subscript is null or is not convertible to the right datatype, PL/SQL raises the predefined exception <code>VALUE_ERROR</code>. Usually, the subscript must be an integer. Associative arrays can also be declared to have <code>VARCHAR2</code> subscripts.</li>
+
+<li class="LB1" type="disc"><a name="34929"></a>If the subscript refers to an uninitialized element, PL/SQL raises <code>SUBSCRIPT_BEYOND_COUNT</code>.</li>
+
+<li class="LB1" type="disc"><a name="34930"></a>If the collection is atomically null, PL/SQL raises <code>COLLECTION_IS_NULL</code>. 
+
+<pre class="CE"><a name="20028"></a>DECLARE
+<a name="25669"></a>   TYPE WordList IS TABLE OF VARCHAR2(5);
+<a name="25670"></a>   words WordList;
+<a name="21707"></a>BEGIN
+<a name="29299"></a>   /* Assume execution continues despite the raised exceptions. */
+<a name="34936"></a>-- Raises COLLECTION_IS_NULL. We haven't used a constructor yet.
+<a name="34939"></a>-- This exception applies to varrays and nested tables, but not
+<a name="34940"></a>-- associative arrays which don't need a constructor.
+<a name="29289"></a>   words(1) := 10;
+<a name="29293"></a>-- After using a constructor, we can assign values to the elements.
+<a name="34941"></a>   words := WordList(10,20,30);
+<a name="29307"></a>-- Any expression that returns a VARCHAR2(5) is OK.
+<a name="34949"></a>   words(1) := 'yes';
+<a name="25678"></a>   words(2) := words(1) || 'no';
+<a name="34946"></a>-- Raises VALUE_ERROR because the assigned value is too long.
+<a name="34952"></a>   words(3) := 'longer than 5 characters';
+<a name="34951"></a>-- Raises VALUE_ERROR because the subscript of a nested table must
+<a name="34950"></a>-- be an integer.
+<a name="29326"></a>   words('B') := 'dunno';
+<a name="34957"></a>-- Raises SUBSCRIPT_BEYOND_COUNT because we only made 3 elements
+<a name="34960"></a>-- in the constructor. To add new ones, we must call the EXTEND
+<a name="34961"></a>-- method first.
+<a name="29279"></a>   words(4) := 'maybe';
+<a name="27186"></a>END;
+</pre>
+</li>
+</ul>
+
+<a name="26859"></a> <!--TOC=h1-"26859"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Comparing Collections</font></h2>
+
+<!--/TOC=h1-->
+<a name="34982"></a> 
+
+<p class="BP">You can check whether a collection is null, but not test whether two collections are the same. Conditions such as greater than, less than, and so on are also not allowed.</p>
+
+<a name="34972"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Checking if a Collection Is Null</font></h4>
+
+<a name="26861"></a> 
+
+<p class="BP">Nested tables and varrays can be atomically null, so they can be tested for nullity:</p>
+
+<pre class="CE"><a name="20534"></a>DECLARE
+<a name="25680"></a>   TYPE Staff IS TABLE OF Employee;
+<a name="25681"></a>   members Staff;
+<a name="21715"></a>BEGIN
+<a name="34979"></a>  -- Condition yields TRUE because we haven't used a constructor.
+<a name="25683"></a>   IF members IS NULL THEN ...
+<a name="27189"></a>END;
+<a name="22242"></a>
+</pre>
+
+<a name="20535"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Comparing Two Collections</font></h4>
+
+<a name="34983"></a> 
+
+<p class="BP">Collections cannot be directly compared for equality or inequality. For instance, the following <code>IF</code> condition is not allowed:</p>
+
+<pre class="CE"><a name="20536"></a>DECLARE
+<a name="25684"></a>   TYPE Clientele IS TABLE OF VARCHAR2(64);
+<a name="25685"></a>   group1 Clientele := Clientele('Customer 1', 'Customer 2'); 
+<a name="25686"></a>   group2 Clientele := Clientele('Customer 1', 'Customer 3'); 
+<a name="21721"></a>BEGIN
+<a name="34989"></a>-- Equality test causes compilation error.
+<a name="25688"></a>   IF group1 = group2 THEN
+<a name="26215"></a>      ...
+<a name="25690"></a>   END IF;
+<a name="27188"></a>END;
+<a name="22243"></a>
+</pre>
+
+<a name="20537"></a> 
+
+<p class="BP">This restriction also applies to implicit comparisons. For example, collections cannot appear in a <code>DISTINCT</code>, <code>GROUP</code> <code>BY</code>, or <code>ORDER</code> <code>BY</code> list.</p>
+
+<a name="34984"></a> 
+
+<p class="BP">If you want to do such comparison operations, you must define your own notion of what it means for collections to be equal or greater than, less than, and so on, and write one or more functions to examine the collections and their elements and return a true or false value.</p>
+
+<a name="20023"></a> <!--TOC=h1-"20023"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Using PL/SQL Collections with SQL Statements</font></h2>
+
+<!--/TOC=h1-->
+<a name="20040"></a> 
+
+<p class="BP">Collections let you manipulate complex datatypes within PL/SQL. Your program can compute subscripts to process specific elements in memory, and use SQL to store the results in database tables.</p>
+
+<a name="20150"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Creating a SQL Type Corresponding to a PL/SQL Nested Table</font></h4>
+
+<a name="20042"></a> 
+
+<p class="BP">In SQL*Plus, you can create SQL types whose definitions correspond to PL/SQL nested tables and varrays:</p>
+
+<pre class="CE"><a name="20045"></a>SQL&gt; CREATE TYPE CourseList AS TABLE OF VARCHAR2(64);
+<a name="22245"></a>
+</pre>
+
+<a name="20046"></a> 
+
+<p class="BP">You can use these SQL types as columns in database tables:</p>
+
+<pre class="CE"><a name="20047"></a>SQL&gt; CREATE TABLE department (
+<a name="25694"></a>  2  name     VARCHAR2(20),
+<a name="25695"></a>  3  director VARCHAR2(20),
+<a name="25696"></a>  4  office   VARCHAR2(20),
+<a name="25697"></a>  5  courses  CourseList) 
+<a name="25698"></a>  6  NESTED TABLE courses STORE AS courses_tab;
+<a name="22246"></a>
+</pre>
+
+<a name="20048"></a> 
+
+<p class="BP">Each item in column <code>COURSES</code> is a nested table that will store the courses offered by a given department. The <code>NESTED</code> <code>TABLE</code> clause is required whenever a database table has a nested table column. The clause identifies the nested table and names a system-generated store table, in which Oracle stores the nested table data.</p>
+
+<a name="20050"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Inserting a Nested Table into a Database Table</font></h4>
+
+<a name="35012"></a> 
+
+<p class="BP">Now, you can populate the database table. The table constructor provides values that all go into the single column <code>COURSES</code>:</p>
+
+<pre class="CE"><a name="20051"></a>BEGIN
+<a name="25721"></a>   INSERT INTO department
+<a name="26236"></a>      VALUES('English', 'Lynn Saunders', 'Breakstone Hall 205',
+<a name="26461"></a>         CourseList('Expository Writing',
+<a name="26547"></a>                    'Film and Literature',
+<a name="26548"></a>                    'Modern Science Fiction',
+<a name="26549"></a>                    'Discursive Writing',
+<a name="26550"></a>                    'Modern English Grammar',
+<a name="26551"></a>                    'Introduction to Shakespeare',
+<a name="26552"></a>                    'Modern Drama',
+<a name="26553"></a>                    'The Short Story',
+<a name="26554"></a>                    'The American Novel'));
+<a name="27192"></a>END;
+<a name="22247"></a>
+</pre>
+
+<a name="35022"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Retrieving a PL/SQL Nested Table from a Database Table</font></h4>
+
+<a name="35023"></a> 
+
+<p class="BP">You can retrieve all the courses offered by the English department into a PL/SQL nested table:</p>
+
+<pre class="CE"><a name="35024"></a>DECLARE
+<a name="35025"></a>   english_courses CourseList;
+<a name="35026"></a>BEGIN
+<a name="35027"></a>   SELECT courses INTO english_courses FROM department 
+<a name="35028"></a>      WHERE name = 'English';
+<a name="35029"></a>END;
+<a name="35030"></a>
+</pre>
+
+<a name="35031"></a> 
+
+<p class="BP">Within PL/SQL, you can manipulate the nested table by looping through its elements, using methods such as <code>TRIM</code> or <code>EXTEND</code>, and updating some or all of the elements. Afterwards, you can store the updated table in the database again.</p>
+
+<a name="20052"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Updating a Nested Table within a Database Table</font></h4>
+
+<a name="35013"></a> 
+
+<p class="BP">You can revise the list of courses offered by the English Department:</p>
+
+<pre class="CE"><a name="20053"></a>DECLARE
+<a name="25732"></a>   new_courses CourseList :=
+<a name="26246"></a>      CourseList('Expository Writing',
+<a name="26555"></a>                 'Film and Literature',
+<a name="26556"></a>                 'Discursive Writing',
+<a name="26557"></a>                 'Modern English Grammar',
+<a name="26558"></a>                 'Realism and Naturalism',
+<a name="26559"></a>                 'Introduction to Shakespeare',
+<a name="26560"></a>                 'Modern Drama',
+<a name="26561"></a>                 'The Short Story',
+<a name="26562"></a>                 'The American Novel',
+<a name="26563"></a>                 '20th-Century Poetry',
+<a name="26565"></a>                 'Advanced Workshop in Poetry');
+<a name="21778"></a>BEGIN
+<a name="25745"></a>   UPDATE department
+<a name="26258"></a>      SET courses = new_courses WHERE name = 'English';
+<a name="24310"></a>END;
+<a name="22248"></a>
+</pre>
+
+<a name="27273"></a> <!--TOC=h2-"27273"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Some Varray Examples</font></h3>
+
+<!--/TOC=h2-->
+<a name="20149"></a> 
+
+<p class="BP">In SQL*Plus, suppose you define object type <code>Project</code>, as follows:</p>
+
+<pre class="CE"><a name="26601"></a>SQL&gt; CREATE TYPE Project AS OBJECT (
+<a name="26602"></a>  2  project_no NUMBER(2),
+<a name="26603"></a>  3  title      VARCHAR2(35),
+<a name="25754"></a>  4  cost       NUMBER(7,2));
+<a name="27077"></a>
+</pre>
+
+<a name="27078"></a> 
+
+<p class="BP">Next, you define <code>VARRAY</code> type <code>ProjectList</code>, which stores <code>Project</code> objects:</p>
+
+<pre class="CE"><a name="27079"></a>SQL&gt; CREATE TYPE ProjectList AS VARRAY(50) OF Project;
+<a name="27080"></a>
+</pre>
+
+<a name="20105"></a> 
+
+<p class="BP">Finally, you create relational table <code>department</code>, which has a column of type <code>ProjectList</code>, as follows:</p>
+
+<pre class="CE"><a name="20106"></a>SQL&gt; CREATE TABLE department (
+<a name="25755"></a>  2  dept_id  NUMBER(2),
+<a name="25756"></a>  3  name     VARCHAR2(15),
+<a name="25757"></a>  4  budget   NUMBER(11,2),
+<a name="25758"></a>  5  projects ProjectList);
+<a name="22251"></a>
+</pre>
+
+<a name="20107"></a> 
+
+<p class="BP">Each item in column <code>projects</code> is a varray that will store the projects scheduled for a given department.</p>
+
+<a name="20108"></a> 
+
+<p class="BP">Now, you are ready to populate relational table <code>department</code>. In the following example, notice how varray constructor <code>ProjectList()</code> provides values for column <code>projects</code>:</p>
+
+<pre class="CE"><a name="20109"></a>BEGIN
+<a name="25759"></a>   INSERT INTO department
+<a name="26260"></a>      VALUES(30, 'Accounting', 1205700,
+<a name="26481"></a>         ProjectList(Project(1, 'Design New Expense Report', 3250),
+<a name="26566"></a>                     Project(2, 'Outsource Payroll', 12350),
+<a name="26567"></a>                     Project(3, 'Evaluate Merger Proposal', 2750),
+<a name="26568"></a>                     Project(4, 'Audit Accounts Payable', 1425)));
+<a name="25765"></a>   INSERT INTO department
+<a name="26265"></a>      VALUES(50, 'Maintenance', 925300,
+<a name="26485"></a>         ProjectList(Project(1, 'Repair Leak in Roof', 2850),
+<a name="26569"></a>                     Project(2, 'Install New Door Locks', 1700),
+<a name="26570"></a>                     Project(3, 'Wash Front Windows', 975),
+<a name="26571"></a>                     Project(4, 'Repair Faulty Wiring', 1350),
+<a name="26572"></a>                     Project(5, 'Winterize Cooling System', 1125)));
+<a name="25772"></a>   INSERT INTO department
+<a name="26271"></a>      VALUES(60, 'Security', 750400,
+<a name="26490"></a>         ProjectList(Project(1, 'Issue New Employee Badges', 13500),
+<a name="26573"></a>                     Project(2, 'Find Missing IC Chips', 2750),
+<a name="26574"></a>                     Project(3, 'Upgrade Alarm System', 3350),
+<a name="26575"></a>                     Project(4, 'Inspect Emergency Exits', 1900)));
+<a name="27193"></a>END;
+<a name="22252"></a>
+</pre>
+
+<a name="20110"></a> 
+
+<p class="BP">In the following example, you update the list of projects assigned to the Security Department:</p>
+
+<pre class="CE"><a name="20111"></a>DECLARE
+<a name="25778"></a>   new_projects ProjectList :=
+<a name="26276"></a>      ProjectList(Project(1, 'Issue New Employee Badges', 13500),
+<a name="26576"></a>                  Project(2, 'Develop New Patrol Plan', 1250),
+<a name="26577"></a>                  Project(3, 'Inspect Emergency Exits', 1900),
+<a name="26578"></a>                  Project(4, 'Upgrade Alarm System', 3350),
+<a name="26579"></a>                  Project(5, 'Analyze Local Crime Stats', 825));
+<a name="21817"></a>BEGIN
+<a name="25784"></a>   UPDATE department 
+<a name="26281"></a>      SET projects = new_projects WHERE dept_id = 60;
+<a name="27195"></a>END;
+<a name="22256"></a>
+</pre>
+
+<a name="20112"></a> 
+
+<p class="BP">In the next example, you retrieve all the projects for the Accounting Department into a local varray:</p>
+
+<pre class="CE"><a name="20113"></a>DECLARE
+<a name="25786"></a>   my_projects ProjectList;
+<a name="21821"></a>BEGIN
+<a name="25787"></a>   SELECT projects INTO my_projects FROM department 
+<a name="26282"></a>      WHERE dept_id = 30;
+<a name="27197"></a>END;
+<a name="22257"></a>
+</pre>
+
+<a name="20114"></a> 
+
+<p class="BP">In the final example, you delete the Accounting Department and its project list from table <code>department</code>:</p>
+
+<pre class="CE"><a name="20115"></a>BEGIN
+<a name="25789"></a>   DELETE FROM department WHERE dept_id = 30;
+<a name="27199"></a>END;
+</pre>
+
+<a name="20230"></a> <!--TOC=h2-"20230"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Manipulating Individual Collection Elements with SQL</font></h3>
+
+<!--/TOC=h2-->
+<a name="26971"></a> 
+
+<p class="BP">By default, SQL operations store and retrieve whole collections rather than individual elements. To manipulate the individual elements of a collection with SQL, use the <code>TABLE</code> operator. The <code>TABLE</code> operator uses a subquery to extract the varray or nested table, so that the <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement applies to the nested table rather than the top-level table.</p>
+
+<a name="20186"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Inserting an Element into a Nested Table with SQL</font></h4>
+
+<a name="35063"></a> 
+
+<p class="BP">In the following example, you add a row to the History Department nested table stored in column <code>COURSES</code>:</p>
+
+<pre class="CE"><a name="20187"></a>BEGIN
+<a name="35056"></a>-- The TABLE operator makes the statement apply to the nested
+<a name="25790"></a>-- table from the 'History' row of the DEPARTMENT table.
+<a name="35060"></a>   INSERT INTO 
+<a name="35048"></a>      TABLE(SELECT courses FROM department WHERE name = 'History')
+<a name="26284"></a>      VALUES('Modern China');
+<a name="27201"></a>END;
+<a name="22258"></a>
+</pre>
+
+<a name="20189"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Updating Elements Inside a Nested Table with SQL</font></h4>
+
+<a name="35064"></a> 
+
+<p class="BP">In the next example, you abbreviate the names for some courses offered by the Psychology Department:</p>
+
+<pre class="CE"><a name="21831"></a>
+<a name="35073"></a>BEGIN
+<a name="25795"></a>   UPDATE TABLE(SELECT courses FROM department 
+<a name="26608"></a>         WHERE name = 'Psychology')
+<a name="26287"></a>      SET credits = credits + adjustment
+<a name="26288"></a>      WHERE course_no IN (2200, 3540);
+<a name="27203"></a>END;
+<a name="24791"></a>
+</pre>
+
+<a name="20191"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Retrieving a Single Element from a Nested Table with SQL</font></h4>
+
+<a name="35074"></a> 
+
+<p class="BP">In the following example, you retrieve the title of a specific course offered by the History Department:</p>
+
+<a name="35077"></a> 
+
+<pre class="CE"><a name="20192"></a>DECLARE
+<a name="25801"></a>   my_title VARCHAR2(64);
+<a name="21841"></a>BEGIN
+<a name="25803"></a>-- We know that there is one history course with 'Etruscan'
+<a name="35079"></a>-- in the title. This query retrieves the complete title
+<a name="35080"></a>-- from the nested table of courses for the History department.
+<a name="35078"></a>  SELECT title INTO my_title
+<a name="26289"></a>    FROM
+<a name="35083"></a>      TABLE(SELECT courses FROM department WHERE name = 'History')
+<a name="26291"></a>    WHERE name LIKE '%Etruscan%';
+<a name="27211"></a>END;
+<a name="27799"></a>
+</pre>
+
+<a name="20193"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Deleting Elements from a Nested Table with SQL</font></h4>
+
+<a name="35086"></a> 
+
+<p class="BP">In the next example, you delete all 5-credit courses offered by the English Department:</p>
+
+<pre class="CE"><a name="20194"></a>BEGIN
+<a name="25807"></a>   DELETE TABLE(SELECT courses FROM department
+<a name="27286"></a>         WHERE name = 'English')
+<a name="27260"></a>      WHERE credits = 5;
+<a name="27262"></a>END;
+<a name="27109"></a>
+</pre>
+
+<a name="27234"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Retrieving Elements from a Varray with SQL</font></h4>
+
+<a name="35087"></a> 
+
+<p class="BP">In the following example, you retrieve the title and cost of the Maintenance Department's fourth project from the varray column <code>projects</code>:</p>
+
+<pre class="CE"><a name="27235"></a>DECLARE
+<a name="27236"></a>   my_cost  NUMBER(7,2);
+<a name="27237"></a>   my_title VARCHAR2(35);
+<a name="27238"></a>BEGIN
+<a name="27239"></a>   SELECT cost, title INTO my_cost, my_title
+<a name="27240"></a>      FROM TABLE(SELECT projects FROM department
+<a name="27241"></a>         WHERE dept_id = 50)
+<a name="27242"></a>      WHERE project_no = 4;
+<a name="27243"></a>   ...
+<a name="27244"></a>END;
+<a name="27314"></a>
+</pre>
+
+<a name="27894"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Performing INSERT, UPDATE, and DELETE Operations on a Varray with SQL</font></h4>
+
+<a name="35088"></a> 
+
+<p class="BP">Currently, you cannot reference the individual elements of a varray in an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement. You must retrieve the entire varray, use PL/SQL procedural statements to add, delete, or update its elements, and then store the changed varray back in the database table.</p>
+
+<a name="35093"></a> 
+
+<p class="BP">In the following example, stored procedure <code>ADD_PROJECT</code> inserts a new project into a department's project list at a given position:</p>
+
+<pre class="CE"><a name="27895"></a>CREATE PROCEDURE add_project (
+<a name="27896"></a>   dept_no     IN NUMBER,
+<a name="27897"></a>   new_project IN Project,
+<a name="27898"></a>   position    IN NUMBER) AS
+<a name="27899"></a>   my_projects ProjectList;
+<a name="27900"></a>BEGIN 
+<a name="27901"></a>   SELECT projects INTO my_projects FROM department
+<a name="27902"></a>      WHERE dept_no = dept_id FOR UPDATE OF projects;
+<a name="27903"></a>   my_projects.EXTEND;  -- make room for new project
+<a name="27904"></a>   /* Move varray elements forward. */ 
+<a name="27905"></a>   FOR i IN REVERSE position..my_projects.LAST - 1 LOOP
+<a name="27906"></a>      my_projects(i + 1) := my_projects(i);
+<a name="27907"></a>   END LOOP; 
+<a name="27908"></a>   my_projects(position) := new_project;  -- add new project
+<a name="27909"></a>   UPDATE department SET projects = my_projects
+<a name="27910"></a>      WHERE dept_no = dept_id;
+<a name="27911"></a>END add_project;
+<a name="27912"></a>
+</pre>
+
+<a name="27913"></a> 
+
+<p class="BP">The following stored procedure updates a given project:</p>
+
+<pre class="CE"><a name="27914"></a>CREATE PROCEDURE update_project (
+<a name="27915"></a>   dept_no   IN NUMBER,
+<a name="27916"></a>   proj_no   IN NUMBER,
+<a name="27917"></a>   new_title IN VARCHAR2 DEFAULT NULL,
+<a name="27918"></a>   new_cost  IN NUMBER DEFAULT NULL) AS 
+<a name="27919"></a>   my_projects ProjectList;
+<a name="27920"></a>BEGIN
+<a name="27921"></a>   SELECT projects INTO my_projects FROM department 
+<a name="27922"></a>      WHERE dept_no = dept_id FOR UPDATE OF projects;
+<a name="27923"></a>   /* Find project, update it, then exit loop immediately. */
+<a name="27924"></a>   FOR i IN my_projects.FIRST..my_projects.LAST LOOP
+<a name="27925"></a>      IF my_projects(i).project_no = proj_no THEN
+<a name="27926"></a>         IF new_title IS NOT NULL THEN
+<a name="27927"></a>            my_projects(i).title := new_title;
+<a name="27928"></a>         END IF;
+<a name="27929"></a>         IF new_cost IS NOT NULL THEN
+<a name="27930"></a>            my_projects(i).cost := new_cost;
+<a name="27931"></a>         END IF;
+<a name="27932"></a>         EXIT;
+<a name="27933"></a>      END IF; 
+<a name="27934"></a>   END LOOP; 
+<a name="27935"></a>   UPDATE department SET projects = my_projects 
+<a name="27936"></a>      WHERE dept_no = dept_id; 
+<a name="27937"></a>END update_project;
+</pre>
+
+<a name="27827"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example: Performing INSERT, UPDATE, and DELETE Operations on PL/SQL Nested Tables</font></h4>
+
+<a name="27816"></a> 
+
+<p class="BP">To perform DML operations on a PL/SQL nested table, use the operators <code>TABLE</code> and <code>CAST</code>. This way, you can do set operations on nested tables using SQL notation, without actually storing the nested tables in the database.</p>
+
+<a name="35096"></a> 
+
+<p class="BP">The operands of <code>CAST</code> are PL/SQL collection variable and a SQL collection type (created by the <code>CREATE TYPE</code> statement). <code>CAST</code> converts the PL/SQL collection to the SQL type.</p>
+
+<a name="35098"></a> <a name="35097"></a> 
+
+<p class="BP">The following example counts the number of differences between a revised course list and the original (notice that the number of credits for course 3720 changed from 4 to 3):</p>
+
+<pre class="CE"><a name="27996"></a>DECLARE
+<a name="27851"></a>   revised CourseList :=
+<a name="27852"></a>      CourseList(Course(1002, 'Expository Writing', 3),
+<a name="27853"></a>                 Course(2020, 'Film and Literature', 4),
+<a name="27854"></a>                 Course(2810, 'Discursive Writing', 4),
+<a name="27855"></a>                 Course(3010, 'Modern English Grammar ', 3),
+<a name="27856"></a>                 Course(3550, 'Realism and Naturalism', 4),
+<a name="27857"></a>                 Course(3720, 'Introduction to Shakespeare', 3),
+<a name="27858"></a>                 Course(3760, 'Modern Drama', 4),
+<a name="27859"></a>                 Course(3822, 'The Short Story', 4),
+<a name="27860"></a>                 Course(3870, 'The American Novel', 5),
+<a name="27861"></a>                 Course(4210, '20th-Century Poetry', 4),
+<a name="27862"></a>                 Course(4725, 'Advanced Workshop in Poetry', 5));
+<a name="27863"></a>   num_changed INTEGER;
+<a name="27864"></a>BEGIN
+<a name="27865"></a>   SELECT COUNT(*) INTO num_changed
+<a name="27866"></a>      FROM TABLE(CAST(revised AS CourseList)) new,
+<a name="27867"></a>      TABLE(SELECT courses FROM department
+<a name="27980"></a>         WHERE name = 'English') AS old
+<a name="27868"></a>      WHERE new.course_no = old.course_no AND
+<a name="27869"></a>         (new.title != old.title OR new.credits != old.credits);
+<a name="27871"></a>   dbms_output.put_line(num_changed);
+<a name="27872"></a>END;
+</pre>
+
+<a name="33814"></a> <!--TOC=h1-"33814"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Using Multilevel Collections</font></h2>
+
+<!--/TOC=h1-->
+<a name="33815"></a> 
+
+<p class="BP">In addition to collections of scalar or object types, you can also create collections whose elements are collections. For example, you can create a nested table of varrays, a varray of varrays, a varray of nested tables, and so on.</p>
+
+<a name="36300"></a> 
+
+<p class="BP">When creating a nested table of nested tables as a column in SQL, check the syntax of the <code>CREATE TABLE</code> statement to see how to define the storage table.</p>
+
+<a name="33816"></a> 
+
+<p class="BP">Here are some examples showing the syntax and possibilities for multilevel collections.</p>
+
+<a name="33821"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Multilevel VARRAY Example</font></h4>
+
+<pre class="CE"><a name="33823"></a>declare
+<a name="33824"></a> type t1 is varray(10) of integer;
+<a name="33825"></a> type nt1 is varray(10) of t1; -- multilevel varray type
+<a name="33826"></a> va t1 := t1(2,3,5);
+<a name="33827"></a>-- initialize multilevel varray
+<a name="33828"></a> nva nt1 := nt1(va, t1(55,6,73), t1(2,4), va);
+<a name="33829"></a> i integer;
+<a name="33830"></a> va1 t1;
+<a name="33831"></a>begin
+<a name="33832"></a> -- multilevel access
+<a name="33833"></a> i := nva(2)(3); -- i will get value 73
+<a name="33834"></a> dbms_output.put_line(i);
+<a name="33835"></a> -- add a new varray element to nva
+<a name="33836"></a> nva.extend;
+<a name="33837"></a>
+<a name="33838"></a> nva(5) := t1(56, 32);
+<a name="33839"></a>-- replace an inner varray element
+<a name="33840"></a> nva(4) := t1(45,43,67,43345);
+<a name="33841"></a>-- replace an inner integer element
+<a name="33842"></a> nva(4)(4) := 1; -- replaces 43345 with 1
+<a name="33843"></a>-- add a new element to the 4th varray element
+<a name="33844"></a>-- and store integer 89 into it.
+<a name="33845"></a> nva(4).extend;
+<a name="33846"></a> nva(4)(5) := 89;
+<a name="33847"></a>end;
+<a name="33848"></a>/
+<a name="33849"></a>
+</pre>
+
+<a name="33850"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Multilevel Nested Table Example</font></h4>
+
+<pre class="CE"><a name="33852"></a>declare
+<a name="33853"></a> type tb1 is table of varchar2(20);
+<a name="33854"></a> type ntb1 is table of tb1; -- table of table elements
+<a name="33855"></a> type tv1 is varray(10) of integer;
+<a name="33856"></a> type ntb2 is table of tv1; -- table of varray elements
+<a name="33857"></a>
+<a name="33858"></a> vtb1 tb1 := tb1('one', 'three');
+<a name="33859"></a> vntb1 ntb1 := ntb1(vtb1);
+<a name="33860"></a> vntb2 ntb2 := ntb2(tv1(3,5), tv1(5,7,3));  -- table of varray 
+elements
+<a name="33861"></a>begin
+<a name="33862"></a> vntb1.extend;
+<a name="33863"></a> vntb1(2) := vntb1(1);
+<a name="33864"></a> -- delete the first element in vntb1
+<a name="33865"></a> vntb1.delete(1);
+<a name="33866"></a> -- delete the first string from the second table in the nested 
+table
+<a name="33867"></a> vntb1(2).delete(1);
+<a name="33868"></a>end;
+<a name="33869"></a>/
+<a name="33870"></a>
+</pre>
+
+<a name="33871"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Multilevel Associative Array Example</font></h4>
+
+<pre class="CE"><a name="33873"></a>declare
+<a name="33874"></a> type tb1 is table of integer index by binary_integer;
+<a name="33875"></a> -- the following is index-by table of index-by tables
+<a name="33876"></a> type ntb1 is table of tb1 index by binary_integer;
+<a name="33877"></a> type va1 is varray(10) of varchar2(20);
+<a name="33878"></a> -- the following is index-by table of varray elements
+<a name="33879"></a> type ntb2 is table of va1 index by binary_integer;
+<a name="33880"></a>
+<a name="33881"></a> v1 va1 := va1('hello', 'world');
+<a name="33882"></a> v2 ntb1;
+<a name="33883"></a> v3 ntb2;
+<a name="33884"></a> v4 tb1;
+<a name="33885"></a> v5 tb1; -- empty table
+<a name="33886"></a>begin
+<a name="33887"></a> v4(1) := 34;
+<a name="33888"></a> v4(2) := 46456;
+<a name="33889"></a> v4(456) := 343;
+<a name="33890"></a> v2(23) := v4;
+<a name="33891"></a> v3(34) := va1(33, 456, 656, 343);
+<a name="33896"></a>-- assign an empty table to v2(35) and try again
+<a name="33897"></a>   v2(35) := v5;
+<a name="33898"></a>   v2(35)(2) := 78; -- it works now
+<a name="33899"></a>end;
+<a name="33900"></a>/
+<a name="33901"></a>
+</pre>
+
+<a name="33902"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Example of Multilevel Collections and Bulk SQL</font></h4>
+
+<pre class="CE"><a name="33904"></a>create type t1 is varray(10) of integer;
+<a name="33905"></a>/
+<a name="33906"></a>create table tab1 (c1 t1);
+<a name="33907"></a>
+<a name="33908"></a>insert into tab1 values (t1(2,3,5));
+<a name="33909"></a>insert into tab1 values (t1(9345, 5634, 432453));
+<a name="33910"></a>
+<a name="33911"></a>declare
+<a name="33912"></a> type t2 is table of t1;
+<a name="33913"></a> v2 t2;
+<a name="33914"></a>begin
+<a name="33915"></a> select c1  BULK COLLECT INTO v2 from tab1;
+<a name="33916"></a> dbms_output.put_line(v2.count); -- prints 2
+<a name="33917"></a>end;
+<a name="33817"></a>/
+</pre>
+
+<a name="33933"></a> <a name="14165"></a> <!--TOC=h1-"14165"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Using Collection Methods</font></h2>
+
+<!--/TOC=h1-->
+<a name="14166"></a> 
+
+<p class="BP">The following collection methods help generalize code, make collections easier to use, and make your applications easier to maintain:</p>
+
+<dl class="LS">
+<dd class="LSI"><a name="14167"></a>EXISTS</dd>
+
+<dd class="LSI"><a name="14168"></a>COUNT</dd>
+
+<dd class="LSI"><a name="14169"></a>LIMIT</dd>
+
+<dd class="LSI"><a name="14170"></a>FIRST and LAST</dd>
+
+<dd class="LSI"><a name="14171"></a>PRIOR and NEXT</dd>
+
+<dd class="LSI"><a name="14172"></a>EXTEND</dd>
+
+<dd class="LSI"><a name="14173"></a>TRIM</dd>
+
+<dd class="LSI"><a name="14174"></a>DELETE</dd>
+
+<dd class="LSI"><a name="22329"></a></dd>
+</dl>
+
+<a name="14175"></a> 
+
+<p class="BP">A <strong class="Bold">collection method</strong> is a built-in function or procedure that operates on collections and is called using dot notation. The syntax follows:</p>
+
+<pre class="CE"><a name="14176"></a>collection_name.method_name[(parameters)]
+<a name="22263"></a>
+</pre>
+
+<a name="14177"></a> 
+
+<p class="BP">Collection methods cannot be called from SQL statements. Also, <code>EXTEND</code> and <code>TRIM</code> cannot be used with associative arrays. <code>EXISTS</code>, <code>COUNT</code>, <code>LIMIT</code>, <code>FIRST</code>, <code>LAST</code>, <code>PRIOR</code>, and <code>NEXT</code> are functions; <code>EXTEND</code>, <code>TRIM</code>, and <code>DELETE</code> are procedures. <code>EXISTS</code>, <code>PRIOR</code>, <code>NEXT</code>, <code>TRIM</code>, <code>EXTEND</code>, and <code>DELETE</code> take parameters corresponding to collection subscripts, which are usually integers but can also be strings for associative arrays.</p>
+
+<a name="29655"></a> 
+
+<p class="BP">Only <code>EXISTS</code> can be applied to atomically null collections. If you apply another method to such collections, PL/SQL raises <code>COLLECTION_IS_NULL</code>.</p>
+
+<a name="14179"></a> <!--TOC=h2-"14179"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Checking If a Collection Element Exists (EXISTS Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14180"></a> 
+
+<p class="BP"><code>EXISTS(n)</code> returns <code>TRUE</code> if the <em><code>n</code></em>th element in a collection exists. Otherwise, <code>EXISTS(n)</code> returns <code>FALSE</code>. Mainly, you use <code>EXISTS</code> with <code>DELETE</code> to maintain sparse nested tables. You can also use <code>EXISTS</code> to avoid raising an exception when you reference a nonexistent element. In the following example, PL/SQL executes the assignment statement only if element <code>i</code> exists:</p>
+
+<pre class="CE"><a name="20430"></a>IF courses.EXISTS(i) THEN courses(i) := new_course; END IF;
+<a name="22264"></a>
+</pre>
+
+<a name="20431"></a> 
+
+<p class="BP">When passed an out-of-range subscript, <code>EXISTS</code> returns <code>FALSE</code> instead of raising <code>SUBSCRIPT_OUTSIDE_LIMIT</code>.</p>
+
+<a name="14183"></a> <!--TOC=h2-"14183"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Counting the Elements in a Collection (COUNT Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="17534"></a> 
+
+<p class="BP"><code>COUNT</code> returns the number of elements that a collection currently contains. For instance, if varray <code>projects</code> contains 25 elements, the following <code>IF</code> condition is true:</p>
+
+<pre class="CE"><a name="14185"></a>IF projects.COUNT = 25 THEN ... 
+<a name="22269"></a>
+</pre>
+
+<a name="14186"></a> 
+
+<p class="BP"><code>COUNT</code> is useful because the current size of a collection is not always known. For example, if you fetch a column of Oracle data into a nested table, how many elements does the table contain? <code>COUNT</code> gives you the answer.</p>
+
+<a name="14187"></a> 
+
+<p class="BP">You can use <code>COUNT</code> wherever an integer expression is allowed. In the next example, you use <code>COUNT</code> to specify the upper bound of a loop range:</p>
+
+<pre class="CE"><a name="14188"></a>FOR i IN 1..courses.COUNT LOOP ...
+<a name="22270"></a>
+</pre>
+
+<a name="17341"></a> 
+
+<p class="BP">For varrays, <code>COUNT</code> always equals <code>LAST</code>. For nested tables, <code>COUNT</code> normally equals <code>LAST</code>. But, if you delete elements from the middle of a nested table, <code>COUNT</code> becomes smaller than <code>LAST</code>.</p>
+
+<a name="17342"></a> 
+
+<p class="BP">When tallying elements, <code>COUNT</code> ignores deleted elements.</p>
+
+<a name="16509"></a> <!--TOC=h2-"16509"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Checking the Maximum Size of a Collection (LIMIT Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="16510"></a> 
+
+<p class="BP">For nested tables and associative arrays, which have no maximum size, <code>LIMIT</code> returns <code>NULL</code>. For varrays, <code>LIMIT</code> returns the maximum number of elements that a varray can contain (which you must specify in its type definition, and can change later with the <code>TRIM</code> and <code>EXTEND</code> methods). For instance, if the maximum size of varray <code>PROJECTS</code> is 25 elements, the following <code>IF</code> condition is true:</p>
+
+<pre class="CE"><a name="14195"></a>IF projects.LIMIT = 25 THEN ... 
+<a name="22271"></a>
+</pre>
+
+<a name="14197"></a> 
+
+<p class="BP">You can use <code>LIMIT</code> wherever an integer expression is allowed. In the following example, you use <code>LIMIT</code> to determine if you can add 15 more elements to varray <code>projects</code>:</p>
+
+<pre class="CE"><a name="14198"></a>IF (projects.COUNT + 15) &lt; projects.LIMIT THEN ...
+</pre>
+
+<a name="14200"></a> <!--TOC=h2-"14200"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Finding the First or Last Collection Element (FIRST and LAST Methods)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14201"></a> 
+
+<p class="BP"><code>FIRST</code> and <code>LAST</code> return the first and last (smallest and largest) index numbers in a collection. For an associative array with <code>VARCHAR2</code> key values, the lowest and highest key values are returned; ordering is based on the binary values of the characters in the string, unless the <code>NLS_COMP</code> initialization parameter is set to <code>ANSI</code>, in which case the ordering is based on the locale-specific sort order specified by the <code>NLS_SORT</code> initialization parameter.</p>
+
+<a name="35134"></a> 
+
+<p class="BP">If the collection is empty, <code>FIRST</code> and <code>LAST</code> return <code>NULL</code>.</p>
+
+<a name="35135"></a> 
+
+<p class="BP">If the collection contains only one element, <code>FIRST</code> and <code>LAST</code> return the same index value:</p>
+
+<pre class="CE"><a name="14202"></a>IF courses.FIRST = courses.LAST THEN ...  -- only one element
+<a name="22272"></a>
+</pre>
+
+<a name="14203"></a> 
+
+<p class="BP">The next example shows that you can use <code>FIRST</code> and <code>LAST</code> to specify the lower and upper bounds of a loop range provided each element in that range exists:</p>
+
+<pre class="CE"><a name="14204"></a>FOR i IN courses.FIRST..courses.LAST LOOP ...
+<a name="22273"></a>
+</pre>
+
+<a name="14205"></a> 
+
+<p class="BP">In fact, you can use <code>FIRST</code> or <code>LAST</code> wherever an integer expression is allowed. In the following example, you use <code>FIRST</code> to initialize a loop counter:</p>
+
+<pre class="CE"><a name="14206"></a>i := courses.FIRST;
+<a name="21900"></a>WHILE i IS NOT NULL LOOP ...
+<a name="22274"></a>
+</pre>
+
+<a name="14207"></a> 
+
+<p class="BP">For varrays, <code>FIRST</code> always returns 1 and <code>LAST</code> always equals <code>COUNT</code>. For nested tables, <code>FIRST</code> normally returns 1. But, if you delete elements from the beginning of a nested table, <code>FIRST</code> returns a number larger than 1. Also for nested tables, <code>LAST</code> normally equals <code>COUNT</code>. But, if you delete elements from the middle of a nested table, <code>LAST</code> becomes larger than <code>COUNT</code>.</p>
+
+<a name="17335"></a> 
+
+<p class="BP">When scanning elements, <code>FIRST</code> and <code>LAST</code> ignore deleted elements.</p>
+
+<a name="14209"></a> <!--TOC=h2-"14209"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Looping Through Collection Elements (PRIOR and NEXT Methods)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14210"></a> 
+
+<p class="BP"><code>PRIOR</code>(<code>n</code>) returns the index number that precedes index <code>n</code> in a collection. <code>NEXT(n)</code> returns the index number that succeeds index <code>n</code>. If <code>n</code> has no predecessor, <code>PRIOR(n)</code> returns <code>NULL</code>. Likewise, if <code>n</code> has no successor, <code>NEXT(n)</code> returns <code>NULL</code>.</p>
+
+<a name="35136"></a> 
+
+<p class="BP">For associative arrays with <code>VARCHAR2</code> keys, these methods return the appropriate key value; ordering is based on the binary values of the characters in the string, unless the <code>NLS_COMP</code> initialization parameter is set to <code>ANSI</code>, in which case the ordering is based on the locale-specific sort order specified by the <code>NLS_SORT</code> initialization parameter.</p>
+
+<a name="35560"></a> 
+
+<p class="BP">These methods are more reliable than looping through a fixed set of subscript values, because elements might be inserted or deleted from the collection during the loop. This is especially true for associative arrays, where the subscripts might not be in consecutive order and so the sequence of subscripts might be (1,2,4,8,16) or ('A','E','I','O','U').</p>
+
+<a name="14211"></a> 
+
+<p class="BP"><code>PRIOR</code> and <code>NEXT</code> do not wrap from one end of a collection to the other. For example, the following statement assigns <code>NULL</code> to <code>n</code> because the first element in a collection has no predecessor:</p>
+
+<pre class="CE"><a name="14212"></a>n := courses.PRIOR(courses.FIRST);  -- assigns NULL to n
+<a name="22275"></a>
+</pre>
+
+<a name="14213"></a> 
+
+<p class="BP"><code>PRIOR</code> is the inverse of <code>NEXT</code>. For instance, if element <code>i</code> exists, the following statement assigns element <code>i</code> to itself:</p>
+
+<pre class="CE"><a name="14214"></a>projects(i) := projects.PRIOR(projects.NEXT(i));
+<a name="22276"></a>
+</pre>
+
+<a name="14215"></a> 
+
+<p class="BP">You can use <code>PRIOR</code> or <code>NEXT</code> to traverse collections indexed by any series of subscripts. In the following example, you use <code>NEXT</code> to traverse a nested table from which some elements have been deleted:</p>
+
+<pre class="CE"><a name="14216"></a>i := courses.FIRST;  -- get subscript of first element
+<a name="21901"></a>WHILE i IS NOT NULL LOOP
+<a name="25852"></a>   -- do something with courses(i) 
+<a name="25853"></a>   i := courses.NEXT(i);  -- get subscript of next element
+<a name="21904"></a>END LOOP;
+<a name="22277"></a>
+</pre>
+
+<a name="14217"></a> 
+
+<p class="BP">When traversing elements, <code>PRIOR</code> and <code>NEXT</code> ignore deleted elements.</p>
+
+<a name="14218"></a> <!--TOC=h2-"14218"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Increasing the Size of a Collection (EXTEND Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14219"></a> 
+
+<p class="BP">To increase the size of a nested table or varray, use <code>EXTEND</code>. You cannot use <code>EXTEND</code> with index-by tables.</p>
+
+<a name="35567"></a> 
+
+<p class="BP">This procedure has three forms:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="35568"></a><code>EXTEND</code> appends one null element to a collection.</li>
+
+<li class="LB1" type="disc"><a name="35569"></a><code>EXTEND(n)</code> appends <code>n</code> null elements to a collection.</li>
+
+<li class="LB1" type="disc"><a name="35570"></a><code>EXTEND(n,i)</code> appends <code>n</code> copies of the <em><code>i</code></em>th element to a collection.</li>
+</ul>
+
+<a name="35571"></a> 
+
+<p class="BP">For example, the following statement appends 5 copies of element 1 to nested table <code>courses</code>:</p>
+
+<pre class="CE"><a name="14220"></a>courses.EXTEND(5,1);
+<a name="22278"></a>
+</pre>
+
+<a name="14221"></a> 
+
+<p class="BP">You cannot use <code>EXTEND</code> to initialize an atomically null collection. Also, if you impose the <code>NOT</code> <code>NULL</code> constraint on a <code>TABLE</code> or <code>VARRAY</code> type, you cannot apply the first two forms of <code>EXTEND</code> to collections of that type.</p>
+
+<a name="14222"></a> 
+
+<p class="BP"><code>EXTEND</code> operates on the internal size of a collection, which includes any deleted elements. So, if <code>EXTEND</code> encounters deleted elements, it includes them in its tally. PL/SQL keeps placeholders for deleted elements so that you can replace them if you wish. Consider the following example:</p>
+
+<pre class="CE"><a name="14223"></a>DECLARE
+<a name="25854"></a>   TYPE CourseList IS TABLE OF VARCHAR2(10);
+<a name="25855"></a>   courses CourseList;
+<a name="25563"></a>BEGIN
+<a name="25856"></a>   courses := CourseList('Biol 4412', 'Psyc 3112', 'Anth 3001');
+<a name="26609"></a>   courses.DELETE(3);  -- delete element 3
+<a name="25858"></a>   /* PL/SQL keeps a placeholder for element 3. So, the 
+<a name="26308"></a>      next statement appends element 4, not element 3. */
+<a name="25860"></a>   courses.EXTEND;  -- append one null element
+<a name="25861"></a>   /* Now element 4 exists, so the next statement does 
+<a name="26309"></a>      not raise SUBSCRIPT_BEYOND_COUNT. */
+<a name="25863"></a>   courses(4) := 'Engl 2005';
+<a name="22279"></a>
+</pre>
+
+<a name="14224"></a> 
+
+<p class="BP">When it includes deleted elements, the internal size of a nested table differs from the values returned by <code>COUNT</code> and <code>LAST</code>. For instance, if you initialize a nested table with five elements, then delete elements 2 and 5, the internal size is 5, <code>COUNT</code> returns 3, and <code>LAST</code> returns 4. All deleted elements (whether leading, in the middle, or trailing) are treated alike.</p>
+
+<a name="14225"></a> <!--TOC=h2-"14225"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Decreasing the Size of a Collection (TRIM Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14226"></a> 
+
+<p class="BP">This procedure has two forms:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="35574"></a><code>TRIM</code> removes one element from the end of a collection.</li>
+
+<li class="LB1" type="disc"><a name="35575"></a><code>TRIM(n)</code> removes <code>n</code> elements from the end of a collection.</li>
+</ul>
+
+<a name="35576"></a> 
+
+<p class="BP">For example, this statement removes the last three elements from nested table <code>courses</code>:</p>
+
+<pre class="CE"><a name="14227"></a>courses.TRIM(3);
+<a name="22280"></a>
+</pre>
+
+<a name="14228"></a> 
+
+<p class="BP">If <code>n</code> is too large, <code>TRIM(n)</code> raises <code>SUBSCRIPT_BEYOND_COUNT</code>.</p>
+
+<a name="14229"></a> 
+
+<p class="BP"><code>TRIM</code> operates on the internal size of a collection. So, if <code>TRIM</code> encounters deleted elements, it includes them in its tally. Consider the following example:</p>
+
+<pre class="CE"><a name="14230"></a>DECLARE
+<a name="25864"></a>   TYPE CourseList IS TABLE OF VARCHAR2(10); 
+<a name="25865"></a>   courses CourseList;
+<a name="21918"></a>BEGIN
+<a name="25866"></a>   courses := CourseList('Biol 4412', 'Psyc 3112', 'Anth 3001');
+<a name="25867"></a>   courses.DELETE(courses.LAST);  -- delete element 3
+<a name="25868"></a>   /* At this point, COUNT equals 2, the number of valid
+<a name="26310"></a>      elements remaining. So, you might expect the next 
+<a name="26311"></a>      statement to empty the nested table by trimming 
+<a name="26312"></a>      elements 1 and 2. Instead, it trims valid element 2 
+<a name="26313"></a>      and deleted element 3 because TRIM includes deleted 
+<a name="26314"></a>      elements in its tally. */
+<a name="25874"></a>   courses.TRIM(courses.COUNT);
+<a name="25875"></a>   dbms_output.put_line(courses(1));  -- prints 'Biol 4412'
+<a name="22281"></a>
+</pre>
+
+<a name="14233"></a> 
+
+<p class="BP">In general, do not depend on the interaction between <code>TRIM</code> and <code>DELETE</code>. It is better to treat nested tables like fixed-size arrays and use only <code>DELETE</code>, or to treat them like stacks and use only <code>TRIM</code> and <code>EXTEND</code>.</p>
+
+<a name="29529"></a> 
+
+<p class="BP">PL/SQL does not keep placeholders for trimmed elements. So, you cannot replace a trimmed element simply by assigning it a new value.</p>
+
+<a name="14235"></a> <!--TOC=h2-"14235"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Deleting Collection Elements (DELETE Method)</font></h3>
+
+<!--/TOC=h2-->
+<a name="14472"></a> 
+
+<p class="BP">This procedure has various forms:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="35579"></a><code>DELETE</code> removes all elements from a collection.</li>
+
+<li class="LB1" type="disc"><a name="35580"></a><code>DELETE(n)</code> removes the <em><code>n</code></em>th element from an associative array with a numeric key or a nested table. If the associative array has a string key, the element corresponding to the key value is deleted. If <code>n</code> is null, <code>DELETE(n)</code> does nothing.</li>
+
+<li class="LB1" type="disc"><a name="35584"></a><code>DELETE(m,n)</code> removes all elements in the range <code>m..n</code> from an associative array or nested table. If <code>m</code> is larger than <code>n</code> or if <code>m</code> or <code>n</code> is null, <code>DELETE(m,n)</code> does nothing.</li>
+</ul>
+
+<a name="35589"></a> 
+
+<p class="BP">For example:</p>
+
+<pre class="CE"><a name="14237"></a>BEGIN
+<a name="25877"></a>   courses.DELETE(2);    -- deletes element 2 
+<a name="25878"></a>   courses.DELETE(7,7);  -- deletes element 7 
+<a name="25879"></a>   courses.DELETE(6,3);  -- does nothing 
+<a name="25880"></a>   courses.DELETE(3,6);  -- deletes elements 3 through 6 
+<a name="25881"></a>
+<a name="35848"></a>   projects.DELETE;      -- deletes all elements
+<a name="35847"></a>
+<a name="35849"></a>   nicknames.DELETE('Chip'); -- deletes element denoted by this key
+<a name="35850"></a>   nicknames.DELETE('Buffy','Fluffy'); -- deletes elements with keys
+<a name="35851"></a>                                       -- in this alphabetic range
+<a name="21936"></a>END;
+<a name="22282"></a>
+</pre>
+
+<a name="14478"></a> 
+
+<p class="BP">Varrays are dense, so you cannot delete their individual elements.</p>
+
+<a name="14238"></a> 
+
+<p class="BP">If an element to be deleted does not exist, <code>DELETE</code> simply skips it; no exception is raised. PL/SQL keeps placeholders for deleted elements. So, you can replace a deleted element simply by assigning it a new value.</p>
+
+<a name="16520"></a> 
+
+<p class="BP"><code>DELETE</code> lets you maintain sparse nested tables. In the following example, you retrieve nested table <code>prospects</code> into a temporary table, prune it, then store it back in the database:</p>
+
+<pre class="CE"><a name="16535"></a>DECLARE
+<a name="25882"></a>   my_prospects ProspectList;
+<a name="25883"></a>   revenue      NUMBER;
+<a name="21939"></a>BEGIN
+<a name="25884"></a>   SELECT prospects INTO my_prospects FROM customers WHERE ...
+<a name="25885"></a>   FOR i IN my_prospects.FIRST..my_prospects.LAST LOOP
+<a name="26315"></a>      estimate_revenue(my_prospects(i), revenue);  -- call procedure
+<a name="26316"></a>      IF revenue &lt; 25000 THEN
+<a name="26508"></a>         my_prospects.DELETE(i);
+<a name="26318"></a>      END IF;
+<a name="25890"></a>   END LOOP;
+<a name="25891"></a>   UPDATE customers SET prospects = my_prospects WHERE ...
+<a name="22283"></a>
+</pre>
+
+<a name="14240"></a> 
+
+<p class="BP">The amount of memory allocated to a nested table can increase or decrease dynamically. As you delete elements, memory is freed page by page. If you delete the entire table, all the memory is freed.</p>
+
+<a name="14251"></a> <!--TOC=h2-"14251"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Applying Methods to Collection Parameters</font></h3>
+
+<!--/TOC=h2-->
+<a name="14248"></a> 
+
+<p class="BP">Within a subprogram, a collection parameter assumes the properties of the argument bound to it. So, you can apply the built-in collection methods (<code>FIRST</code>, <code>LAST</code>, <code>COUNT</code>, and so on) to such parameters. In the following example, a nested table is declared as the formal parameter of a packaged procedure:</p>
+
+<pre class="CE"><a name="14503"></a>CREATE PACKAGE personnel AS
+<a name="25892"></a>   TYPE Staff IS TABLE OF Employee;
+<a name="25893"></a>   ...
+<a name="25894"></a>   PROCEDURE award_bonuses (members IN Staff);
+<a name="21951"></a>END personnel;
+<a name="14507"></a>CREATE PACKAGE BODY personnel AS
+<a name="25895"></a>   ...
+<a name="25896"></a>   PROCEDURE award_bonuses (members IN Staff) IS
+<a name="25897"></a>   BEGIN
+<a name="26319"></a>      ...
+<a name="26320"></a>      IF members.COUNT &gt; 10 THEN  -- apply method
+<a name="26509"></a>         ...
+<a name="26322"></a>      END IF;
+<a name="25902"></a>   END;
+<a name="21960"></a>END personnel;
+<a name="22284"></a>
+</pre>
+
+<a name="14492"></a> 
+
+<p class="BP"><strong class="Bold">Note:</strong> For varray parameters, the value of <code>LIMIT</code> is always derived from the parameter type definition, regardless of the parameter mode.</p>
+
+<a name="14332"></a> <!--TOC=h1-"14332"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Avoiding Collection Exceptions</font></h2>
+
+<!--/TOC=h1-->
+<a name="14333"></a> 
+
+<p class="BP">In most cases, if you reference a nonexistent collection element, PL/SQL raises a predefined exception. Consider the following example:</p>
+
+<pre class="CE"><a name="14334"></a>DECLARE
+<a name="25903"></a>   TYPE NumList IS TABLE OF NUMBER;
+<a name="25904"></a>   nums NumList;  -- atomically null
+<a name="21963"></a>BEGIN
+<a name="25905"></a>   /* Assume execution continues despite the raised exceptions. */
+<a name="25906"></a>   nums(1) := 1;            -- raises COLLECTION_IS_NULL       (1)
+<a name="25907"></a>   nums := NumList(1,2);  -- initialize table
+<a name="25908"></a>   nums(NULL) := 3          -- raises VALUE_ERROR              (2)
+<a name="25909"></a>   nums(0) := 3;            -- raises SUBSCRIPT_OUTSIDE_LIMIT  (3)
+<a name="25910"></a>   nums(3) := 3;            -- raises SUBSCRIPT_BEYOND_COUNT   (4)
+<a name="25911"></a>   nums.DELETE(1);  -- delete element 1
+<a name="25912"></a>   IF nums(1) = 1 THEN ...  -- raises NO_DATA_FOUND            (5)
+<a name="22285"></a>
+</pre>
+
+<a name="14335"></a> 
+
+<p class="BP">In the first case, the nested table is atomically null. In the second case, the subscript is null. In the third case, the subscript is outside the legal range. In the fourth case, the subscript exceeds the number of elements in the table. In the fifth case, the subscript designates a deleted element.</p>
+
+<a name="14361"></a> 
+
+<p class="BP">The following list shows when a given exception is raised:</p>
+
+<a name="22330"></a> 
+
+<table summary="" class="Informal" border="1" frame="HSIDES" rules="GROUPS" width="100%" cellpadding="3" cellspacing="0" dir="ltr" title="">
+<thead>
+<tr class="Informal">
+<th class="Informal" align="left" valign="bottom" scope="col"><a name="14338"></a> <font face="Arial, Helvetica, sans-serif"><strong>Collection Exception</strong></font></th>
+<th class="Informal" align="left" valign="bottom" scope="col"><a name="14340"></a> <font face="Arial, Helvetica, sans-serif"><strong>Raised when...</strong></font></th>
+</tr>
+</thead>
+
+<tbody>
+<tr class="Informal" align="left" valign="top">
+<td class="Informal"><a name="29404"></a> 
+
+<p class="TB"><code>COLLECTION_IS_NULL</code></p>
+</td>
+<td class="Informal"><a name="29406"></a> 
+
+<p class="TB">you try to operate on an atomically null collection.</p>
+</td>
+</tr>
+
+<tr class="Informal" align="left" valign="top">
+<td class="Informal"><a name="29408"></a> 
+
+<p class="TB"><code>NO_DATA_FOUND</code></p>
+</td>
+<td class="Informal"><a name="29410"></a> 
+
+<p class="TB">a subscript designates an element that was deleted, or a nonexistent element of an associative array.</p>
+</td>
+</tr>
+
+<tr class="Informal" align="left" valign="top">
+<td class="Informal"><a name="29412"></a> 
+
+<p class="TB"><code>SUBSCRIPT_BEYOND_COUNT</code></p>
+</td>
+<td class="Informal"><a name="29414"></a> 
+
+<p class="TB">a subscript exceeds the number of elements in a collection.</p>
+</td>
+</tr>
+
+<tr class="Informal" align="left" valign="top">
+<td class="Informal"><a name="29416"></a> 
+
+<p class="TB"><code>SUBSCRIPT_OUTSIDE_LIMIT</code></p>
+</td>
+<td class="Informal"><a name="29418"></a> 
+
+<p class="TB">a subscript is outside the allowed range.</p>
+</td>
+</tr>
+
+<tr class="Informal" align="left" valign="top">
+<td class="Informal"><a name="26873"></a> 
+
+<p class="TB"><code>VALUE_ERROR</code></p>
+</td>
+<td class="Informal"><a name="26877"></a> 
+
+<p class="TB">a subscript is null or not convertible to the key type. This exception might occur if the key is defined as a <code>PLS_INTEGER</code> range, and the subscript is outside this range.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a name="14362"></a> 
+
+<p class="BP">In some cases, you can pass invalid subscripts to a method without raising an exception. For instance, when you pass a null subscript to procedure <code>DELETE</code>, it does nothing. Also, you can replace deleted elements without raising <code>NO_DATA_FOUND</code>, as the following example shows:</p>
+
+<pre class="CE"><a name="14363"></a>DECLARE
+<a name="25913"></a>   TYPE NumList IS TABLE OF NUMBER;
+<a name="25914"></a>   nums NumList := NumList(10,20,30);  -- initialize table
+<a name="21974"></a>BEGIN
+<a name="25916"></a>   nums.DELETE(-1);  -- does not raise SUBSCRIPT_OUTSIDE_LIMIT
+<a name="25917"></a>   nums.DELETE(3);   -- delete 3rd element
+<a name="25918"></a>   dbms_output.put_line(nums.COUNT);  -- prints 2
+<a name="25919"></a>   nums(3) := 30;    -- allowed; does not raise NO_DATA_FOUND
+<a name="25920"></a>   dbms_output.put_line(nums.COUNT);  -- prints 3
+<a name="24350"></a>END;
+<a name="24595"></a>
+</pre>
+
+<a name="24599"></a> 
+
+<p class="BP">Packaged collection types and local collection types are never compatible. For example, suppose you want to call the following packaged procedure:</p>
+
+<pre class="CE"><a name="24648"></a>CREATE PACKAGE pkg1 AS
+<a name="25921"></a>   TYPE NumList IS VARRAY(25) OF NUMBER(4);
+<a name="25922"></a>   PROCEDURE delete_emps (emp_list NumList);
+<a name="24661"></a>END pkg1;
+<a name="24660"></a>
+<a name="24676"></a>CREATE PACKAGE BODY pkg1 AS
+<a name="25924"></a>   PROCEDURE delete_emps (emp_list NumList) IS ...
+<a name="25925"></a>   ...
+<a name="24680"></a>END pkg1;
+<a name="24685"></a>
+</pre>
+
+<a name="24670"></a> 
+
+<p class="BP">When you run the PL/SQL block below, the second procedure call fails with a <em class="Italic">wrong number or types of arguments</em> error. That is because the packaged and local <code>VARRAY</code> types are incompatible even though their definitions are identical.</p>
+
+<pre class="CE"><a name="24629"></a>DECLARE
+<a name="25926"></a>   TYPE NumList IS VARRAY(25) OF NUMBER(4);
+<a name="25927"></a>   emps  pkg1.NumList := pkg1.NumList(7369, 7499);
+<a name="25928"></a>   emps2 NumList := NumList(7521, 7566);
+<a name="24632"></a>BEGIN
+<a name="25929"></a>   pkg1.delete_emps(emps);
+<a name="25930"></a>   pkg1.delete_emps(emps2);  -- causes a compilation error
+<a name="24636"></a>END;
+</pre>
+
+<a name="23723"></a> <!--TOC=h1-"23723"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Reducing Loop Overhead for Collections with Bulk Binds</font></h2>
+
+<!--/TOC=h1-->
+<a name="28098"></a> 
+
+<p class="BP">As <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#28103">Figure&nbsp;5-3</a> shows, the PL/SQL engine executes procedural statements but sends SQL statements to the SQL engine, which executes the SQL statements and, in some cases, returns data to the PL/SQL engine.</p>
+
+<a name="28103"></a> 
+
+<h4 class="FT"><font face="Arial, Helvetica, sans-serif"><em>Figure 5-3 Context Switching</em></font></h4>
+
+<a name="28107"><img src="./PL_SQL User Guide and Reference_files/pls81027_context_switching.gif" alt="Text description of pls81027_context_switching.gif follows"></a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/img_text/pls81027_context_switching.htm"><br>
+Text description of the illustration pls81027_context_switching.gif</a><br>
+<br>
+ <a name="28109"></a> 
+
+<p class="BP">Too many context switches between the PL/SQL and SQL engines can harm performance. That can happen when a loop executes a separate SQL statement for each element of a collection, specifying the collection element as a bind variable. For example, the following <code>DELETE</code> statement is sent to the SQL engine with each iteration of the <code>FOR</code> loop:</p>
+
+<pre class="CE"><a name="28110"></a>DECLARE
+<a name="28111"></a>   TYPE NumList IS VARRAY(20) OF NUMBER;
+<a name="28112"></a>   depts NumList := NumList(10, 30, 70);  -- department numbers
+<a name="28113"></a>BEGIN
+<a name="28114"></a>   ...
+<a name="28115"></a>   FOR i IN depts.FIRST..depts.LAST LOOP
+<a name="28116"></a>      DELETE FROM emp WHERE deptno = depts(i);
+<a name="28117"></a>   END LOOP;
+<a name="28118"></a>END;
+<a name="28119"></a>
+</pre>
+
+<a name="35881"></a> 
+
+<p class="BP">In such cases, if the SQL statement affects four or more database rows, the use of bulk binds can improve performance considerably.</p>
+
+<a name="35883"></a> <!--TOC=h2-"35883"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">How Do Bulk Binds Improve Performance?</font></h3>
+
+<!--/TOC=h2-->
+<a name="35889"></a> 
+
+<p class="BP">The assigning of values to PL/SQL variables in SQL statements is called <strong class="Bold">binding</strong>. PL/SQL binding operations fall into three categories:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="35891"></a><strong class="Bold">in-bind</strong> When a PL/SQL variable or host variable is stored in the database by an <code>INSERT</code> or <code>UPDATE</code> statement.</li>
+
+<li class="LB1" type="disc"><a name="35892"></a><strong class="Bold">out-bind</strong> When a database value is assigned to a PL/SQL variable or a host variable by the <code>RETURNING</code> clause of an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement.</li>
+
+<li class="LB1" type="disc"><a name="35949"></a><strong class="Bold">define</strong> When a database value is assigned to a PL/SQL variable or a host variable by a <code>SELECT</code> or <code>FETCH</code> statement.</li>
+</ul>
+
+<a name="28124"></a> 
+
+<p class="BP">A DML statement can transfer all the elements of a collection in a single operation, a process known as <strong class="Bold">bulk binding</strong>. If the collection has 20 elements, bulk binding lets you perform the equivalent of 20 <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statements using a single operation. This technique improves performance by minimizing the number of context switches between the PL/SQL and SQL engines. With bulk binds, entire collections, not just individual elements, are passed back and forth.</p>
+
+<a name="35911"></a> 
+
+<p class="BP">To do bulk binds with <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> statements, you enclose the SQL statement within a PL/SQL <code>FORALL</code> statement.</p>
+
+<a name="35917"></a> 
+
+<p class="BP">To do bulk binds with <code>SELECT</code> statements, you include the <code>BULK</code> <code>COLLECT</code> clause in the <code>SELECT</code> statement instead of using <code>INTO</code>.</p>
+
+<a name="35956"></a> 
+
+<p class="BP">For full details of the syntax and restrictions for these statements, see <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/13_elems22.htm#34325">"FORALL Statement"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/13_elems22.htm#34325"></a> and <a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/13_elems45.htm#36067">"SELECT INTO Statement"</a><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/13_elems45.htm#36067"></a>.</p>
+
+<a name="35912"></a> <!--TOC=h3-"35912"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Example: Performing a Bulk Bind with DELETE</font></h4>
+
+<!--/TOC=h3-->
+<a name="35924"></a> 
+
+<p class="BP">The following <code>DELETE</code> statement is sent to the SQL engine just once, even though it performs three <code>DELETE</code> operations:</p>
+
+<pre class="CE"><a name="28125"></a>DECLARE
+<a name="28126"></a>   TYPE NumList IS VARRAY(20) OF NUMBER;
+<a name="28127"></a>   depts NumList := NumList(10, 30, 70);  -- department numbers
+<a name="28128"></a>BEGIN
+<a name="28130"></a>   FORALL i IN depts.FIRST..depts.LAST
+<a name="28131"></a>      DELETE FROM emp WHERE deptno = depts(i);
+<a name="28132"></a>END;
+<a name="28133"></a>
+</pre>
+
+<a name="28134"></a> <!--TOC=h3-"28134"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Example: Performing a Bulk Bind with INSERT</font></h4>
+
+<!--/TOC=h3-->
+<a name="35925"></a> 
+
+<p class="BP">In the example below, 5000 part numbers and names are loaded into index-by tables. All table elements are inserted into a database table twice: first using a <code>FOR</code> loop, then using a <code>FORALL</code> statement. The <code>FORALL</code> version is much faster.</p>
+
+<pre class="CE"><a name="28135"></a>SQL&gt; SET SERVEROUTPUT ON
+<a name="28136"></a>SQL&gt; CREATE TABLE parts (pnum NUMBER(4), pname CHAR(15));
+<a name="28137"></a>
+<a name="28138"></a>Table created.
+<a name="28139"></a>
+<a name="28140"></a>SQL&gt; GET test.sql
+<a name="28141"></a> 1  DECLARE
+<a name="28142"></a> 2     TYPE NumTab IS TABLE OF NUMBER(4) INDEX BY BINARY_INTEGER;
+<a name="28143"></a> 3     TYPE NameTab IS TABLE OF CHAR(15) INDEX BY BINARY_INTEGER;
+<a name="28144"></a> 4     pnums  NumTab;
+<a name="28145"></a> 5     pnames NameTab;
+<a name="28146"></a> 6     t1 NUMBER(5);
+<a name="28147"></a> 7     t2 NUMBER(5);
+<a name="28148"></a> 8     t3 NUMBER(5);
+<a name="28149"></a> 9     
+<a name="35897"></a>10     
+<a name="28151"></a>11  BEGIN
+<a name="28152"></a>12     FOR j IN 1..5000 LOOP  -- load index-by tables
+<a name="28153"></a>13        pnums(j) := j;
+<a name="28154"></a>14        pnames(j) := 'Part No. ' || TO_CHAR(j); 
+<a name="28155"></a>15     END LOOP;
+<a name="28156"></a>16     t1 := dbms_utility.get_time;
+<a name="28157"></a>17     FOR i IN 1..5000 LOOP  -- use FOR loop
+<a name="28158"></a>18        INSERT INTO parts VALUES (pnums(i), pnames(i));
+<a name="28159"></a>19     END LOOP;
+<a name="28160"></a>20     t2 := dbms_utility.get_time;
+<a name="28161"></a>21     FORALL i IN 1..5000  -- use FORALL statement
+<a name="28162"></a>22        INSERT INTO parts VALUES (pnums(i), pnames(i));
+<a name="28163"></a>23     get_time(t3);
+<a name="28164"></a>24     dbms_output.put_line('Execution Time (secs)');
+<a name="28165"></a>25     dbms_output.put_line('---------------------');
+<a name="28166"></a>26     dbms_output.put_line('FOR loop: ' || TO_CHAR(t2 - t1));
+<a name="28167"></a>27     dbms_output.put_line('FORALL:   ' || TO_CHAR(t3 - t2));
+<a name="28168"></a>28* END;
+<a name="28169"></a>SQL&gt; /
+<a name="28170"></a>Execution Time (secs)
+<a name="28171"></a>---------------------
+<a name="28172"></a>FOR loop: 32
+<a name="28173"></a>FORALL:   3
+<a name="28174"></a>
+<a name="28175"></a>PL/SQL procedure successfully completed.
+<a name="28176"></a>
+</pre>
+
+<a name="28178"></a> <!--TOC=h1-"28178"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Using the FORALL Statement</font></h2>
+
+<!--/TOC=h1-->
+<a name="28181"></a> 
+
+<p class="BP">The keyword <code>FORALL</code> instructs the PL/SQL engine to bulk-bind input collections before sending them to the SQL engine. Although the <code>FORALL</code> statement contains an iteration scheme, it is <em class="Italic">not</em> a <code>FOR</code> loop. Its syntax follows:</p>
+
+<pre class="CE"><a name="28182"></a>FORALL <em><code>index</code></em> IN <em><code>lower_bound</code></em>..<em><code>upper_bound
+</code></em><a name="28183"></a>   <em><code>sql_statement</code></em>;
+<a name="28184"></a>
+</pre>
+
+<a name="28185"></a> 
+
+<p class="BP">The index can be referenced only within the <code>FORALL</code> statement and only as a collection subscript. The SQL statement must be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement that references collection elements. And, the bounds must specify a valid range of consecutive index numbers. The SQL engine executes the SQL statement once for each index number in the range.</p>
+
+<a name="35926"></a> <!--TOC=h3-"35926"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Example: Using FORALL with Part of a Collection</font></h4>
+
+<!--/TOC=h3-->
+<a name="35927"></a> 
+
+<p class="BP">As the following example shows, the bounds of the FORALL loop can apply to part of a collection, not necessarily all the elements:</p>
+
+<pre class="CE"><a name="28186"></a>DECLARE
+<a name="28187"></a>   TYPE NumList IS VARRAY(10) OF NUMBER;
+<a name="28188"></a>   depts NumList := NumList(20,30,50,55,57,60,70,75,90,92);
+<a name="28189"></a>BEGIN
+<a name="28192"></a>   FORALL j IN 4..7  -- bulk-bind only part of varray
+<a name="28193"></a>      UPDATE emp SET sal = sal * 1.10 WHERE deptno = depts(j);
+<a name="28194"></a>END;
+<a name="28195"></a>
+</pre>
+
+<a name="28196"></a> <!--TOC=h3-"28196"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Example: Bulk Bind Requires Subscripted Collection</font></h4>
+
+<!--/TOC=h3-->
+<a name="35932"></a> 
+
+<p class="BP">The SQL statement can reference more than one collection. However, the PL/SQL engine bulk-binds only subscripted collections. So, in the following example, it does not bulk-bind the collection <code>sals</code>, which is passed to the function <code>median</code>:</p>
+
+<pre class="CE"><a name="28197"></a>FORALL i IN 1..20
+<a name="28198"></a>   INSERT INTO emp2 VALUES (enums(i), names(i), median(sals), ...);
+<a name="28199"></a>
+</pre>
+
+<a name="28200"></a> <!--TOC=h3-"28200"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Example: Inserting into an Object Table with FORALL</font></h4>
+
+<!--/TOC=h3-->
+<a name="35933"></a> 
+
+<p class="BP">In addition to relational tables, the <code>FORALL</code> statement can manipulate object tables, as the following example shows:</p>
+
+<pre class="CE"><a name="28201"></a>CREATE TYPE PNum AS OBJECT (n NUMBER);
+<a name="35934"></a>/
+<a name="28202"></a>CREATE TABLE partno OF PNum;
+<a name="28203"></a>
+<a name="28204"></a>DECLARE
+<a name="28205"></a>   TYPE NumTab IS TABLE OF NUMBER;
+<a name="28206"></a>   nums NumTab := NumTab(1, 2, 3, 4);
+<a name="28207"></a>   TYPE PNumTab IS TABLE OF PNum;
+<a name="28208"></a>   pnums PNumTab := PNumTab(PNum(1), PNum(2), PNum(3), PNum(4));
+<a name="28209"></a>BEGIN
+<a name="28210"></a>   FORALL i IN pnums.FIRST..pnums.LAST
+<a name="28211"></a>      INSERT INTO partno VALUES(pnums(i));
+<a name="28212"></a>   FORALL i IN nums.FIRST..nums.LAST
+<a name="28213"></a>      DELETE FROM partno WHERE n = 2 * nums(i);
+<a name="28214"></a>   FORALL i IN nums.FIRST..nums.LAST
+<a name="28215"></a>      INSERT INTO partno VALUES(100 + nums(i));
+<a name="28216"></a>END;
+</pre>
+
+<a name="28217"></a> <!--TOC=h2-"28217"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">How FORALL Affects Rollbacks</font></h3>
+
+<!--/TOC=h2-->
+<a name="28219"></a> 
+
+<p class="BP">In a <code>FORALL</code> statement, if any execution of the SQL statement raises an unhandled exception, all database changes made during previous executions are rolled back. However, if a raised exception is caught and handled, changes are rolled back to an implicit savepoint marked before each execution of the SQL statement. Changes made during previous executions are <em class="Italic">not</em> rolled back. For example, suppose you create a database table that stores department numbers and job titles, as follows:</p>
+
+<pre class="CE"><a name="28220"></a>CREATE TABLE emp2 (deptno NUMBER(2), job VARCHAR2(15));
+<a name="28221"></a>
+</pre>
+
+<a name="28222"></a> 
+
+<p class="BP">Next, you insert some rows into the table, as follows:</p>
+
+<pre class="CE"><a name="28223"></a>INSERT INTO emp2 VALUES(10, 'Clerk');
+<a name="28224"></a>INSERT INTO emp2 VALUES(10, 'Clerk');
+<a name="28225"></a>INSERT INTO emp2 VALUES(20, 'Bookkeeper');  -- 10-char job title
+<a name="28226"></a>INSERT INTO emp2 VALUES(30, 'Analyst');
+<a name="28227"></a>INSERT INTO emp2 VALUES(30, 'Analyst');
+<a name="28228"></a>
+</pre>
+
+<a name="28229"></a> 
+
+<p class="BP">Then, you try to append the 7-character string <code>' (temp)'</code> to certain job titles using the following <code>UPDATE</code> statement:</p>
+
+<pre class="CE"><a name="28230"></a>DECLARE
+<a name="28231"></a>   TYPE NumList IS TABLE OF NUMBER;
+<a name="28232"></a>   depts NumList := NumList(10, 20, 30);
+<a name="28233"></a>BEGIN
+<a name="28234"></a>   FORALL j IN depts.FIRST..depts.LAST
+<a name="28235"></a>      UPDATE emp2 SET job = job || ' (temp)' 
+<a name="28236"></a>         WHERE deptno = depts(j);
+<a name="28237"></a>         -- raises a "value too large" exception
+<a name="28238"></a>EXCEPTION
+<a name="28239"></a>   WHEN OTHERS THEN
+<a name="28240"></a>      COMMIT;
+<a name="28241"></a>END;
+<a name="28242"></a>
+</pre>
+
+<a name="28243"></a> 
+
+<p class="BP">The SQL engine executes the <code>UPDATE</code> statement three times, once for each index number in the specified range, that is, once for <code>depts(10)</code>, once for <code>depts(20)</code>, and once for <code>depts(30)</code>. The first execution succeeds, but the second execution fails because the string value <code>'Bookkeeper (temp)'</code> is too large for the <code>job</code> column. In this case, only the second execution is rolled back.</p>
+
+<a name="28244"></a> 
+
+<p class="BP">When any execution of the SQL statement raises an exception, the <code>FORALL</code> statement halts. In our example, the second execution of the <code>UPDATE</code> statement raises an exception, so the third execution is never done.</p>
+
+<a name="32583"></a> <!--TOC=h2-"32583"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Counting Rows Affected by FORALL Iterations with the %BULK_ROWCOUNT Attribute</font></h3>
+
+<!--/TOC=h2-->
+<a name="32613"></a> 
+
+<p class="BP">To process SQL data manipulation statements, the SQL engine opens an implicit cursor named <code>SQL</code>. This cursor's scalar attributes, <code>%FOUND</code>, <code>%ISOPEN</code>, <code>%NOTFOUND</code>, and <code>%ROWCOUNT</code>, return useful information about the most recently executed SQL data manipulation statement.</p>
+
+<a name="32564"></a> 
+
+<p class="BP">The <code>SQL</code> cursor has one composite attribute, <code>%BULK_ROWCOUNT</code>, designed for use with the <code>FORALL</code> statement. This attribute has the semantics of an index-by table. Its <em class="Italic">i</em>th element stores the number of rows processed by the <em class="Italic">i</em>th execution of an <code>INSERT</code>, <code>UPDATE</code> or <code>DELETE</code> statement. If the <em class="Italic">i</em>th execution affects no rows, <code>%BULK_ROWCOUNT(i)</code> returns zero. An example follows:</p>
+
+<pre class="CE"><a name="28250"></a>DECLARE
+<a name="28251"></a>   TYPE NumList IS TABLE OF NUMBER;
+<a name="28252"></a>   depts NumList := NumList(10, 20, 50);
+<a name="28253"></a>BEGIN
+<a name="28254"></a>   FORALL j IN depts.FIRST..depts.LAST
+<a name="28255"></a>      UPDATE emp SET sal = sal * 1.10 WHERE deptno = depts(j);
+<a name="33681"></a>-- Did the 3rd UPDATE statement affect any rows?
+<a name="28256"></a>   IF SQL%BULK_ROWCOUNT(3) = 0 THEN ...
+<a name="28258"></a>END;
+<a name="28259"></a>
+</pre>
+
+<a name="28260"></a> 
+
+<p class="BP">The <code>FORALL</code> statement and <code>%BULK_ROWCOUNT</code> attribute use the same subscripts. For example, if <code>FORALL</code> uses the range 5 .. 10, so does <code>%BULK_ROWCOUNT</code>.</p>
+
+<a name="28261"></a> 
+
+<p class="BP"><code>%BULK_ROWCOUNT</code> is usually equal to 1 for inserts, because a typical insert operation affects only a single row. But for the <code>INSERT ... SELECT</code> construct, <code>%BULK_ROWCOUNT</code> might be greater than 1. For example, the <code>FORALL</code> statement below inserts an arbitrary number of rows for each iteration. After each iteration, <code>%BULK_ROWCOUNT</code> returns the number of items inserted:</p>
+
+<pre class="CE"><a name="33685"></a>SET SERVEROUTPUT ON;    
+<a name="33785"></a>DECLARE
+<a name="33686"></a>  TYPE num_tab IS TABLE OF NUMBER;
+<a name="33687"></a>  deptnums num_tab;
+<a name="33688"></a>BEGIN
+<a name="33689"></a>  SELECT deptno BULK COLLECT INTO deptnums FROM DEPT;
+<a name="33690"></a>
+<a name="33691"></a>  FORALL i IN 1..deptnums.COUNT
+<a name="33692"></a>     INSERT INTO emp_by_dept
+<a name="33693"></a>        SELECT empno, deptno FROM emp WHERE deptno =
+<a name="33694"></a>deptnums(i);
+<a name="33695"></a>
+<a name="33696"></a>  FOR i IN 1..deptnums.COUNT LOOP
+<a name="33786"></a>-- Count how many rows were inserted for each department; that is,
+<a name="33787"></a>-- how many employees are in each department.
+<a name="33697"></a>     dbms_output.put_line('Dept '||deptnums(i)||': inserted '||
+<a name="33698"></a>                          SQL%BULK_ROWCOUNT(i)||' records');
+<a name="33699"></a>  END LOOP;
+<a name="33700"></a>
+<a name="33701"></a>  dbms_output.put_line('Total records inserted =' || SQL%ROWCOUNT);
+<a name="33703"></a>END;
+<a name="33704"></a>/
+<a name="28264"></a>
+</pre>
+
+<a name="28266"></a> 
+
+<p class="BP">You can also use the scalar attributes <code>%FOUND</code>, <code>%NOTFOUND</code>, and <code>%ROWCOUNT</code> with bulk binds. For example, <code>%ROWCOUNT</code> returns the total number of rows processed by all executions of the SQL statement.</p>
+
+<a name="28267"></a> 
+
+<p class="BP"><code>%FOUND</code> and <code>%NOTFOUND</code> refer only to the last execution of the SQL statement. However, you can use <code>%BULK_ROWCOUNT</code> to infer their values for individual executions. For example, when <code>%BULK_ROWCOUNT(i)</code> is zero, <code>%FOUND</code> and <code>%NOTFOUND</code> are <code>FALSE</code> and <code>TRUE</code>, respectively.</p>
+
+<a name="32392"></a> <!--TOC=h2-"32392"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Handling FORALL Exceptions with the %BULK_EXCEPTIONS Attribute</font></h3>
+
+<!--/TOC=h2-->
+<a name="32397"></a> 
+
+<p class="BP">PL/SQL provides a mechanism to handle exceptions raised during the execution of a <code>FORALL</code> statement. This mechanism enables a bulk-bind operation to save information about exceptions and continue processing.</p>
+
+<a name="32415"></a> 
+
+<p class="BP">To have a bulk bind complete despite errors, add the keywords <code>SAVE</code> <code>EXCEPTIONS</code> to your <code>FORALL</code> statement. The syntax follows:</p>
+
+<pre class="CE"><a name="32552"></a>FORALL index IN lower_bound..upper_bound SAVE EXCEPTIONS
+<a name="32553"></a>   {insert_stmt | update_stmt | delete_stmt}
+<a name="32624"></a>
+</pre>
+
+<a name="32550"></a> 
+
+<p class="BP">All exceptions raised during the execution are saved in the new cursor attribute <code>%BULK_EXCEPTIONS</code>, which stores a collection of records. Each record has two fields. The first field, <code>%BULK_EXCEPTIONS(i).ERROR_INDEX</code>, holds the "iteration" of the <code>FORALL</code> statement during which the exception was raised. The second field, <code>%BULK_EXCEPTIONS(i).ERROR_CODE</code>, holds the corresponding Oracle error code.</p>
+
+<a name="32726"></a> 
+
+<p class="BP">The values stored by <code>%BULK_EXCEPTIONS</code> always refer to the most recently executed <code>FORALL</code> statement. The number of exceptions is saved in the count attribute of <code>%BULK_EXCEPTIONS</code>, that is, <code>%BULK_EXCEPTIONS.COUNT</code>. Its subscripts range from 1 to <code>COUNT</code>.</p>
+
+<a name="32727"></a> 
+
+<p class="BP">If you omit the keywords <code>SAVE</code> <code>EXCEPTIONS</code>, execution of the <code>FORALL</code> statement stops when an exception is raised. In that case, <code>SQL%BULK_EXCEPTIONS.COUNT</code> returns 1, and <code>SQL%BULK_EXCEPTIONS</code> contains just one record. If no exception is raised during execution, <code>SQL%BULK_EXCEPTIONS.COUNT</code> returns 0.</p>
+
+<a name="32426"></a> 
+
+<p class="BP">The following example shows how useful the cursor attribute <code>%BULK_EXCEPTIONS</code> can be:</p>
+
+<pre class="CE"><a name="32430"></a>DECLARE 
+<a name="32431"></a>   TYPE NumList IS TABLE OF NUMBER;
+<a name="32432"></a>   num_tab NumList := NumList(10,0,11,12,30,0,20,199,2,0,9,1);
+<a name="32433"></a>   errors  NUMBER;
+<a name="36263"></a>   dml_errors EXCEPTION;
+<a name="36264"></a>   PRAGMA exception_init(dml_errors, -24381);
+<a name="32435"></a>BEGIN
+<a name="32437"></a>   FORALL i IN num_tab.FIRST..num_tab.LAST SAVE EXCEPTIONS
+<a name="32438"></a>      DELETE FROM emp WHERE sal &gt; 500000/num_tab(i);
+<a name="36261"></a>EXCEPTION
+<a name="36262"></a>  WHEN dml_errors THEN
+<a name="32439"></a>   errors := SQL%BULK_EXCEPTIONS.COUNT;
+<a name="32440"></a>   dbms_output.put_line('Number of errors is ' || errors);
+<a name="32441"></a>   FOR i IN 1..errors LOOP
+<a name="32442"></a>      dbms_output.put_line('Error ' || i || ' occurred during '||
+<a name="32849"></a>         'iteration ' || SQL%BULK_EXCEPTIONS(i).ERROR_INDEX);
+<a name="32444"></a>      dbms_output.put_line('Oracle error is ' ||
+<a name="32783"></a>         SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+<a name="32445"></a>   END LOOP;
+<a name="32446"></a>END;
+<a name="32787"></a>
+</pre>
+
+<a name="32930"></a> 
+
+<p class="BP">In this example, PL/SQL raised the predefined exception <code>ZERO_DIVIDE</code> when <code>i</code> equaled 2, 6, 10. After the bulk-bind completed, <code>SQL%BULK_EXCEPTIONS.COUNT</code> returned 3, and the contents of <code>SQL%BULK_EXCEPTIONS</code> were (2,1476), (6,1476), and (10,1476). To get the Oracle error message (which includes the code), we negated the value of <code>SQL%BULK_EXCEPTIONS(i).ERROR_CODE</code> and passed the result to the error-reporting function <code>SQLERRM</code>, which expects a negative number. Here is the output:</p>
+
+<dl class="LS">
+<dt class="LSF"><a name="32450"></a><code>Number of errors is 3</code></dt>
+
+<dt class="LSF"><a name="32451"></a><code>Error 1 occurred during iteration 2</code></dt>
+
+<dt class="LSF"><a name="32452"></a><code>Oracle error is ORA-01476: divisor is equal to zero</code></dt>
+
+<dt class="LSF"><a name="32453"></a><code>Error 2 occurred during iteration 6</code></dt>
+
+<dt class="LSF"><a name="32955"></a><code>Oracle error is ORA-01476: divisor is equal to zero</code></dt>
+
+<dt class="LSF"><a name="32455"></a><code>Error 3 occurred during iteration 10</code></dt>
+
+<dt class="LSF"><a name="32959"></a><code>Oracle error is ORA-01476: divisor is equal to zero</code></dt>
+</dl>
+
+<a name="28329"></a> <!--TOC=h1-"28329"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Retrieving Query Results into Collections with the BULK COLLECT Clause</font></h2>
+
+<!--/TOC=h1-->
+<a name="28332"></a> 
+
+<p class="BP">The keywords <code>BULK</code> <code>COLLECT</code> tell the SQL engine to bulk-bind output collections before returning them to the PL/SQL engine. You can use these keywords in the <code>SELECT</code> <code>INTO</code>, <code>FETCH</code> <code>INTO</code>, and <code>RETURNING</code> <code>INTO</code> clauses. Here is the syntax:</p>
+
+<pre class="CE"><a name="28333"></a>... BULK COLLECT INTO collection_name[, collection_name] ...
+<a name="28334"></a>
+</pre>
+
+<a name="28335"></a> 
+
+<p class="BP">The SQL engine bulk-binds all collections referenced in the <code>INTO</code> list. The corresponding columns can store scalar or composite values including objects. In the following example, the SQL engine loads the entire <code>empno</code> and <code>ename</code> database columns into nested tables before returning the tables to the PL/SQL engine:</p>
+
+<pre class="CE"><a name="28336"></a>DECLARE
+<a name="28337"></a>   TYPE NumTab IS TABLE OF emp.empno%TYPE;
+<a name="28338"></a>   TYPE NameTab IS TABLE OF emp.ename%TYPE;
+<a name="28339"></a>   enums NumTab;  -- no need to initialize
+<a name="28340"></a>   names NameTab;
+<a name="28341"></a>BEGIN
+<a name="28342"></a>   SELECT empno, ename BULK COLLECT INTO enums, names FROM emp;
+<a name="28343"></a>   ...
+<a name="28344"></a>END;
+<a name="28345"></a>
+</pre>
+
+<a name="28346"></a> 
+
+<p class="BP">In the next example, the SQL engine loads all the values in an object column into a nested table before returning the table to the PL/SQL engine:</p>
+
+<pre class="CE"><a name="28347"></a>CREATE TYPE Coords AS OBJECT (x NUMBER, y NUMBER);
+<a name="28348"></a>CREATE TABLE grid (num NUMBER, loc Coords);
+<a name="28349"></a>INSERT INTO grid VALUES(10, Coords(1,2));
+<a name="28350"></a>INSERT INTO grid VALUES(20, Coords(3,4));
+<a name="28351"></a>
+<a name="28352"></a>DECLARE
+<a name="28353"></a>   TYPE CoordsTab IS TABLE OF Coords;
+<a name="28354"></a>   pairs CoordsTab;
+<a name="28355"></a>BEGIN
+<a name="28356"></a>   SELECT loc BULK COLLECT INTO pairs FROM grid;
+<a name="28357"></a>   -- now pairs contains (1,2) and (3,4)
+<a name="28358"></a>END;
+<a name="28359"></a>
+</pre>
+
+<a name="28360"></a> 
+
+<p class="BP">The SQL engine initializes and extends collections for you. (However, it cannot extend varrays beyond their maximum size.) Then, starting at index 1, it inserts elements consecutively and overwrites any pre-existent elements.</p>
+
+<a name="28361"></a> 
+
+<p class="BP">The SQL engine bulk-binds entire database columns. So, if a table has 50,000 rows, the engine loads 50,000 column values into the target collection. However, you can use the pseudocolumn <code>ROWNUM</code> to limit the number of rows processed. In the following example, you limit the number of rows to 100:</p>
+
+<pre class="CE"><a name="28362"></a>DECLARE
+<a name="28363"></a>   TYPE SalList IS TABLE OF emp.sal%TYPE;
+<a name="28364"></a>   sals SalList;
+<a name="28365"></a>BEGIN
+<a name="28366"></a>   SELECT sal BULK COLLECT INTO sals FROM emp
+<a name="28367"></a>      WHERE ROWNUM &lt;= 100;
+<a name="28368"></a>   ...
+<a name="28369"></a>END;
+</pre>
+
+<a name="28370"></a> <!--TOC=h2-"28370"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Examples of Bulk Fetching from a Cursor</font></h3>
+
+<!--/TOC=h2-->
+<a name="28373"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Into One or More Collections</font></h4>
+
+<a name="35730"></a> 
+
+<p class="BP">You can bulk-fetch from a cursor into one or more collections:</p>
+
+<pre class="CE"><a name="28374"></a>DECLARE
+<a name="28375"></a>   TYPE NameList IS TABLE OF emp.ename%TYPE;
+<a name="28376"></a>   TYPE SalList IS TABLE OF emp.sal%TYPE;
+<a name="29124"></a>   CURSOR c1 IS SELECT ename, sal FROM emp WHERE sal &gt; 1000;
+<a name="28377"></a>   names NameList;
+<a name="28378"></a>   sals  SalList;
+<a name="28380"></a>BEGIN
+<a name="28381"></a>   OPEN c1;
+<a name="28382"></a>   FETCH c1 BULK COLLECT INTO names, sals;
+<a name="28384"></a>END;
+<a name="35708"></a>
+</pre>
+
+<a name="35727"></a> 
+
+<h4 class="SH1"><font face="Arial, Helvetica, sans-serif">Into a Collection of Records</font></h4>
+
+<a name="35711"></a> 
+
+<p class="BP">You can bulk-fetch from a cursor into a collection of records:</p>
+
+<pre class="CE"><a name="35712"></a>DECLARE
+<a name="35713"></a>   TYPE DeptRecTab IS TABLE OF dept%ROWTYPE;
+<a name="35714"></a>   dept_recs DeptRecTab;
+<a name="35715"></a>   CURSOR c1 IS
+<a name="35716"></a>      SELECT deptno, dname, loc FROM dept WHERE deptno &gt; 10;
+<a name="35717"></a>BEGIN
+<a name="35718"></a>   OPEN c1;
+<a name="35719"></a>   FETCH c1 BULK COLLECT INTO dept_recs;
+<a name="35720"></a>END;
+<a name="35721"></a>
+</pre>
+
+<a name="29027"></a> <!--TOC=h2-"29027"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Limiting the Rows for a Bulk FETCH Operation with the LIMIT Clause</font></h3>
+
+<!--/TOC=h2-->
+<a name="29028"></a> 
+
+<p class="BP">The optional <code>LIMIT</code> clause, allowed only in bulk (not scalar) <code>FETCH</code> statements, lets you limit the number of rows fetched from the database. The syntax is</p>
+
+<pre class="CE"><a name="29052"></a>FETCH ... BULK COLLECT INTO ... [LIMIT rows];
+<a name="29057"></a>
+</pre>
+
+<a name="29058"></a> 
+
+<p class="BP">where <code>rows</code> can be a literal, variable, or expression but must evaluate to a number. Otherwise, PL/SQL raises the predefined exception <code>VALUE_ERROR</code>. If the number is not positive, PL/SQL raises <code>INVALID_NUMBER</code>. If necessary, PL/SQL rounds the number to the nearest integer.</p>
+
+<a name="29081"></a> 
+
+<p class="BP">In the example below, with each iteration of the loop, the <code>FETCH</code> statement fetches ten rows (or less) into index-by table <code>empnos</code>. The previous values are overwritten.</p>
+
+<pre class="CE"><a name="28996"></a>DECLARE
+<a name="29110"></a>   TYPE NumTab IS TABLE OF NUMBER INDEX BY BINARY_INTEGER;
+<a name="28997"></a>   CURSOR c1 IS SELECT empno FROM emp;
+<a name="28999"></a>   empnos NumTab;
+<a name="29001"></a>   rows   NATURAL := 10;
+<a name="29142"></a>BEGIN
+<a name="29004"></a>   OPEN c1;
+<a name="29154"></a>   LOOP
+<a name="29136"></a>      /* The following statement fetches 10 rows (or less). */
+<a name="29012"></a>      FETCH c1 BULK COLLECT INTO empnos LIMIT rows;
+<a name="29194"></a>      EXIT WHEN c1%NOTFOUND;
+<a name="29161"></a>      ...
+<a name="29157"></a>   END LOOP;
+<a name="29116"></a>   CLOSE c1;
+<a name="29020"></a>END;
+</pre>
+
+<a name="28385"></a> <!--TOC=h2-"28385"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Retrieving DML Results into a Collection with the RETURNING INTO Clause</font></h3>
+
+<!--/TOC=h2-->
+<a name="28386"></a> 
+
+<p class="BP">You can use the <code>BULK</code> <code>COLLECT</code> clause in the <code>RETURNING</code> <code>INTO</code> clause of an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement, as the following example shows:</p>
+
+<pre class="CE"><a name="28387"></a>DECLARE
+<a name="28388"></a>   TYPE NumList IS TABLE OF emp.empno%TYPE;
+<a name="28389"></a>   enums NumList;
+<a name="28390"></a>BEGIN
+<a name="28391"></a>   DELETE FROM emp WHERE deptno = 20
+<a name="28392"></a>      RETURNING empno BULK COLLECT INTO enums;
+<a name="28393"></a>      -- if there were five employees in department 20,
+<a name="28394"></a>      -- then enums contains five employee numbers
+<a name="28395"></a>END;
+</pre>
+
+<a name="28396"></a> <!--TOC=h2-"28396"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Restrictions on BULK COLLECT</font></h3>
+
+<!--/TOC=h2-->
+<a name="28397"></a> 
+
+<p class="BP">The following restrictions apply to the <code>BULK</code> <code>COLLECT</code> clause:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="36267"></a>You cannot bulk collect into an associative array that has a string type for the key.</li>
+
+<li class="LB1" type="disc"><a name="28398"></a>You can use the <code>BULK</code> <code>COLLECT</code> clause only in server-side programs (not in client-side programs). Otherwise, you get the error <em class="Italic">this feature is not supported in client-side programs</em>.</li>
+
+<li class="LB1" type="disc"><a name="28399"></a>All targets in a <code>BULK</code> <code>COLLECT</code> <code>INTO</code> clause must be collections, as the following example shows: 
+
+<pre class="CE1"><a name="28777"></a>DECLARE
+<a name="28778"></a>   TYPE NameList IS TABLE OF emp.ename%TYPE;
+<a name="28779"></a>   names  NameList;
+<a name="28818"></a>   salary emp.sal%TYPE;
+<a name="28793"></a>BEGIN
+<a name="28781"></a>   SELECT ename, sal BULK COLLECT INTO names, salary  -- illegal target
+<a name="28808"></a>      FROM emp WHERE ROWNUM &lt; 50;
+<a name="28792"></a>   ...
+<a name="28784"></a>END;
+<a name="28789"></a>
+</pre>
+</li>
+
+<li class="LB1" type="disc"><a name="28412"></a>Composite targets (such as objects) cannot be used in the <code>RETURNING</code> <code>INTO</code> clause. Otherwise, you get the error <em class="Italic">unsupported feature with</em> <em><code>RETURNING</code></em> <em class="Italic">clause</em>.</li>
+
+<li class="LB1" type="disc"><a name="28413"></a>When implicit datatype conversions are needed, multiple composite targets cannot be used in the <code>BULK</code> <code>COLLECT</code> <code>INTO</code> clause.</li>
+
+<li class="LB1" type="disc"><a name="28825"></a>When an implicit datatype conversion is needed, a collection of a composite target (such as a collection of objects) cannot be used in the <code>BULK</code> <code>COLLECT</code> <code>INTO</code> clause.</li>
+</ul>
+
+<a name="28415"></a> <!--TOC=h2-"28415"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Using FORALL and BULK COLLECT Together</font></h3>
+
+<!--/TOC=h2-->
+<a name="28417"></a> 
+
+<p class="BP">You can combine the <code>BULK</code> <code>COLLECT</code> clause with a <code>FORALL</code> statement, in which case, the SQL engine bulk-binds column values incrementally. In the following example, if collection <code>depts</code> has 3 elements, each of which causes 5 rows to be deleted, then collection <code>enums</code> has 15 elements when the statement completes:</p>
+
+<pre class="CE"><a name="28418"></a>FORALL j IN depts.FIRST..depts.LAST
+<a name="28419"></a>   DELETE FROM emp WHERE empno = depts(j)
+<a name="28420"></a>      RETURNING empno BULK COLLECT INTO enums;
+<a name="28421"></a>
+</pre>
+
+<a name="28422"></a> 
+
+<p class="BP">The column values returned by each execution are added to the values returned previously. (With a <code>FOR</code> loop, the previous values are overwritten.)</p>
+
+<a name="28424"></a> 
+
+<p class="BP">You cannot use the <code>SELECT</code> ... <code>BULK</code> <code>COLLECT</code> statement in a <code>FORALL</code> statement. Otherwise, you get the error <em class="Italic">implementation restriction: cannot use</em> <em><code>FORALL</code></em> <em class="Italic">and</em> <em><code>BULK</code></em> <em><code>COLLECT</code></em> <em><code>INTO</code></em> <em class="Italic">together in</em> <em><code>SELECT</code></em> <em class="Italic">statements</em>.</p>
+
+<a name="28425"></a> <!--TOC=h2-"28425"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Using Host Arrays with Bulk Binds</font></h3>
+
+<!--/TOC=h2-->
+<a name="28427"></a> 
+
+<p class="BP">Client-side programs can use anonymous PL/SQL blocks to bulk-bind input and output host arrays. In fact, that is the most efficient way to pass collections to and from the database server.</p>
+
+<a name="28428"></a> 
+
+<p class="BP">Host arrays are declared in a host environment such as an OCI or Pro*C program and must be prefixed with a colon to distinguish them from PL/SQL collections. In the example below, an input host array is used in a <code>DELETE</code> statement. At run time, the anonymous PL/SQL block is sent to the database server for execution.</p>
+
+<pre class="CE"><a name="28429"></a>DECLARE
+<a name="28430"></a>   ...
+<a name="28431"></a>BEGIN
+<a name="28432"></a>   -- assume that values were assigned to the host array
+<a name="28433"></a>   -- and host variables in the host environment
+<a name="28434"></a>   FORALL i IN :lower..:upper
+<a name="28435"></a>      DELETE FROM emp WHERE deptno = :depts(i);
+<a name="28436"></a>   ...
+<a name="28437"></a>END;
+</pre>
+
+<a name="7658"></a> <!--TOC=h1-"7658"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">What Is a Record?</font></h2>
+
+<!--/TOC=h1-->
+<a name="7536"></a> 
+
+<p class="BP">A <em class="Italic">record</em> is a group of related data items stored in <em class="Italic">fields</em>, each with its own name and datatype. Suppose you have various data about an employee such as name, salary, and hire date. These items are logically related but dissimilar in type. A record containing a field for each item lets you treat the data as a logical unit. Thus, records make it easier to organize and represent information.</p>
+
+<a name="18606"></a> 
+
+<p class="BP">The attribute <code>%ROWTYPE</code> lets you declare a record that represents a row in a database table. However, you cannot specify the datatypes of fields in the record or declare fields of your own. The datatype <code>RECORD</code> lifts those restrictions and lets you define your own records.</p>
+
+<a name="7543"></a> <!--TOC=h1-"7543"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Defining and Declaring Records</font></h2>
+
+<!--/TOC=h1-->
+<a name="7544"></a> 
+
+<p class="BP">To create records, you define a <code>RECORD</code> type, then declare records of that type. You can define <code>RECORD</code> types in the declarative part of any PL/SQL block, subprogram, or package using the syntax</p>
+
+<pre class="CE"><a name="18952"></a>TYPE type_name IS RECORD (field_declaration[,field_declaration]...);
+<a name="22286"></a>
+</pre>
+
+<a name="20946"></a> 
+
+<p class="BP">where <code>field_declaration</code> stands for</p>
+
+<pre class="CE"><a name="20947"></a>field_name field_type [[NOT NULL] {:= | DEFAULT} expression]
+<a name="22685"></a>
+</pre>
+
+<a name="7551"></a> 
+
+<p class="BP">and where <code>type_name</code> is a type specifier used later to declare records, <code>field_type</code> is any PL/SQL datatype except <code>REF</code> <code>CURSOR</code>, and <code>expression</code> yields a value of the same type as <code>field_type</code>.</p>
+
+<a name="24143"></a> 
+
+<p class="BP"><strong class="Bold">Note:</strong> Unlike <code>VARRAY</code> and (nested) <code>TABLE</code> types, <code>RECORD</code> types cannot be <code>CREATE</code>d and stored in the database.</p>
+
+<a name="7552"></a> 
+
+<p class="BP">You can use <code>%TYPE</code> and <code>%ROWTYPE</code> to specify field types. In the following example, you define a <code>RECORD</code> type named <code>DeptRec</code>:</p>
+
+<pre class="CE"><a name="15755"></a>DECLARE
+<a name="26015"></a>   TYPE DeptRec IS RECORD ( 
+<a name="26337"></a>      dept_id   dept.deptno%TYPE,
+<a name="26338"></a>      dept_name VARCHAR2(14),
+<a name="26339"></a>      dept_loc  VARCHAR2(13));
+<a name="31414"></a>BEGIN
+<a name="31415"></a>   ...
+<a name="31416"></a>END;
+<a name="22287"></a>
+</pre>
+
+<a name="15756"></a> 
+
+<p class="BP">Notice that field declarations are like variable declarations. Each field has a unique name and specific datatype. So, the value of a record is actually a collection of values, each of some simpler type.</p>
+
+<a name="7563"></a> 
+
+<p class="BP">As the example below shows, PL/SQL lets you define records that contain objects, collections, and other records (called <em class="Italic">nested</em> records). However, object types cannot have attributes of type <code>RECORD</code>.</p>
+
+<pre class="CE"><a name="20810"></a>DECLARE
+<a name="26019"></a>   TYPE TimeRec IS RECORD (
+<a name="26340"></a>      seconds SMALLINT,
+<a name="26341"></a>      minutes SMALLINT,
+<a name="26342"></a>      hours   SMALLINT);
+<a name="26023"></a>   TYPE FlightRec IS RECORD (
+<a name="26343"></a>      flight_no   INTEGER,
+<a name="26344"></a>      plane_id     VARCHAR2(10),
+<a name="26345"></a>      captain      Employee,  -- declare object
+<a name="26346"></a>      passengers   PassengerList,  -- declare varray
+<a name="26347"></a>      depart_time  TimeRec,  -- declare nested record
+<a name="26348"></a>      airport_code VARCHAR2(10));
+<a name="31430"></a>BEGIN
+<a name="31431"></a>   ...
+<a name="31432"></a>END;
+<a name="22288"></a>
+</pre>
+
+<a name="7568"></a> 
+
+<p class="BP">The next example shows that you can specify a <code>RECORD</code> type in the <code>RETURN</code> clause of a function specification. That allows the function to return a user-defined record of the same type.</p>
+
+<pre class="CE"><a name="7569"></a>DECLARE
+<a name="26030"></a>   TYPE EmpRec IS RECORD (
+<a name="26349"></a>      emp_id    NUMBER(4)
+<a name="26350"></a>      last_name VARCHAR2(10),
+<a name="26351"></a>      dept_num  NUMBER(2),
+<a name="26352"></a>      job_title VARCHAR2(9), 
+<a name="26353"></a>      salary    NUMBER(7,2));
+<a name="26036"></a>   ...
+<a name="26037"></a>   FUNCTION nth_highest_salary (n INTEGER) RETURN EmpRec IS ...
+<a name="31424"></a>BEGIN
+<a name="31425"></a>   ...
+<a name="31426"></a>END;
+<a name="31422"></a>
+</pre>
+
+<a name="15835"></a> <!--TOC=h2-"15835"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Declaring Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="7571"></a> 
+
+<p class="BP">Once you define a <code>RECORD</code> type, you can declare records of that type, as the example below shows. The identifier <code>item_info</code> represents an entire record.</p>
+
+<pre class="CE"><a name="15716"></a>DECLARE
+<a name="26038"></a>   TYPE StockItem IS RECORD (
+<a name="26354"></a>      item_no     INTEGER(3),
+<a name="26355"></a>      description VARCHAR2(50),
+<a name="26356"></a>      quantity    INTEGER,
+<a name="26357"></a>      price       REAL(7,2));
+<a name="26043"></a>   item_info StockItem;  -- declare record
+<a name="31441"></a>BEGIN
+<a name="31442"></a>   ...
+<a name="31443"></a>END;
+<a name="22290"></a>
+</pre>
+
+<a name="7577"></a> 
+
+<p class="BP">Like scalar variables, user-defined records can be declared as the formal parameters of procedures and functions. An example follows:</p>
+
+<pre class="CE"><a name="15758"></a>DECLARE
+<a name="26044"></a>   TYPE EmpRec IS RECORD ( 
+<a name="26358"></a>      emp_id    emp.empno%TYPE,
+<a name="26359"></a>      last_name VARCHAR2(10),
+<a name="26360"></a>      job_title VARCHAR2(9),
+<a name="26361"></a>      salary    NUMBER(7,2));
+<a name="26049"></a>   ...
+<a name="26050"></a>   PROCEDURE raise_salary (emp_info EmpRec);
+<a name="31391"></a>BEGIN
+<a name="31392"></a>   ...
+<a name="31393"></a>END;
+</pre>
+
+<a name="7581"></a> <!--TOC=h2-"7581"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Initializing Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="20800"></a> 
+
+<p class="BP">The example below shows that you can initialize a record in its type definition. When you declare a record of type <code>TimeRec</code>, its three fields assume an initial value of zero.</p>
+
+<pre class="CE"><a name="20801"></a>DECLARE
+<a name="26051"></a>   TYPE TimeRec IS RECORD (
+<a name="26362"></a>      secs SMALLINT := 0,
+<a name="26363"></a>      mins SMALLINT := 0,
+<a name="26364"></a>      hrs  SMALLINT := 0);
+<a name="31395"></a>BEGIN
+<a name="31396"></a>   ...
+<a name="31397"></a>END;
+<a name="22291"></a>
+</pre>
+
+<a name="20803"></a> 
+
+<p class="BP">The next example shows that you can impose the <code>NOT</code> <code>NULL</code> constraint on any field, and so prevent the assigning of nulls to that field. Fields declared as <code>NOT</code> <code>NULL</code> must be initialized.</p>
+
+<pre class="CE"><a name="20804"></a>DECLARE
+<a name="26055"></a>   TYPE StockItem IS RECORD (
+<a name="26365"></a>      item_no     INTEGER(3) NOT NULL := 999,
+<a name="26366"></a>      description VARCHAR2(50),
+<a name="26367"></a>      quantity    INTEGER,
+<a name="26368"></a>      price       REAL(7,2));
+<a name="31406"></a>BEGIN
+<a name="31407"></a>   ...
+<a name="31408"></a>END;
+</pre>
+
+<a name="20796"></a> <!--TOC=h2-"20796"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Referencing Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="7582"></a> 
+
+<p class="BP">Unlike elements in a collection, which are accessed using subscripts, fields in a record are accessed by name. To reference an individual field, use dot notation and the following syntax:</p>
+
+<pre class="CE"><a name="7585"></a>record_name.field_name
+<a name="22292"></a>
+</pre>
+
+<a name="7586"></a> 
+
+<p class="BP">For example, you reference field <code>hire_date</code> in record <code>emp_info</code> as follows:</p>
+
+<pre class="CE"><a name="7587"></a>emp_info.hire_date ...
+<a name="22293"></a>
+</pre>
+
+<a name="7588"></a> 
+
+<p class="BP">When calling a function that returns a user-defined record, use the following syntax to reference fields in the record:</p>
+
+<pre class="CE"><a name="7589"></a>function_name(parameter_list).field_name
+<a name="22294"></a>
+</pre>
+
+<a name="7590"></a> 
+
+<p class="BP">For example, the following call to function <code>nth_highest_sal</code> references the field <code>salary</code> in record <code>emp_info</code>:</p>
+
+<pre class="CE"><a name="7591"></a>DECLARE
+<a name="26060"></a>   TYPE EmpRec IS RECORD ( 
+<a name="26369"></a>      emp_id    NUMBER(4),
+<a name="26370"></a>      job_title VARCHAR2(9),
+<a name="26371"></a>      salary    NUMBER(7,2));
+<a name="26064"></a>   middle_sal NUMBER(7,2);
+<a name="26065"></a>   FUNCTION nth_highest_sal (n INTEGER) RETURN EmpRec IS
+<a name="26372"></a>       emp_info EmpRec;
+<a name="26067"></a>   BEGIN
+<a name="26373"></a>      ...
+<a name="26374"></a>      RETURN emp_info;  -- return record
+<a name="26070"></a>   END;
+<a name="22036"></a>BEGIN
+<a name="26071"></a>   middle_sal := nth_highest_sal(10).salary;  -- call function 
+<a name="22295"></a>   ...
+<a name="31466"></a>END;
+<a name="31467"></a>
+</pre>
+
+<a name="15626"></a> 
+
+<p class="BP">When calling a parameterless function, use the following syntax:</p>
+
+<pre class="CE"><a name="15627"></a>function_name().field_name  -- note empty parameter list
+<a name="22296"></a>
+</pre>
+
+<a name="7592"></a> 
+
+<p class="BP">To reference nested fields in a record returned by a function, use extended dot notation. The syntax follows:</p>
+
+<pre class="CE"><a name="26739"></a>function_name(parameter_list).field_name.nested_field_name
+<a name="26742"></a>
+</pre>
+
+<a name="26737"></a> 
+
+<p class="BP">For instance, the following call to function <code>item</code> references the nested field <code>minutes</code> in record <code>item_info:</code></p>
+
+<pre class="CE"><a name="7595"></a>DECLARE
+<a name="26072"></a>   TYPE TimeRec IS RECORD (minutes SMALLINT, hours SMALLINT);
+<a name="26075"></a>   TYPE AgendaItem IS RECORD (
+<a name="26377"></a>      priority INTEGER, 
+<a name="26378"></a>      subject  VARCHAR2(100),
+<a name="26379"></a>      duration TimeRec);
+<a name="26079"></a>   FUNCTION item (n INTEGER) RETURN AgendaItem IS
+<a name="26380"></a>      item_info AgendaItem;
+<a name="26081"></a>   BEGIN
+<a name="26381"></a>      ...
+<a name="26382"></a>      RETURN item_info;  -- return record
+<a name="26084"></a>   END;
+<a name="22051"></a>BEGIN
+<a name="26085"></a>   ...
+<a name="26756"></a>   IF item(3).duration.minutes &gt; 30 THEN ...  -- call function
+<a name="26757"></a>END;
+<a name="27380"></a>
+</pre>
+
+<a name="26758"></a> 
+
+<p class="BP">Also, use extended dot notation to reference the attributes of an object stored in a field, as the following example shows:</p>
+
+<pre class="CE"><a name="15746"></a>DECLARE
+<a name="26087"></a>   TYPE FlightRec IS RECORD (
+<a name="26383"></a>      flight_no    INTEGER,
+<a name="26384"></a>      plane_id     VARCHAR2(10),
+<a name="26385"></a>      captain      Employee,  -- declare object
+<a name="26386"></a>      passengers   PassengerList,  -- declare varray
+<a name="26387"></a>      depart_time  TimeRec,  -- declare nested record
+<a name="26388"></a>      airport_code VARCHAR2(10));
+<a name="26094"></a>   flight FlightRec;
+<a name="22062"></a>BEGIN
+<a name="26095"></a>   ...
+<a name="26096"></a>   IF flight.captain.name = 'H Rawlins' THEN ...
+<a name="27379"></a>END;
+</pre>
+
+<a name="31480"></a> <!--TOC=h2-"31480"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Assigning Null Values to Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="31528"></a> 
+
+<p class="BP">To set all the fields in a record to null, simply assign to it an uninitialized record of the same type, as shown in the following example:</p>
+
+<pre class="CE"><a name="31486"></a>DECLARE
+<a name="31493"></a>   TYPE EmpRec IS RECORD ( 
+<a name="31487"></a>      emp_id    emp.empno%TYPE,
+<a name="31489"></a>      job_title VARCHAR2(9),
+<a name="31490"></a>      salary    NUMBER(7,2));
+<a name="31484"></a>   emp_info EmpRec;
+<a name="31499"></a>   emp_null EmpRec;
+<a name="31494"></a>BEGIN
+<a name="31506"></a>   emp_info.emp_id := 7788;
+<a name="31507"></a>   emp_info.job_title := 'ANALYST';
+<a name="31508"></a>   emp_info.salary := 3500;
+<a name="31504"></a>   emp_info := emp_null;  -- nulls all fields in emp_info
+<a name="31524"></a>   ...
+<a name="31525"></a>END;
+</pre>
+
+<a name="7600"></a> <!--TOC=h2-"7600"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Assigning Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="7601"></a> 
+
+<p class="BP">You can assign the value of an expression to a specific field in a record using the following syntax:</p>
+
+<pre class="CE"><a name="7604"></a>record_name.field_name := expression;
+<a name="26945"></a>
+</pre>
+
+<a name="26946"></a> 
+
+<p class="BP">In the following example, you convert an employee name to upper case:</p>
+
+<pre class="CE"><a name="26947"></a>emp_info.ename := UPPER(emp_info.ename);
+<a name="26948"></a>
+</pre>
+
+<a name="26949"></a> 
+
+<p class="BP">Instead of assigning values separately to each field in a record, you can assign values to all fields at once. This can be done in two ways. First, you can assign one user-defined record to another if they have the same datatype. Having fields that match exactly is not enough. Consider the following example:</p>
+
+<pre class="CE"><a name="7611"></a>DECLARE
+<a name="26097"></a>   TYPE DeptRec IS RECORD (
+<a name="26389"></a>      dept_num  NUMBER(2),
+<a name="26390"></a>      dept_name VARCHAR2(14));
+<a name="26101"></a>   TYPE DeptItem IS RECORD (
+<a name="26942"></a>      dept_num  NUMBER(2),
+<a name="26393"></a>      dept_name VARCHAR2(14));
+<a name="26105"></a>   dept1_info DeptRec;
+<a name="26106"></a>   dept2_info DeptItem;
+<a name="22075"></a>BEGIN
+<a name="26107"></a>   ...
+<a name="26108"></a>   dept1_info := dept2_info;  -- illegal; different datatypes
+<a name="27381"></a>END;
+<a name="22300"></a>
+</pre>
+
+<a name="22912"></a> 
+
+<p class="BP">As the next example shows, you can assign a <code>%ROWTYPE</code> record to a user-defined record if their fields match in number and order, and corresponding fields have compatible datatypes:</p>
+
+<pre class="CE"><a name="22913"></a>DECLARE
+<a name="26109"></a>   TYPE DeptRec IS RECORD (
+<a name="26394"></a>      dept_num  NUMBER(2),
+<a name="26395"></a>      dept_name VARCHAR2(14),
+<a name="26396"></a>      location  VARCHAR2(13));
+<a name="26113"></a>   dept1_info DeptRec;
+<a name="26114"></a>   dept2_info dept%ROWTYPE;
+<a name="22924"></a>BEGIN
+<a name="26115"></a>   SELECT * INTO dept2_info FROM dept WHERE deptno = 10;
+<a name="26116"></a>   dept1_info := dept2_info;
+<a name="28461"></a>   ...
+<a name="28462"></a>END;
+<a name="22927"></a>
+</pre>
+
+<a name="7613"></a> 
+
+<p class="BP">Second, you can use the <code>SELECT</code> or <code>FETCH</code> statement to fetch column values into a record, as the example below shows. The columns in the select-list must appear in the same order as the fields in your record.</p>
+
+<pre class="CE"><a name="7614"></a>DECLARE
+<a name="26117"></a>   TYPE DeptRec IS RECORD (
+<a name="26397"></a>      dept_num  NUMBER(2),
+<a name="26398"></a>      dept_name VARCHAR2(14),
+<a name="26399"></a>      location  VARCHAR2(13));
+<a name="26121"></a>   dept_info DeptRec;
+<a name="22083"></a>BEGIN
+<a name="26122"></a>   SELECT * INTO dept_info FROM dept WHERE deptno = 20;
+<a name="27382"></a>   ...
+<a name="27383"></a>END;
+<a name="22301"></a>
+</pre>
+
+<a name="7617"></a> 
+
+<p class="BP">However, you cannot assign a list of values to a record using an assignment statement. The following syntax is not allowed:</p>
+
+<pre class="CE"><a name="7618"></a>record_name := (value1, value2, value3, ...);  -- not allowed
+<a name="22303"></a>
+</pre>
+
+<a name="7619"></a> 
+
+<p class="BP">The example below shows that you can assign one nested record to another if they have the same datatype. Such assignments are allowed even if the enclosing records have different datatypes.</p>
+
+<pre class="CE"><a name="7620"></a>DECLARE
+<a name="26124"></a>   TYPE TimeRec IS RECORD (mins SMALLINT, hrs SMALLINT);
+<a name="26125"></a>   TYPE MeetingRec IS RECORD (
+<a name="26401"></a>      day     DATE,
+<a name="26402"></a>      time_of TimeRec,  -- nested record
+<a name="26403"></a>      room_no INTEGER(4));
+<a name="26129"></a>   TYPE PartyRec IS RECORD (
+<a name="26404"></a>      day     DATE,
+<a name="26405"></a>      time_of TimeRec,  -- nested record
+<a name="26406"></a>      place   VARCHAR2(25));
+<a name="26133"></a>   seminar MeetingRec;
+<a name="26134"></a>   party   PartyRec;
+<a name="22096"></a>BEGIN
+<a name="26135"></a>   ...
+<a name="26136"></a>   party.time_of := seminar.time_of;
+<a name="27384"></a>END;
+</pre>
+
+<a name="7621"></a> <!--TOC=h2-"7621"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Comparing Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="7622"></a> 
+
+<p class="BP">Records cannot be tested for nullity, equality, or inequality. For instance, the following <code>IF</code> conditions are not allowed:</p>
+
+<pre class="CE"><a name="7623"></a>BEGIN
+<a name="26137"></a>   ...
+<a name="26138"></a>   IF emp_info IS NULL THEN ...  -- illegal
+<a name="28084"></a>   IF dept2_info &gt; dept1_info THEN ...  -- illegal
+<a name="28085"></a>END;
+</pre>
+
+<a name="28087"></a> <!--TOC=h1-"28087"-->
+<h2 class="H1"><font face="Arial, Helvetica, sans-serif" color="#330099">Manipulating Records</font></h2>
+
+<!--/TOC=h1-->
+<a name="7625"></a> 
+
+<p class="BP">The datatype <code>RECORD</code> lets you collect information about the attributes of something. The information is easy to manipulate because you can refer to the collection as a whole. In the following example, you collect accounting figures from database tables <code>assets</code> and <code>liabilities</code>, then use ratio analysis to compare the performance of two subsidiary companies:</p>
+
+<pre class="CE"><a name="7626"></a>DECLARE
+<a name="26140"></a>   TYPE FiguresRec IS RECORD (cash REAL, notes REAL, ...);
+<a name="26141"></a>   sub1_figs FiguresRec;
+<a name="26142"></a>   sub2_figs FiguresRec;
+<a name="26144"></a>   FUNCTION acid_test (figs FiguresRec) RETURN REAL IS ...
+<a name="22107"></a>BEGIN
+<a name="26145"></a>   SELECT cash, notes, ... INTO sub1_figs FROM assets, liabilities
+<a name="26407"></a>      WHERE assets.sub = 1 AND liabilities.sub = 1;
+<a name="26147"></a>   SELECT cash, notes, ... INTO sub2_figs FROM assets, liabilities
+<a name="26408"></a>      WHERE assets.sub = 2 AND liabilities.sub = 2;
+<a name="26149"></a>   IF acid_test(sub1_figs) &gt; acid_test(sub2_figs) THEN ...
+<a name="26150"></a>   ...
+<a name="22114"></a>END;
+<a name="22304"></a>
+</pre>
+
+<a name="7627"></a> 
+
+<p class="BP">Notice how easy it is to pass the collected figures to the function <code>acid_test</code>, which computes a financial ratio.</p>
+
+<a name="15838"></a> 
+
+<p class="BP">In SQL*Plus, suppose you define object type <code>Passenger</code>, as follows:</p>
+
+<pre class="CE"><a name="15839"></a>SQL&gt; CREATE TYPE Passenger AS OBJECT(
+<a name="26151"></a>  2  flight_no NUMBER(3), 
+<a name="26152"></a>  3  name      VARCHAR2(20), 
+<a name="26153"></a>  4  seat      CHAR(5));
+<a name="22305"></a>
+</pre>
+
+<a name="15843"></a> 
+
+<p class="BP">Next, you define <code>VARRAY</code> type <code>PassengerList</code>, which stores <code>Passenger</code> objects:</p>
+
+<pre class="CE"><a name="15844"></a>SQL&gt; CREATE TYPE PassengerList AS VARRAY(300) OF Passenger;
+<a name="22306"></a>
+</pre>
+
+<a name="15845"></a> 
+
+<p class="BP">Finally, you create relational table <code>flights</code>, which has a column of type <code>PassengerList</code>, as follows:</p>
+
+<pre class="CE"><a name="15847"></a>SQL&gt; CREATE TABLE flights (
+<a name="26154"></a>  2  flight_no  NUMBER(3),
+<a name="26155"></a>  3  gate       CHAR(5),
+<a name="26156"></a>  4  departure  CHAR(15),
+<a name="26157"></a>  5  arrival    CHAR(15),
+<a name="26158"></a>  6  passengers PassengerList);
+<a name="22311"></a>
+</pre>
+
+<a name="15852"></a> 
+
+<p class="BP">Each item in column <code>passengers</code> is a varray that will store the passenger list for a given flight. Now, you can populate database table <code>flights</code>, as follows:</p>
+
+<pre class="CE"><a name="15855"></a>BEGIN
+<a name="26159"></a>   INSERT INTO flights
+<a name="26409"></a>      VALUES(109, '80', 'DFW 6:35PM', 'HOU 7:40PM',
+<a name="26512"></a>         PassengerList(Passenger(109, 'Paula Trusdale', '13C'),
+<a name="26585"></a>                       Passenger(109, 'Louis Jemenez', '22F'),
+<a name="26586"></a>                       Passenger(109, 'Joseph Braun', '11B'), ...));
+<a name="26164"></a>   INSERT INTO flights
+<a name="26413"></a>      VALUES(114, '12B', 'SFO 9:45AM', 'LAX 12:10PM',
+<a name="26515"></a>         PassengerList(Passenger(114, 'Earl Benton', '23A'),
+<a name="26587"></a>                       Passenger(114, 'Alma Breckenridge', '10E'),
+<a name="26588"></a>                       Passenger(114, 'Mary Rizutto', '11C'), ...));
+<a name="26169"></a>   INSERT INTO flights
+<a name="26417"></a>      VALUES(27, '34', 'JFK 7:05AM', 'MIA 9:55AM',
+<a name="26518"></a>         PassengerList(Passenger(27, 'Raymond Kiley', '34D'),
+<a name="26589"></a>                       Passenger(27, 'Beth Steinberg', '3A'),
+<a name="26590"></a>                       Passenger(27, 'Jean Lafevre', '19C'), ...));
+<a name="27388"></a>END;
+<a name="22312"></a>
+</pre>
+
+<a name="15872"></a> 
+
+<p class="BP">In the example below, you fetch rows from database table <code>flights</code> into record <code>flight_info</code>. That way, you can treat all the information about a flight, including its passenger list, as a logical unit.</p>
+
+<pre class="CE"><a name="16070"></a>DECLARE
+<a name="26174"></a>   TYPE FlightRec IS RECORD (
+<a name="26421"></a>      flight_no  NUMBER(3),
+<a name="26422"></a>      gate       CHAR(5), 
+<a name="26423"></a>      departure  CHAR(15),
+<a name="26424"></a>      arrival    CHAR(15),
+<a name="26425"></a>      passengers PassengerList);
+<a name="26180"></a>   flight_info FlightRec;
+<a name="26181"></a>   CURSOR c1 IS SELECT * FROM flights;
+<a name="33257"></a>   seat_not_available EXCEPTION;
+<a name="22146"></a>BEGIN
+<a name="26182"></a>   OPEN c1;
+<a name="26183"></a>   LOOP
+<a name="26426"></a>      FETCH c1 INTO flight_info;
+<a name="26427"></a>      EXIT WHEN c1%NOTFOUND;
+<a name="26428"></a>      FOR i IN 1..flight_info.passengers.LAST LOOP
+<a name="26521"></a>         IF flight_info.passengers(i).seat = 'NA' THEN
+<a name="26591"></a>            dbms_output.put_line(flight_info.passengers(i).name);
+<a name="26592"></a>            RAISE seat_not_available;
+<a name="26524"></a>         END IF;
+<a name="26525"></a>         ...
+<a name="26434"></a>      END LOOP;
+<a name="26193"></a>   END LOOP;
+<a name="26194"></a>   CLOSE c1;
+<a name="22160"></a>EXCEPTION
+<a name="26195"></a>   WHEN seat_not_available THEN
+<a name="26435"></a>      ...
+<a name="22163"></a>END;
+</pre>
+
+<a name="34323"></a> <!--TOC=h2-"34323"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Inserting PL/SQL Records into the Database</font></h3>
+
+<!--/TOC=h2-->
+<a name="34326"></a> 
+
+<p class="BP">A PL/SQL-only extension of the <code>INSERT</code> statement lets you insert records into database rows using a single variable of type <code>RECORD</code> or <code>%ROWTYPE</code> instead of a list of fields. That makes your code more readable and maintainable.</p>
+
+<a name="35979"></a> 
+
+<p class="BP">The number of fields in the record must equal the number of columns listed in the <code>INTO</code> clause, and corresponding fields and columns must have compatible datatypes. To make sure the record is compatible with the table, you might find it most convenient to declare the variable as the type <em><code>table_name</code></em><code>%ROWTYPE</code>.</p>
+
+<a name="34340"></a> <!--TOC=h3-"34340"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Inserting a PL/SQL Record Using %ROWTYPE: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="35676"></a> 
+
+<p class="BP">This example declares a record variable using a <code>%ROWTYPE</code> qualifier. You can insert this variable without specifying a column list. The <code>%ROWTYPE</code> declaration ensures that the record attributes have exactly the same names and types as the table columns.</p>
+
+<pre class="CE"><a name="34341"></a>DECLARE
+<a name="34342"></a>   dept_info dept%ROWTYPE;
+<a name="34343"></a>BEGIN
+<a name="34344"></a>-- deptno, dname, and loc are the table columns.
+<a name="35681"></a>-- The record picks up these names from the %ROWTYPE.
+<a name="35677"></a>  dept_info.deptno := 70;
+<a name="35680"></a>  dept_info.dname := 'PERSONNEL';
+<a name="34346"></a>  dept_info.loc := 'DALLAS';
+<a name="35682"></a>-- Using the %ROWTYPE means we can leave out the column list
+<a name="35683"></a>-- (deptno, dname, loc) from the INSERT statement.
+<a name="34347"></a>   INSERT INTO dept VALUES dept_info;
+<a name="34348"></a>END;
+</pre>
+
+<a name="34351"></a> <!--TOC=h2-"34351"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Updating the Database with PL/SQL Record Values</font></h3>
+
+<!--/TOC=h2-->
+<a name="34352"></a> 
+
+<p class="BP">A PL/SQL-only extension of the <code>UPDATE</code> statement lets you update database rows using a single variable of type <code>RECORD</code> or <code>%ROWTYPE</code> instead of a list of fields.</p>
+
+<a name="35982"></a> 
+
+<p class="BP">The number of fields in the record must equal the number of columns listed in the <code>SET</code> clause, and corresponding fields and columns must have compatible datatypes.</p>
+
+<a name="35690"></a> <!--TOC=h3-"35690"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Updating a Row Using a Record: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="34366"></a> 
+
+<p class="BP">You can use the keyword <code>ROW</code> to represent an entire row:</p>
+
+<pre class="CE"><a name="34367"></a>DECLARE
+<a name="34368"></a>   dept_info dept%ROWTYPE;
+<a name="34369"></a>BEGIN
+<a name="34370"></a>   dept_info.deptno := 30;
+<a name="34371"></a>   dept_info.dname := 'MARKETING';
+<a name="34372"></a>   dept_info.loc := 'ATLANTA';
+<a name="34373"></a>-- The row will have values for the filled-in columns, and null
+<a name="35692"></a>-- for any other columns.
+<a name="35691"></a>   UPDATE dept SET ROW = dept_info WHERE deptno = 30;
+<a name="34374"></a>END;
+<a name="34375"></a>
+</pre>
+
+<a name="34376"></a> 
+
+<p class="BP">The keyword <code>ROW</code> is allowed only on the left side of a <code>SET</code> clause.</p>
+
+<a name="35693"></a> <!--TOC=h3-"35693"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">SET ROW Not Allowed with Subquery: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="35694"></a> 
+
+<p class="BP">You cannot use <code>ROW</code> with a subquery. For example, the following <code>UPDATE</code> statement is not allowed:</p>
+
+<pre class="CE"><a name="34377"></a>UPDATE emp SET ROW = (SELECT * FROM mgrs);  -- not allowed
+<a name="34378"></a>
+</pre>
+
+<a name="34379"></a> <!--TOC=h3-"34379"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Updating a Row Using a Record Containing an Object: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="35695"></a> 
+
+<p class="BP">Records containing object types are allowed:</p>
+
+<pre class="CE"><a name="34380"></a>CREATE TYPE Worker AS OBJECT (name VARCHAR2(25), dept VARCHAR2(15));
+<a name="34381"></a>/
+<a name="34382"></a>CREATE TABLE teams (team_no NUMBER, team_member Worker);
+<a name="34383"></a>
+<a name="34384"></a>DECLARE
+<a name="34385"></a>   team_rec teams%ROWTYPE;
+<a name="34386"></a>BEGIN
+<a name="34387"></a>   team_rec.team_no := 5;
+<a name="34388"></a>   team_rec.team_member := Worker('Paul Ocker', 'Accounting');
+<a name="34389"></a>   UPDATE teams SET ROW = team_rec;
+<a name="34390"></a>END;
+<a name="35862"></a>/
+<a name="34391"></a>
+</pre>
+
+<a name="34392"></a> <!--TOC=h3-"34392"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Updating a Row Using a Record Containing a Collection: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="35699"></a> 
+
+<p class="BP">The record can also contain collections:</p>
+
+<pre class="CE"><a name="34393"></a>CREATE TYPE Worker AS OBJECT (name VARCHAR2(25), dept VARCHAR2(15));
+<a name="34394"></a>/
+<a name="34395"></a>CREATE TYPE Roster AS TABLE OF Worker;
+<a name="34396"></a>/
+<a name="34397"></a>CREATE TABLE teams (team_no NUMBER, members Roster) 
+<a name="34398"></a>   NESTED TABLE members STORE AS teams_store;
+<a name="34399"></a>
+<a name="34400"></a>INSERT INTO teams VALUES (1, Roster(
+<a name="34401"></a>   Worker('Paul Ocker', 'Accounting'),
+<a name="34402"></a>   Worker('Gail Chan', 'Sales')
+<a name="34403"></a>   Worker('Marie Bello', 'Operations')
+<a name="34404"></a>   Worker('Alan Conwright', 'Research')));
+<a name="34405"></a>
+<a name="34406"></a>DECLARE
+<a name="34407"></a>   team_rec teams%ROWTYPE;
+<a name="34408"></a>BEGIN
+<a name="34409"></a>   team_rec.team_no := 3;
+<a name="34410"></a>   team_rec.members := Roster(
+<a name="34411"></a>      Worker('William Bliss', 'Sales'),
+<a name="34412"></a>      Worker('Ana Lopez', 'Sales')
+<a name="34413"></a>      Worker('Bridget Towner', 'Operations')
+<a name="34414"></a>      Worker('Ajay Singh', 'Accounting'));
+<a name="34415"></a>   UPDATE teams SET ROW = team_rec;
+<a name="34416"></a>END;
+<a name="35863"></a>/
+<a name="35864"></a>
+</pre>
+
+<a name="34419"></a> <!--TOC=h3-"34419"-->
+<h4 class="H3"><font face="Arial, Helvetica, sans-serif" color="#330099">Using the RETURNING Clause with a Record: Example</font></h4>
+
+<!--/TOC=h3-->
+<a name="34420"></a> 
+
+<p class="BP">The <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> statements can include a <code>RETURNING</code> clause, which returns column values from the affected row into a PL/SQL record variable. This eliminates the need to <code>SELECT</code> the row after an insert or update, or before a delete. You can use this clause only when operating on exactly one row.</p>
+
+<a name="34421"></a> 
+
+<p class="BP">In the following example, you update the salary of an employee and, at the same time, retrieve the employee's name, job title, and new salary into a record variable:</p>
+
+<pre class="CE"><a name="34422"></a>DECLARE
+<a name="34423"></a>   TYPE EmpRec IS RECORD (
+<a name="34424"></a>      emp_name  VARCHAR2(10),
+<a name="34425"></a>      job_title VARCHAR2(9),
+<a name="34426"></a>      salary    NUMBER(7,2));
+<a name="34427"></a>   emp_info EmpRec;
+<a name="34428"></a>   emp_id NUMBER(4);
+<a name="34429"></a>BEGIN
+<a name="34430"></a>   emp_id := 7782;
+<a name="34431"></a>   UPDATE emp SET sal = sal * 1.1
+<a name="34432"></a>      WHERE empno = emp_id
+<a name="34433"></a>      RETURNING ename, job, sal INTO emp_info;
+<a name="34435"></a>END;
+</pre>
+
+<a name="34437"></a> <!--TOC=h2-"34437"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Restrictions on Record Inserts/Updates</font></h3>
+
+<!--/TOC=h2-->
+<a name="34438"></a> 
+
+<p class="BP">Currently, the following restrictions apply to record inserts/updates:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="34439"></a>Record variables are allowed only in the following places: 
+
+<ul class="LB2">
+<li class="LB2" type="disc"><a name="34440"></a>On the right side of the <code>SET</code> clause in an <code>UPDATE</code> statement</li>
+
+<li class="LB2" type="disc"><a name="34441"></a>In the <code>VALUES</code> clause of an <code>INSERT</code> statement</li>
+
+<li class="LB2" type="disc"><a name="34442"></a>In the <code>INTO</code> subclause of a <code>RETURNING</code> clause</li>
+</ul>
+
+<a name="34443"></a> 
+
+<p class="BP1">Record variables are not allowed in a <code>SELECT</code> list, <code>WHERE</code> clause, <code>GROUP</code> <code>BY</code> clause, or <code>ORDER</code> <code>BY</code> clause.</p>
+</li>
+
+<li class="LB1" type="disc"><a name="34444"></a>The keyword <code>ROW</code> is allowed only on the left side of a <code>SET</code> clause. Also, you cannot use <code>ROW</code> with a subquery.</li>
+
+<li class="LB1" type="disc"><a name="34445"></a>In an <code>UPDATE</code> statement, only one <code>SET</code> clause is allowed if <code>ROW</code> is used.</li>
+
+<li class="LB1" type="disc"><a name="34446"></a>If the <code>VALUES</code> clause of an <code>INSERT</code> statement contains a record variable, no other variable or value is allowed in the clause.</li>
+
+<li class="LB1" type="disc"><a name="34447"></a>If the <code>INTO</code> subclause of a <code>RETURNING</code> clause contains a record variable, no other variable or value is allowed in the subclause.</li>
+
+<li class="LB1" type="disc"><a name="34449"></a>The following are <em class="Italic">not</em> supported: 
+
+<ul class="LB2">
+<li class="LB2" type="disc"><a name="34450"></a>Nested record types</li>
+
+<li class="LB2" type="disc"><a name="34452"></a>Functions that return a record</li>
+
+<li class="LB2" type="disc"><a name="34453"></a>Record inserts/updates using the <code>EXECUTE IMMEDIATE</code> statement.</li>
+</ul>
+</li>
+</ul>
+
+<a name="34455"></a> <!--TOC=h2-"34455"-->
+<h3 class="H2"><font face="Arial, Helvetica, sans-serif" color="#330099">Querying Data into Collections of Records</font></h3>
+
+<!--/TOC=h2-->
+<a name="34456"></a> 
+
+<p class="BP">PL/SQL binding operations fall into three categories:</p>
+
+<ul class="LB1">
+<li class="LB1" type="disc"><a name="34457"></a><strong class="Bold">define</strong> Refers to database values retrieved by a <code>SELECT</code> or <code>FETCH</code> statement into PL/SQL variables or host variables.</li>
+
+<li class="LB1" type="disc"><a name="34458"></a><strong class="Bold">in-bind</strong> Refers to database values inserted by an <code>INSERT</code> statement or modified by an <code>UPDATE</code> statement.</li>
+
+<li class="LB1" type="disc"><a name="34459"></a><strong class="Bold">out-bind</strong> Refers to database values returned by the <code>RETURNING</code> clause of an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement into PL/SQL variables or host variables.</li>
+</ul>
+
+<a name="34460"></a> 
+
+<p class="BP">PL/SQL supports the bulk binding of collections of records in DML statements. Specifically, a define or out-bind variable can be a collection of records, and in-bind values can be stored in a collection of records. The syntax follows:</p>
+
+<pre class="CE"><a name="34461"></a>SELECT select_items BULK COLLECT INTO record_variable_name
+<a name="34462"></a>   FROM rest_of_select_stmt
+<a name="34463"></a>
+<a name="34464"></a>FETCH {  cursor_name
+<a name="34465"></a>       | cursor_variable_name
+<a name="34466"></a>       | :host_cursor_variable_name}
+<a name="34467"></a>   BULK COLLECT INTO record_variable_name
+<a name="34468"></a>   [LIMIT numeric_expression];
+<a name="34469"></a>
+<a name="34470"></a>FORALL index IN lower_bound..upper_bound
+<a name="34471"></a>   INSERT INTO {  table_reference 
+<a name="34472"></a>                | THE_subquery} [{column_name[, column_name]...}]
+<a name="34473"></a>   VALUES (record_variable_name(index)) rest_of_insert_stmt
+<a name="34474"></a>
+<a name="34475"></a>FORALL index IN lower_bound..upper_bound
+<a name="34476"></a>   UPDATE {table_reference | THE_subquery} [alias]
+<a name="34477"></a>   SET (column_name[, column_name]...) = record_variable_name(index)
+<a name="34478"></a>   rest_of_update_stmt
+<a name="34479"></a>
+<a name="34480"></a>RETURNING row_expression[, row_expression]...
+<a name="34481"></a>   BULK COLLECT INTO record_variable_name;
+<a name="34482"></a>
+</pre>
+
+<a name="34483"></a> 
+
+<p class="BP">In each statement and clause above, the record variable stores a collection of records. The number of fields in the record must equal the number of items in the <code>SELECT</code> list, the number of columns in the <code>INSERT</code> <code>INTO</code> clause, the number of columns in the <code>UPDATE</code> ... <code>SET</code> clause, or the number of row expressions in the <code>RETURNING</code> clause, respectively. Corresponding fields and columns must have compatible datatypes. Here are several examples:</p>
+
+<pre class="CE"><a name="34484"></a>CREATE TABLE tab1 (col1 NUMBER, col2 VARCHAR2(20));
+<a name="34485"></a>/
+<a name="34486"></a>CREATE TABLE tab2 (col1 NUMBER, col2 VARCHAR2(20));
+<a name="34487"></a>/
+<a name="34488"></a>DECLARE
+<a name="34489"></a>   TYPE RecTabTyp IS TABLE OF tab1%ROWTYPE 
+<a name="34490"></a>      INDEX BY BINARY_INTEGER;
+<a name="34491"></a>   TYPE NumTabTyp IS TABLE OF NUMBER 
+<a name="34492"></a>      INDEX BY BINARY_INTEGER;
+<a name="34493"></a>   TYPE CharTabTyp IS TABLE OF VARCHAR2(20) 
+<a name="34494"></a>      INDEX BY BINARY_INTEGER;
+<a name="34495"></a>   CURSOR c1 IS SELECT col1, col2 FROM tab2;
+<a name="34496"></a>   rec_tab  RecTabTyp;
+<a name="34497"></a>   num_tab  NumTabTyp := NumTabTyp(2,5,8,9);
+<a name="34498"></a>   char_tab CharTabTyp := CharTabTyp('Tim', 'Jon', 'Beth', 'Jenny');
+<a name="34499"></a>BEGIN
+<a name="34500"></a>   FORALL i IN 1..4
+<a name="34501"></a>      INSERT INTO tab1 VALUES(num_tab(i), char_tab(i));
+<a name="34502"></a>
+<a name="34503"></a>   SELECT col1, col2 BULK COLLECT INTO rec_tab FROM tab1 
+<a name="34504"></a>      WHERE col1 &lt; 9;
+<a name="34505"></a>
+<a name="34506"></a>   FORALL i IN rec_tab.FIRST..rec_tab.LAST 
+<a name="34507"></a>      INSERT INTO tab2 VALUES rec_tab(i);
+<a name="34508"></a>
+<a name="34509"></a>   FOR i IN rec_tab.FIRST..rec_tab.LAST LOOP
+<a name="34510"></a>      rec_tab(i).col1 := rec_tab(i).col1 + 100;
+<a name="34511"></a>   END LOOP;
+<a name="34512"></a>
+<a name="34513"></a>   FORALL i IN rec_tab.FIRST..rec_tab.LAST 
+<a name="34514"></a>      UPDATE tab1 SET (col1, col2) = rec_tab(i) WHERE col1 &lt; 8;
+<a name="34515"></a>
+<a name="34516"></a>   OPEN c1;
+<a name="34517"></a>   FETCH c1 BULK COLLECT INTO rec_tab;
+<a name="34518"></a>   CLOSE c1;
+<a name="31609"></a>END;
+</pre>
+
+<!-- Start Footer -->
+</li>
+</ul>
+</div>
+
+<div class="OUTD">
+<hr>
+<table summary="" cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td valign="bottom" width="33%">
+<table summary="" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td align="center"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/04_struc.htm"><img src="./PL_SQL User Guide and Reference_files/larrow.gif" alt="Go to previous page" border="0"></a></td>
+<td align="center"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/06_ora.htm"><img src="./PL_SQL User Guide and Reference_files/rarrow.gif" alt="Go to next page" border="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+<td align="center" width="34%"><a href="https://docs.oracle.com/cd/A97630_01/dcommon/html/cpyr.htm"><img src="./PL_SQL User Guide and Reference_files/oracle.gif" alt="Oracle" border="0"><br>
+<font size="-2">Copyright © 1996, 2002 Oracle Corporation.</font></a><br>
+<font size="-2">All Rights Reserved.</font><font size="-2"> | <a id="teconsent" href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#" consent="undefined" aria-label="Open Cookie Preferences Modal" role="complementary" style="display: inline;"><script async="async" type="text/javascript" crossorigin="" importance="high" src="./PL_SQL User Guide and Reference_files/v1.7-1747"></script><a role="link" id="icon-id024147066999013966" tabindex="0" lang="en" aria-label="Cookie Preferences" style="cursor: pointer;">Cookie Preferences</a></a></font><font size="-2"> | <a id="adchoices" target="_blank" href="https://www.oracle.com/legal/privacy/marketing-cloud-data-cloud-privacy-policy.html#12">Ad Choices</a>.</font></td>
+<td valign="bottom" align="right" width="33%">
+<table summary="" cellspacing="0" cellpadding="0" width="144">
+<tbody><tr>
+<td align="center" valign="top" width="16%"><a href="https://docs.oracle.com/cd/A97630_01/index.htm"><img src="./PL_SQL User Guide and Reference_files/prodicon.gif" alt="Go To Documentation Library" border="0"><br>
+<font size="-2">Home</font></a></td>
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/nav/docindex.htm"><img src="./PL_SQL User Guide and Reference_files/bookicon.gif" alt="Go To Product List" border="0"><br>
+<font size="-2">Book List</font></a></td>
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/toc.htm"><img src="./PL_SQL User Guide and Reference_files/conticon.gif" alt="Go To Table Of Contents" border="0"><br>
+<font size="-2">Contents</font></a></td>
+<td align="center" valign="top" width="20%"><a href="https://docs.oracle.com/cd/A97630_01/appdev.920/a96624/index.htm"><img src="./PL_SQL User Guide and Reference_files/indxicon.gif" alt="Go To Index" border="0"><br>
+<font size="-2">Index</font></a></td>
+<!--  mix  -->
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/mix.920/a96625/toc.htm"><img src="./PL_SQL User Guide and Reference_files/mix.gif" alt="" border="0"><br>
+<font size="-2">Master Index</font></a></td>
+<!--  fdbk  -->
+<td align="center" valign="top" width="17%"><a href="https://docs.oracle.com/cd/A97630_01/dcommon/html/feedback.htm"><img src="./PL_SQL User Guide and Reference_files/feedback.gif" alt="" border="0"><br>
+<font size="-2">Feedback</font></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+<script type="text/javascript" src="./PL_SQL User Guide and Reference_files/notice" id="truste_0.11556579417242285"></script><iframe name="trustarc_notice" id="trustarcNoticeFrame" title="Trustarc Cross-Domain Consent Frame" src="./PL_SQL User Guide and Reference_files/get.html" style="display: none;"></iframe><script src="./PL_SQL User Guide and Reference_files/ora_code_docs.js.download"></script><script src="./PL_SQL User Guide and Reference_files/ora_code.js.download"></script></body></html>

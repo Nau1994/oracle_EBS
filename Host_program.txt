@@ -1,0 +1,170 @@
+fcp_login = $1
+
+echo "***********************************************************"
+echo " INPUT PARAMETERS "
+echo "$*"
+ctl_file=$5
+V_FROM=$6
+V_TO=$7
+V_CC=$8
+V_BCC=$9
+V_SUB=$10
+echo "Parameter 5 :- CTL FILE : " $ctl_file
+echo "Parameter 6 :- FROM : " $V_FROM
+echo "Parameter 7 :- TO : " $V_TO
+echo "Parameter 8 :- CC : " $V_CC
+echo "Parameter 9 :- BCC : " $V_BCC
+echo "Parameter 10 :- SUB : " $V_SUB
+
+echo "***********************************************************"
+
+v_file_dir=$FND_TOP/12.0.0/bin/us/supplierdata/inbound
+makdir $FND_TOP/12.0.0/bin/us/supplierdata/inbound/Archive
+v_arch_dir=$FND_TOP/12.0.0/bin/us/supplierdata/inbound/Archive
+mkdir $FND_TOP/12.0.0/bin/us/supplierdata/inbound/bad
+v_log_dir=$FND_TOP/12.0.0/bin/us/supplierdata/inbound/bad
+mkdir $FND_TOP/12.0.0/bin/us/supplierdata/inbound/Discard
+v_discard_dir=$FND_TOP/12.0.0/bin/us/supplierdata/inbound/Discard
+
+v_ctl_file=$FND_TOP/12.0.0/bin/us/xx_ap_supplier_ctl.ctl
+#v_ctl_file=$5
+
+# checkinh ctl file 
+if [-s v_ctl_file]; then
+echo " contol file found :$v_ctl_file"
+else
+echo " contol file found :$v_ctl_file not found "
+exit 0
+fi
+
+echo "***********************************************************"
+echo " running sql loader "
+echo "***********************************************************"
+
+for file in $v_file_dir
+do	
+	l_date=`date+%d_%m_%y_%T`
+	l_file_name=`basename $file`
+	v_log_file="$v_log_dir/$l_file_name_$l_date.log"
+	v_discard_file="$v_discard_dir/$l_file_name_$l_date.dsc"
+	
+	sqlldr contol=$v_ctl_file userid=$fcp_login data=$file log=$v_log_file discard=$v_discard_file silent=feedback bindsize=100000 
+	if [$? -eq 0]
+		then
+		tail $v_log_file
+		echo "**successful** sql loader for $file !!!"
+		echo "archiving before Exit !!"
+		mv $file $v_arch_dir
+		echo "srchived path at $v_arch_dir/$file"
+	else
+		echo "Error*** SQL*Loader finished with some error. See below log for more information"
+		echo " Error during Load of file : $file"
+		echo "`cat $v_log_file`"
+		cat $v_log_file >> $REPFILE
+		l_exis_status=1
+	fi
+done
+
+echo "***********************************************************"
+echo " running sql loader script END !!!"
+echo "***********************************************************"
+
+echo "***********************************************************"
+echo " submit concurent request"
+echo "***********************************************************"
+
+"
+CONCSUB {APPS username}/{APPS password} /
+{responsibility application short name}/
+{responsibility name} /
+{username}/
+[WAIT=N|Y{n seconds}]/
+CONCURRENT /
+{program application short name} /
+{program name} /
+[PROGRAM_NAME={description}]/
+[REPEAT_TIME={resubmission time}] /
+[REPEAT_INTERVAL= {number}] /
+[REPEAT_INTERVAL_UNIT={resubmission unit}]/
+[REPEAT_INTERVAL_TYPE={resubmission type}]/
+[REPEAT_END={resubmission end date and time}]/
+[START={date}] /
+[IMPLICIT={ type of concurrent request} /
+[{parameter 1} ... {parameter n}]
+
+"
+submit_cc_req=`CONCSUB APPS/APPS \
+               SYSADMIN \
+               "System Administrator" \
+               SYSADMIN \
+               WAIT-N \
+				CONCURRENT AP \
+               APXHRUPD \
+               [PROGRAM_NAME=" Employee Update Program"] \
+               [33444,2001,2334,5666] `
+              
+if[$?==0]
+	then
+	  echo "Concurrent request $submit_cc_req submitted successfully".
+	else
+	  echo "There is an error in concurrent program submission"
+fi
+
+echo "***********************************************************"
+echo "  concurent request submited !!!!"
+echo "***********************************************************"
+
+echo "***********************************************************"
+echo "  calling Custom pl/sql API"
+echo "***********************************************************"
+
+#sqlplus USERID/PASSWPRD @SQL_Script_to_call_stored_Proceudre.sql
+
+l_conn_string='dev.suntrust.com:1521'
+sql_error=`sqlplus -silent $l_user/$l_psw@$l_conn_string <<END
+set serveroutput on
+WHENEVER SQLERROR EXIT 1
+begin
+/* Call compute_sal stored procedure */
+  xx_ap_supplier_custome_api($supplier_id);
+exception 
+ when others then
+  raise;
+end;
+/
+ EXIT;
+END`
+
+
+if [[ $? -ne 0 ]]
+	then
+	  echo "${sql_error}"
+	  echo "Error calling the PL/SQL procedure."
+	  exit $Result
+	else
+	  echo "PL/SQL Procedure executed successfully."
+	  exit 0
+fi
+
+echo "***********************************************************"
+echo "  Custom pl/sql API executed !!! "
+echo "***********************************************************"
+
+
+echo "***********************************************************"
+echo " sending log delails to mail id: $V_TO"
+echo "***********************************************************"
+
+cat $REPFILE > /bin/mailx -s "$V_SUB" -r "$V_FROM" -c "$V_CC" -b "$V_BCC" "$V_TO"
+
+if [ $? -eq 0 ] then
+echo "!!!!!! Email was sent to :- $V_TO"
+else
+echo "!!!!!! Email Could not send SORRY !!!!!!!!"
+exit 1
+fi 
+
+
+echo "***********************************************************"
+echo " mail sent !!"
+echo "***********************************************************"
